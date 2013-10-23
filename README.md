@@ -88,3 +88,27 @@ El código fuente se precompila en IL automáticamente se recompila y es cuando 
 *Inherits* Es el nombre de la clase.  
 Esto funciona porque la clase está definida como *partial*.  
 
+Existe un formato donde podemos incluir *todo en un fichero*.  
+Se crea con un pinchito al crear el nuevo elemento para el sitio web.  
+El cliente no recibe el código que se genera en la cabecera del fichero .aspx.  
+<head> Cabecera del fichero HTML  
+<title> Título de la página.
+<body> todo lo visible.
+<form> en .NET solo puede haber un form que se ejecute en el servidor.  
+<div>
+En .NET por defecto cualquier control que haga que mi pagina se envie al servidor para cualquier cosa hace que el servidor reciba esa página y que por defecto devuelva *la misma página* reprocesada.
+No hay que especificar el action en la etiqueta form porque no funciona así. El lo reconvierte automáticamente.  
+
+#####Comentar líneas en ASPX
+<%--     --%> *No* lo recibe el cliente en el HTML  
+&lt;!--     --&gt;  *Si* lo recibe el cliente en el HTML  
+
+#####Scripting en el cliente
+Javascript que se ejecutará en el cliente sin necesidad de mandar la página al servidor hasta que es necesario.  
+C# siempre se ejecutará en el servidor.  
+
+Por defecto todos los controles de .net guardan o mantienen el estado es decir el valor entre peticiones.  
+Los de HTML no guardan el valor entre peticiones, este comportamiento es por defecto, pero se puede cambiar en los dos.  
+
+La etiqueta runat="server" permite que vea el objeto en el servidor, en este caso el valor se guarda entre peticiones, además que añade el parametro name a la etiqueta.  
+
