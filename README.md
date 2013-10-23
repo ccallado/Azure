@@ -44,7 +44,7 @@ El servidor manda el .aspx.cs a Framework, los resultados serán para los contro
 [Imagen 1]
 Cada vez que compilamos un proyecto crea un **Ensamblado**
 
-*Solución*  
+#####Solución
 Conjunto de proyectos destinados a solucionar un problema.
 
 Siempre se va a crear una solución para trabajar con Visual Studio.
@@ -57,11 +57,34 @@ Jerarquicamente de la solución cuelgan los diferentes proyectos, puede ir en di
 Por cada proyecto creará un fichero .csproj
 [Imagen 2]
 
-Proyectos Web
+#####Proyectos Web
 Un proyecto en el cual vamos a tener el fichero .csproj, .aspx y .aspx.cs, web.config, etc...
 Esto va a crear una DLL con todo el contenido del proyecto y todos los ficheros aspx, web.config y otros que no se compilan.
 
-Sitio Web
+#####Sitio Web
 No hay fichero de proyecto, no va a haber ninguna DLL compilada y por defecto todo lo que está en el directorio forma parte del sitio web.
 Tienen una caracteristica mas, están pensadas para una aplicación más pequeña y no tienen espacio de nombres.
+
+#####Nota:
+Todo proyecto al compilarse va en la misma DLL, obliga a que esté todo en el mismo lenguaje.
+En los sitios web se puede mezclar la programación de diferentes lenguajes. Basicamente porque no se crea DLL, aunque existe una compilación temporal, cada pagina es una DLL en lenguaje IL que se recompila a binario sin distinguir ya VB o C#.
+[Imagen 3]
+
+Visual Studio al ejecutar un Sitio Web abre la página que estés editando.
+Si queremos que una página sea la inicial en el esplorador de soluciones, sobre la página que queramos botón derecho/establecer como página principal
+Si queremos cambiar más cosas, sobre solución boton derecho Pagina de propiedades y están todas las opciones, en Opciones de inicio están las diferentes opciones posibles.
+
+Que ocurre cuando pulso F5 en Visual Studio,
+El código fuente se precompila en IL automáticamente se recompila y es cuando en memoria se crea el binario.
+[Imagen 4]
+
+#####Explicacion del HTML
+'''asp
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+'''
+*Page* indica que es una página web  
+*Language* es el lenguaje de programación en que está creado el código.  
+*Codefile* En que fichero físico está la clase de esta página.  
+*Inherits* Es el nombre de la clase.  
+Esto funciona porque la clase está definida como *partial*.  
 
