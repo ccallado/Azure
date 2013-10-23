@@ -38,9 +38,7 @@ Si quiero de nuevo la página el proceso se repetirá.
 El fichero .aspx, estas páginas normalmente llevan un fichero asociado con el mismo nombre de la página
 *.aspx.cs* en visual basic *.aspx.vb*
 El servidor manda el .aspx.cs a Framework, los resultados serán para los controles del .aspx
-'''asp
-<asp:TextBox .......
-'''
+`<asp:TextBox .......`  
 [Imagen 1]
 Cada vez que compilamos un proyecto crea un **Ensamblado**
 
@@ -79,9 +77,7 @@ El código fuente se precompila en IL automáticamente se recompila y es cuando 
 [Imagen 4]
 
 #####Explicacion del HTML
-'''asp
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
-'''
+`<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>`  
 *Page* indica que es una página web  
 *Language* es el lenguaje de programación en que está creado el código.  
 *Codefile* En que fichero físico está la clase de esta página.  
