@@ -80,7 +80,7 @@ El código fuente se precompila en IL automáticamente se recompila y es cuando 
 ![Imagen 4](Imagenes/CursoAzureImg04.png)
 
 #####Explicacion del HTML
-`<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>`
+`/<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %/>`
 
 **Page** indica que es una página web  
 **Language** es el lenguaje de programación en que está creado el código.  
@@ -91,11 +91,12 @@ Esto funciona porque la clase está definida como **partial**.
 Existe un formato donde podemos incluir **todo en un fichero**.  
 Se crea con un pinchito al crear el nuevo elemento para el sitio web.  
 El cliente no recibe el código que se genera en la cabecera del fichero .aspx.  
-**<head>** Cabecera del fichero HTML  
-**<title>** Título de la página.
-**<body>** todo lo visible.
-**<form>** en .NET solo puede haber un form que se ejecute en el servidor.  
-**<div>**
+**/<head/>** Cabecera del fichero HTML  
+**/<title/>** Título de la página.
+**/<body/>** todo lo visible.
+**/<form/>** en .NET solo puede haber un form que se ejecute en el servidor.  
+**/<div/>**  
+
 En .NET por defecto cualquier control que haga que mi pagina se envie al servidor para cualquier cosa hace que el servidor reciba esa página y que por defecto devuelva **la misma página** reprocesada.
 No hay que especificar el action en la etiqueta form porque no funciona así. El lo reconvierte automáticamente.  
 
