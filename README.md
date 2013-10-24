@@ -24,22 +24,22 @@ Orden de los cursos
 * Descripcion general de Visual Studio 2010
 * Creación de una aplicación web simple
 
-***23/10/2013** * 
+***23/10/2013***  
 Todas las aplicaciones WEB necesitan un servidor IIS.
 
 #####ASP
 El fichero .asp tiene etiquetas de HTML
-Las etiquetas de tipo <%-------%> lo procesará el servidor.
+Las etiquetas de tipo \<%-------%\> lo procesará el servidor.
 Al pedir una página al servidor IIS este realiza una copia del fichero para el usuario que las ha pedido.
-El servidor procesa todas las etiquetas <% y una vez que ha convertido a etiquetas estandar , el servidor manda el fichero, lo borra y no espera a ninguna respuesta por parte del cliente.
+El servidor procesa todas las etiquetas \<% y una vez que ha convertido a etiquetas estandar , el servidor manda el fichero, lo borra y no espera a ninguna respuesta por parte del cliente.
 Si quiero de nuevo la página el proceso se repetirá.
 
 #####.NET
 El fichero .aspx, estas páginas normalmente llevan un fichero asociado con el mismo nombre de la página
-**.aspx.cs** en visual basic *.aspx.vb*
+**.aspx.cs** en visual basic **.aspx.vb**  
 El servidor manda el .aspx.cs a Framework, los resultados serán para los controles del .aspx
 
-`<asp:TextBox .......`
+`\<asp:TextBox .......`
 
 
 ![Imagen 1](Imagenes/CursoAzureImg01.png)
@@ -80,7 +80,7 @@ El código fuente se precompila en IL automáticamente se recompila y es cuando 
 ![Imagen 4](Imagenes/CursoAzureImg04.png)
 
 #####Explicacion del HTML
-`/<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %/>`
+`\<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %\>`
 
 **Page** indica que es una página web  
 **Language** es el lenguaje de programación en que está creado el código.  
@@ -91,18 +91,18 @@ Esto funciona porque la clase está definida como **partial**.
 Existe un formato donde podemos incluir **todo en un fichero**.  
 Se crea con un pinchito al crear el nuevo elemento para el sitio web.  
 El cliente no recibe el código que se genera en la cabecera del fichero .aspx.  
-**/<head/>** Cabecera del fichero HTML  
-**/<title/>** Título de la página.
-**/<body/>** todo lo visible.
-**/<form/>** en .NET solo puede haber un form que se ejecute en el servidor.  
-**/<div/>**  
+**\<head\>** Cabecera del fichero HTML  
+**\<title\>** Título de la página.
+**\<body\>** todo lo visible.
+**\<form\>** en .NET solo puede haber un form que se ejecute en el servidor.  
+**\<div\>**  
 
 En .NET por defecto cualquier control que haga que mi pagina se envie al servidor para cualquier cosa hace que el servidor reciba esa página y que por defecto devuelva **la misma página** reprocesada.
 No hay que especificar el action en la etiqueta form porque no funciona así. El lo reconvierte automáticamente.  
 
 #####Comentar líneas en ASPX
-**<%--     --%>** ***No*** lo recibe el cliente en el HTML  
-**/<!--     --/>**  ***Si*** lo recibe el cliente en el HTML  
+**\<%--     --%\>** ***No*** lo recibe el cliente en el HTML  
+**\<!--     --\>**  ***Si*** lo recibe el cliente en el HTML  
 
 #####Scripting en el cliente
 Javascript que se ejecutará en el cliente sin necesidad de mandar la página al servidor hasta que es necesario.  
@@ -113,4 +113,4 @@ Los de HTML no guardan el valor entre peticiones, este comportamiento es por def
 
 La etiqueta **runat="server"** permite que vea el objeto en el servidor, en este caso el valor se guarda entre peticiones, además que añade el parametro name a la etiqueta.  
 
-***24/10/2013***  
+***24/10/2013***    
