@@ -9,6 +9,9 @@ public partial class Controles : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        PlaceHolder1.Controls.Add(new Literal(){ Text="Hola...<br>"});
+        PlaceHolder1.Controls.Add(new Literal(){ Text="Hola...<br>"});
+        PlaceHolder1.Controls.Add(new Literal(){ Text="Hola...<br>"});
     }
+
 }

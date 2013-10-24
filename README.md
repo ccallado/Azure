@@ -39,7 +39,7 @@ El fichero .aspx, estas páginas normalmente llevan un fichero asociado con el m
 **.aspx.cs** en visual basic **.aspx.vb**  
 El servidor manda el .aspx.cs a Framework, los resultados serán para los controles del .aspx
 
-`\<asp:TextBox .......`
+`<asp:TextBox .......`
 
 
 ![Imagen 1](Imagenes/CursoAzureImg01.png)
@@ -80,7 +80,7 @@ El código fuente se precompila en IL automáticamente se recompila y es cuando 
 ![Imagen 4](Imagenes/CursoAzureImg04.png)
 
 #####Explicacion del HTML
-`\<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %\>`
+`<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>`
 
 **Page** indica que es una página web  
 **Language** es el lenguaje de programación en que está creado el código.  
@@ -92,8 +92,8 @@ Existe un formato donde podemos incluir **todo en un fichero**.
 Se crea con un pinchito al crear el nuevo elemento para el sitio web.  
 El cliente no recibe el código que se genera en la cabecera del fichero .aspx.  
 **\<head\>** Cabecera del fichero HTML  
-**\<title\>** Título de la página.
-**\<body\>** todo lo visible.
+**\<title\>** Título de la página.  
+**\<body\>** todo lo visible.  
 **\<form\>** en .NET solo puede haber un form que se ejecute en el servidor.  
 **\<div\>**  
 
@@ -114,3 +114,33 @@ Los de HTML no guardan el valor entre peticiones, este comportamiento es por def
 La etiqueta **runat="server"** permite que vea el objeto en el servidor, en este caso el valor se guarda entre peticiones, además que añade el parametro name a la etiqueta.  
 
 ***24/10/2013***    
+#####Controles
+Los **CheckBox** no tienen el valor null, si no se ha rellenado el texto del checkbox nos aparece entre corchetes el nombre del control.  
+**CheckListBox** lista de checkboses.  
+**DropDownList** combobox de toda la vida, solo se puede poner texto.  
+En algunos controles en la vista de visualización aparece un icono que permite cambiar configuración.  
+**FileUpload** Seleciona un fichero en un directorio del cliente. (No lo manda al servidor, se debe hacer con javascript).  
+**HiddenField** Control oculto tipico uso guardar variables.  
+**HyperLink** Hiper enlace.  
+**Image** Una imagen.  
+**ImageButton** Botón con una imagen.  
+**ImageMap** División de una imagen en regiones, y se puede pulsar una region completa.  
+**Lavel** 
+**LinkButton** Es un botón con aspecto de hipervínculo.  
+**ListBox** Solo textos, lista de testos que se pueden seleccionar.  
+**Literal** Uno de los dos únicos controles que no añade HTML. Tiene propiedades, pero casi nada, ni color ni fuente. Pero se puede utilizar en programación puedo calificar el texto con tag's \<b\>  
+**Localice**  
+**Multiview** Es un contenedor de **Views** o visualiza 1 o ninguna.  
+**Panel** Es un contenedor que se convierte en un **\<div\>**  
+**PlaceHolder** Es el otro control que no genera HTML. Se suele poner para en tiempo de ejecución añadir cosas. En diseño es muy pesado de manejar. (Páginas maestras).  
+**RadioButton** Tipico RadioButton. No son excluyentes entre ello. Deben estar metidos en un grupo. Todos los que tengan el mismo groupname son escluyentes entre ellos.  
+**RadioButtonList** Grupo de RadioButton.  
+**Substitution** No se utiliza. Está relacionado con la cache.  
+**Tabla** Es la misma tabla que la de HTML, es más como de trabajar en VS y se pruede utilizar en C#.  
+**TextBox** Caja de texto.  
+**Wizard** Algo parecido al Multiview pero va por pasos, tiene las pestañitas, el siguiente, anterior, etc...  
+**Xml** Permite formatear un fichero XML y transformarlo en HTML. Usando un fichero de transformación **.xslt**. Este fichero da la estructura para transformar el xml en un formato distinto, html, csv, otro xml con estructura cambiada, etc...  
+
+####Maneras de pasar de una página a otra.
+El control hiperlink encargado de cambiar de páginas.  
+Utilizamos las propiedades ImageUrl para indicarle una imagen o NavigateUrl para indicarle la página. El signo **\~** indica que el objeto está colgando de la raíz del sitio.  

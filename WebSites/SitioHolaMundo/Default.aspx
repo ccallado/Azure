@@ -11,6 +11,12 @@
     <div>
         <asp:Button ID="Button1" runat="server" Text="Saludo" onclick="Button1_Click" />
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <hr />
+
+        Peticiones de páginas:
+        <br />
+        <asp:HyperLink ID="HyperLink1" runat="server" Text="Default 2" NavigateUrl="~/Controles.aspx">HyperLink</asp:HyperLink>
+
     </div>
     </form>
 </body>
