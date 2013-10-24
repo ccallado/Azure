@@ -15,4 +15,16 @@ public partial class _Default : System.Web.UI.Page
     {
         Label1.Text = "Hola, mundo...!";
     }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Server.Transfer("~/Default2.aspx");
+        //Esta NO porque es externa
+        //Server.Transfer("https://www.google.es");
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Default2.aspx");
+        //Aquí SI aunque sea externa
+        //Response.Redirect("https://www.google.es");
+    }
 }

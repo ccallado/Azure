@@ -15,8 +15,21 @@
 
         Peticiones de páginas:
         <br />
-        <asp:HyperLink ID="HyperLink1" runat="server" Text="Default 2" NavigateUrl="~/Controles.aspx">HyperLink</asp:HyperLink>
-
+        <asp:HyperLink ID="HyperLink1" runat="server" Text="Default 2" NavigateUrl="~/Default2.aspx">HyperLink</asp:HyperLink>
+        <br />
+        <asp:HyperLink ID="HyperLink2" runat="server" Text="Google" 
+            NavigateUrl="https://www.google.es" Target="_blank"></asp:HyperLink>
+        <br />
+        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Default2.aspx">Default 2</asp:LinkButton>
+        <br />
+        <asp:LinkButton ID="LinkButton2" runat="server" 
+            PostBackUrl="https://www.google.es">Google</asp:LinkButton>
+        <br />
+        <asp:Button ID="Button2" runat="server" Text="Server.Transfer" 
+            onclick="Button2_Click" />
+        <br />
+        <asp:Button ID="Button3" runat="server" Text="Response.Redirect" 
+            onclick="Button3_Click" />
     </div>
     </form>
 </body>
