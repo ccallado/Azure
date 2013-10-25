@@ -17,13 +17,13 @@
                 Font-Italic="True" Font-Size="XX-Large" ForeColor="Blue"></asp:Label>
         </center>
         <p style="text-align:right">
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Label" EnableViewState="False"></asp:Label>
         </p>
     </div>
     
     <!-- div vertical de la izquierda -->
     <div style="background-color: #00FFFF; width: 200px; height: 400px; float: left;">
-        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Label" EnableViewState="False"></asp:Label>
         <hr />
     </div>
 

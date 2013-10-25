@@ -174,7 +174,9 @@ En ambos casos hemos obtenido la página, si lo vemos en google con response si 
 Con la palabra `onclick` indicamos la función de C# que se va a ejecutar.  
 
 Las páginas pueden ser una primera carga o una recarga. Cuando mandamos algo al servidor mandamos un Postback  
-La propiedad **IsPostback** es la que me determina si es primera carga o es recarga.  
+La propiedad [^1]**IsPostback** es la que me determina si es primera carga o es recarga.  
+[^1]: Posible pregunta de examen.  
+
 Si no es posbak debo cargar los datos de un combobox (por ejemplo).  
 Existe una propiedad PriviusPage es la página anterior. Es un puntero a la página anterior si la hay sino estará a NULL en C# o NOTHING en VB.  
 
@@ -204,9 +206,9 @@ Ya no tengo opción de cambiar de lenguaje, si la solución es C# ya no se cambi
 `Inherits="ProyectoHolaMundo.Site1"` lleva espacio de nombres  
 ####Sitio WEB  
 `<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>`  
-`CodeFile` aqui
-`Inherits="MasterPage"` nombre de la página.
-En la página de inicio también existen estas diferencias
+`CodeFile` aqui  
+`Inherits="MasterPage"` nombre de la página.  
+En la página de inicio también existen estas diferencias  
 `<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="ProyectoHolaMundo.Inicio" %>`  
 
 ###Terminado Proyectos WEB
@@ -218,3 +220,38 @@ En la página de inicio también existen estas diferencias
 Es un control en que el servidor guarda el contenido de los controles que usen ViewState (podemos decir a algunos que no lo usen) y que permitirá al cliente mantener los datos y al servidor saber si ha habido cambios.  
 El control viewstate es un control hiden control con información codificado no encriptado.  
 Para que un control no guarde su estado se cambia la propiedad EnableViewState = False. (por defecto viene en verdadero)  
+Como el control está en el HTML hay que quitar la mayor información posible ya que influye en el trafico.  
+Tener en cuenta que el control de viewstate no tiene el valor de las cajas de texto que indiquemos pero la propiedad value de la caja de texto tiene todavía el valor.  
+Toda pagina web cuando se pide a un servidor se producen un g
+tres bloques de evento
+**Eventos de carga**  
+Preinicializacion, inicializacion, carga. `Load`  
+**Eventos de cambio**  0-n tantos como cambios en cajas de texto, etc.. haya habido. No se garantiza el orden de ejecución, no programar en relación a otro cambio.  
+Todos los eventos que se producen porque los controles han cambiado su valor. Pueden producirse de 0 a n.
+**Evento de acción**  0-1
+Es el que fuerza que la página vaya al servidor.  
+Hay controles que obligan eventos de acción ejemplo un botón.  
+Hay controles que no forzarán nunca la acción al servidor.  
+Otros como programador decides si van o no al servidor, ejemplo un combo, un listbox, etc...  
+En los controles editables se le suele poner la propiedad **EnableViewState** a true.  
+La propiedad **IsPostBack** de la pagina nos indica si es una recarga o se carga por primera vez.  
+Si un control HiddenField le cambiamos la propiedad visible a false, deja de verse en el HTML, la funcionalidad sigue porque está todavía en el ViewState.  
+
+Todo lo que se crea en el servidor termina perdiendose.  
+Hay dos sitios en los que podemos guardar el estado. El cliente y el servidor.  
+Cuando guardamos el estado en el cliente, significa que enviamos la información desde el servidor al cliente. Eso implica HTML o similar y eso limita a que el contenido sea texto.  
+Se podría mandar uns instancia siempre que podamos serializarla  
+Cuando guardamos el estado en el servidor, podemos guardar información entre peticiones. Y al ser el servidor quien la guarda, podrá guardar cualquier tipo que pueda manejar. (Cadena, número, array, instancia, dataset, etc...)  
+
+###Mecanismos o formas para guardar datos en cliente y en servidor.
+Cliente      | Servidor
+------------ | --------
+ViewState    | Estado de Sesión
+HiddenField  | Estado de Aplicacion
+ControlState | Cache (no la típica)
+Cookies      | 
+QueryString  | 
+
+**ControlState.-** Lo gestiona automáticamente  
+**Cookies.-** Pequeños ficheros no suelen llegar a 1 kb. que se envían del servidor al cliente con información.  
+**QueryString.-** Son cadenas que se añaden a la petición de la página. Siempre son visibles. El truco para que no se vea es utilizar el **ServerTransfer y de esa forma no se ve la línea de comandos web.  
