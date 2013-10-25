@@ -1,10 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ProyectoHolaMundo.Site1" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <!-- En estos contenedores no puedo poner nada -->
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -22,7 +22,7 @@
     </div>
     
     <!-- div vertical de la izquierda -->
-    <div style="background-color: #00FFFF; width: 200px; height: 400px; float: left;">
+    <div style="background-color: #00FFFF; width: 200px; height: 100%; float: left;">
         <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
         <hr />
     </div>

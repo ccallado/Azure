@@ -178,6 +178,7 @@ La propiedad **IsPostback** es la que me determina si es primera carga o es reca
 Si no es posbak debo cargar los datos de un combobox (por ejemplo).  
 Existe una propiedad PriviusPage es la página anterior. Es un puntero a la página anterior si la hay sino estará a NULL en C# o NOTHING en VB.  
 
+***25/10/2013***  
 ####Página maestra:
 Es una página especial que define una plantilla de visualización. Estará compuesta por todos los controles que queramos más al menos dos contenedores especiales. Esos dos contenedores seran donde se coloque todo lo que tengan las páginas que usa la página maestra.  
 Uno en el head (no visible) y otro en el body (visible), en este contenedor no puedo poner nada. Y en la página de inicio solo puedo poner dato en este contenedor.  
@@ -190,3 +191,30 @@ Pueden tener lo que nos de la gana, siempre que pongamos el contenedor `<asp:Con
 cada contenedor está incluido en un `<div>`.  
 Para crear un formulario dependiente de la página maestra debemos marcar la opción ![Imagen 10](Imagenes/CursoAzureImg10.png)
 La página creada solo tienen dos contenedores que son los que tenía la pagina maestra. La información solo podemos ponerla dentro de ellos.  
+
+###Proyectos WEB
+Para crear proyectos no nos da opción de crearlo en un servidor IIS, luego tu ya lo subes se crea siempre en un directorio fisico.  
+Hay tres web.config un Debug un Release y según compiles de una manera o de otra puedes tener por ejemplo diferente base de datos según sea debug o release.  
+En el directorio bin estará la DLL.  
+Ya no tengo opción de cambiar de lenguaje, si la solución es C# ya no se cambia.  
+####**Diferencias de la página maestra de un proyecto web y un sitio web.**  
+####Proyecto WEB
+`<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ProyectoHolaMundo.Site1" %>`  
+`CodeBehind` aquí  
+`Inherits="ProyectoHolaMundo.Site1"` lleva espacio de nombres  
+####Sitio WEB  
+`<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>`  
+`CodeFile` aqui
+`Inherits="MasterPage"` nombre de la página.
+En la página de inicio también existen estas diferencias
+`<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="ProyectoHolaMundo.Inicio" %>`  
+
+###Terminado Proyectos WEB
+
+
+`<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>`  
+**AutoEventWireup** puesto a true significa que los eventos de página se auto asignan si cumplen con la nomenclatura estandar.  
+###ViewState
+Es un control en que el servidor guarda el contenido de los controles que usen ViewState (podemos decir a algunos que no lo usen) y que permitirá al cliente mantener los datos y al servidor saber si ha habido cambios.  
+El control viewstate es un control hiden control con información codificado no encriptado.  
+Para que un control no guarde su estado se cambia la propiedad EnableViewState = False. (por defecto viene en verdadero)  

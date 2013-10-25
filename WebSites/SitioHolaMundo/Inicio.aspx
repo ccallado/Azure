@@ -6,6 +6,16 @@
     
     <asp:Button ID="Button1" runat="server" Text="Default" 
         PostBackUrl="~/Default.aspx" />
+    <br />
+    <asp:Button ID="Button2" runat="server" Text="Default2" 
+        PostBackUrl="~/Default2.aspx" />
+    <br />
+    <asp:Button ID="Button3" runat="server" Text="Default3" 
+        PostBackUrl="~/Default3.aspx" />
+    <br />
+    <asp:Button ID="Button4" runat="server" Text="Estado 1" 
+        PostBackUrl="~/Estado1.aspx" />
+    <br />
 
 </asp:Content>
 
