@@ -184,3 +184,9 @@ Uno en el head (no visible) y otro en el body (visible), en este contenedor no p
 Vamos a crear una página maestra.  
 El nombre del fichero tiene extensión **.master**  
 Las paginas maestras y las páginas que usan esa página maestra tienen que coincidir en número de contenedores y nombre.  
+Poner los contenedores al principio o luego tendremos que cambiar todas las páginas que usen esa pagina maestra.  
+El programa fusiona la hoja maestra con la que tengamos en nuestra página. El usuario no sabrá diferenciar lo que es de la página maestra de lo que no.  
+Pueden tener lo que nos de la gana, siempre que pongamos el contenedor `<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">`.  
+cada contenedor está incluido en un `<div>`.  
+Para crear un formulario dependiente de la página maestra debemos marcar la opción ![Imagen 10](Imagenes/CursoAzureImg10.png)
+La página creada solo tienen dos contenedores que son los que tenía la pagina maestra. La información solo podemos ponerla dentro de ellos.  
