@@ -160,7 +160,7 @@ La primera petición de un cliente a un servidor SesionId vacío, el servidor re
 Server es el objeto servidor me dá información del servidor.  
 El método Transfer solicita la página a la que quiere ir.  
 No permite poner como página una que no pertenezca al servidor. Google fallaría.  
-Basicamente le estoy diciendo al servidor. --No sigas procesando esta página y procesa la que te he pedido.--  
+Basicamente le estoy diciendo al servidor. **No sigas procesando esta página y procesa la que te he pedido.**  
 ![Imagen 8](Imagenes/CursoAzureImg06.png)
 En el ServerTransfer la página no va a salir en la linea de direcciones. Evitamos que el cliente no pueda ver el nombre de la página que realmente le estamos enseñando. Impide poder crear un acceso directo a una página.  
 
@@ -255,3 +255,14 @@ QueryString  |
 **ControlState.-** Lo gestiona automáticamente  
 **Cookies.-** Pequeños ficheros no suelen llegar a 1 kb. que se envían del servidor al cliente con información.  
 **QueryString.-** Son cadenas que se añaden a la petición de la página. Siempre son visibles. El truco para que no se vea es utilizar el **ServerTransfer y de esa forma no se ve la línea de comandos web.  
+Cookies y querystring no van en el HTML
+Existen dos maneras de ver las cookies, por su **contenido** las simples y las compuestas.
+* Simple.- la que guarda solo un contenido.
+* Compuesta.- En luegar de tener un value será un diccionario, de 1 a n valores.  
+Con respecto a su **duración**.  
+* Temporales.- Están en memoria del navegador y se pierden al cerrar este.
+* Permanentes.- Se guardan en disco, la ubicación depende del navegador.
+
+Toda cookie simple puede temporal o permanente y compuesta igual.  
+Se crea la cookie como nuevo objeto, pero para mandarla del servidor al cliente la añadimos al objeto Response con Response.Cookies.Add(c);  
+![Imagen 11](Imagenes/CursoAzureImg11.png)

@@ -35,4 +35,21 @@ public partial class Estado1 : System.Web.UI.Page
         if (TextBox3.Text.Trim() != "")
             Label3.Text = TextBox3.Text;
     }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        HttpCookie c = new HttpCookie("CookieSimple", TextBox4.Text );
+        Response.Cookies.Add(c);
+        Response.Redirect("~/Estado2.aspx");
+        //Server.Transfer("~/Estado2.aspx");
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        HttpCookie c = new HttpCookie("CookieCompuesta");
+        c.Values.Add("DatoCaja", TextBox5.Text);
+        c.Values.Add("Fecha", DateTime.Now.ToString();
+
+        Response.Cookies.Add(c);
+        Response.Redirect("~/Estado2.aspx");
+        //Server.Transfer("~/Estado2.aspx");
+    }
 }
