@@ -258,11 +258,13 @@ QueryString  |
 
 **ControlState.-** Lo gestiona automáticamente  
 **Cookies.-** Pequeños ficheros no suelen llegar a 1 kb. que se envían del servidor al cliente con información.  
-**QueryString.-** Son cadenas que se añaden a la petición de la página. Siempre son visibles. El truco para que no se vea es utilizar el **ServerTransfer y de esa forma no se ve la línea de comandos web.  
-Cookies y querystring no van en el HTML
-Existen dos maneras de ver las cookies, por su **contenido** las simples y las compuestas.
+**QueryString.-** Son cadenas que se añaden a la petición de la página. Siempre son visibles. El truco para que no se vea es utilizar el **ServerTransfer** y de esa forma no se ve la línea de comandos web.  
+Cookies y querystring no van en el HTML  
+
+Existen dos maneras de ver las cookies, por su **contenido** las simples y las compuestas.  
 * Simple.- la que guarda solo un contenido.
 * Compuesta.- En luegar de tener un value será un diccionario, de 1 a n valores.  
+
 Con respecto a su **duración**.  
 * Temporales.- Están en memoria del navegador y se pierden al cerrar este.
 * Permanentes.- Se guardan en disco, la ubicación depende del navegador.
