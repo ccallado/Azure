@@ -28,16 +28,16 @@ Orden de los cursos
 Todas las aplicaciones WEB necesitan un servidor IIS.  
 
 #####ASP
-El fichero .asp tiene etiquetas de HTML  
-Las etiquetas de tipo \<%-------%\> lo procesará el servidor.  
+El fichero **.asp** tiene etiquetas de HTML  
+Las etiquetas de tipo `<%-------%>` lo procesará el servidor.  
 Al pedir una página al servidor IIS este realiza una copia del fichero para el usuario que las ha pedido.  
-El servidor procesa todas las etiquetas \<% y una vez que ha convertido a etiquetas estandar , el servidor manda el fichero, lo borra y no espera a ninguna respuesta por parte del cliente.  
+El servidor procesa todas las etiquetas `<%` y una vez que ha convertido a etiquetas estandar , el servidor manda el fichero, lo borra y no espera a ninguna respuesta por parte del cliente.  
 Si quiero de nuevo la página el proceso se repetirá.  
 
 #####.NET
-El fichero .aspx, estas páginas normalmente llevan un fichero asociado con el mismo nombre de la página  
+El fichero **.aspx**, estas páginas normalmente llevan un fichero asociado con el mismo nombre de la página  
 **.aspx.cs** en visual basic **.aspx.vb**  
-El servidor manda el .aspx.cs a Framework, los resultados serán para los controles del .aspx  
+El servidor manda el .aspx.cs al Framework, los resultados serán para los controles del .aspx  
 
 `<asp:TextBox .......`  
 
@@ -64,7 +64,7 @@ Esto va a crear una DLL con todo el contenido del proyecto y todos los ficheros 
 
 #####Sitio Web
 No hay fichero de proyecto, no va a haber ninguna DLL compilada y por defecto todo lo que está en el directorio forma parte del sitio web.  
-Tienen una caracteristica mas, están pensadas para una aplicación más pequeña y no tienen espacio de nombres.  
+Tienen una caracteristica mas, están pensadas para una aplicación más pequeña y **NO tienen espacio de nombres**.  
 
 #####Nota:
 Todo proyecto al compilarse va en la misma DLL, obliga a que esté todo en el mismo lenguaje.  
@@ -72,7 +72,7 @@ En los sitios web se puede mezclar la programación de diferentes lenguajes. Bas
 ![Imagen 3](Imagenes/CursoAzureImg03.png)  
 
 Visual Studio al ejecutar un Sitio Web abre la página que estés editando.  
-Si queremos que una página sea la inicial en el esplorador de soluciones, sobre la página que queramos botón derecho/establecer como página principal  
+Si queremos que una *página sea la inicial* en el explorador de soluciones, sobre la página que queramos *botón derecho/establecer como página principal*.  
 Si queremos cambiar más cosas, sobre solución boton derecho Pagina de propiedades y están todas las opciones, en Opciones de inicio están las diferentes opciones posibles.  
 
 Que ocurre cuando pulso F5 en Visual Studio,  
@@ -94,7 +94,7 @@ El cliente no recibe el código que se genera en la cabecera del fichero .aspx.
 **\<head\>** Cabecera del fichero HTML  
 **\<title\>** Título de la página.  
 **\<body\>** todo lo visible.  
-**\<form\>** en .NET solo puede haber un form que se ejecute en el servidor.  
+> **\<form\>** en .NET solo puede haber un form que se ejecute en el servidor.  
 **\<div\>**  
 
 En .NET por defecto cualquier control que haga que mi pagina se envie al servidor para cualquier cosa hace que el servidor reciba esa página y que por defecto devuelva **la misma página** reprocesada.  
@@ -108,7 +108,7 @@ No hay que especificar el action en la etiqueta form porque no funciona así. El
 Javascript que se ejecutará en el cliente sin necesidad de mandar la página al servidor hasta que es necesario.  
 C# siempre se ejecutará en el servidor.  
 
-Por defecto todos los controles de .net guardan o mantienen el estado es decir el valor entre peticiones.  
+Por defecto todos *los controles de .net guardan o mantienen el estado* es decir el valor entre peticiones.  
 Los de HTML no guardan el valor entre peticiones, este comportamiento es por defecto, pero se puede cambiar en los dos.  
 
 La etiqueta **runat="server"** permite que vea el objeto en el servidor, en este caso el valor se guarda entre peticiones, además que añade el parametro name a la etiqueta.  
@@ -128,12 +128,12 @@ En algunos controles en la vista de visualización aparece un icono que permite 
 * **Lavel** Un texto, tiene propiedades (color, tipo de letra, y pocas más)  
 * **LinkButton** Es un botón con aspecto de hipervínculo.  
 * **ListBox** Solo textos, lista de testos que se pueden seleccionar.  
-* **Literal** Uno de los dos únicos controles que no añade HTML. Tiene propiedades, pero casi nada, ni color ni fuente. Pero se puede utilizar en programación puedo calificar el texto con tag's \<b\>  
+* **Literal** Uno de los dos únicos controles que *no añade HTML*. Tiene propiedades, pero casi nada, ni color ni fuente. Pero se puede utilizar en programación puedo calificar el texto con tag's \<b\>  
 * **Localice** utilización en cuestiones de idioma.  
 * **Multiview** Es un contenedor de **Views** o visualiza 1 o ninguna.  
 ![Imagen 5](Imagenes/CursoAzureImg05.png)
 * **Panel** Es un contenedor que se convierte en un **\<div\>**  
-* **PlaceHolder** Es el otro control que no genera HTML. Se suele poner para en tiempo de ejecución añadir cosas. En diseño es muy pesado de manejar. (Páginas maestras).  
+* **PlaceHolder** Es el otro control que *no genera HTML*. Se suele poner para en tiempo de ejecución añadir cosas. En diseño es muy pesado de manejar. (Páginas maestras).  
 * **RadioButton** Tipico RadioButton. No son excluyentes entre ello. Deben estar metidos en un grupo. Todos los que tengan el mismo groupname son escluyentes entre ellos.  
 * **RadioButtonList** Grupo de RadioButton.  
 * **Substitution** No se utiliza. Está relacionado con la cache.  
@@ -144,49 +144,49 @@ En algunos controles en la vista de visualización aparece un icono que permite 
 
 ####Maneras de pasar de una página a otra.
 El control hiperlink encargado de cambiar de páginas.  
-Utilizamos las propiedades ImageUrl para indicarle una imagen o NavigateUrl para indicarle la página. El signo **\~** indica que el objeto está colgando de la raíz del sitio.  
-El HiperLink tiene una propiedad llamada **Target** me permite identificar donde se va a abrir ese hipervinculo. Esto es de cuando se utilizaban FRAMES. La opción _blanck nos habre una ventana nueva. (_parent, _search, _self o nada en la misma ventana, _top marco superior)  
-En los LinkButton tiene una propiedad PostBackUrl permite especificar la dirección a la que queremos ir. Tiene evento Click y pocos mas porque se ejecutan en el **servidor**. Inconveniente este control no tiene la propiedad target por lo que se abre siempre en la misma ventana.  
+Utilizamos las propiedades **ImageUrl** para indicarle una imagen o **NavigateUrl** para indicarle la página. El signo **\~** indica que el objeto está colgando de la raíz del sitio.  
+El **HiperLink** tiene una propiedad llamada **Target** me permite identificar donde se va a abrir ese hipervinculo. Esto es de cuando se utilizaban FRAMES. La opción _blanck nos habre una ventana nueva. (_parent, _search, _self o nada en la misma ventana, _top marco superior)  
+En los **LinkButton** tiene una propiedad **PostBackUrl** permite especificar la dirección a la que queremos ir. Tiene evento **Click** y pocos más, porque se ejecutan en el **servidor**. Inconveniente este control *NO tiene la propiedad* **Target** por lo que se abre siempre en la misma ventana.  
 
-La diferencia entre hiperlink y buttonlink, es que el button ejecuta javascript para llegar a la página, pero la forma de llamarla es diferente. El botón actua como si ya estubiesemos en una pagina que ya está cargada metodo POST.  
+La diferencia entre *HiperLink* y *ButtonLink*, es que el *Button* ejecuta *JavaScript* para llegar a la página, pero la forma de llamarla es diferente. El *Botón* actua como si ya estubiesemos en una pagina que ya está cargada metodo **POST**.  
 
 ####Sesión:
 Es la forma que tiene el servidor de hacer el seguimiento de las peticiones de un peticionario para devolver correctamente las páginas solicitadas. Que no estamos hablando de la sesión de seguridad de una página de un banco.  
-La primera petición de un cliente a un servidor SesionId vacío, el servidor responde con la página con una cabecera con SessionId con un número. La primera petición es de tipo **GET** a partir de este momento las peticiones son de tipo **POST** con SessionId con el número que devolvió el servidor.  
+La primera petición de un cliente a un servidor **SesionId** vacío, el servidor responde con la página con una cabecera con SessionId con un número. La primera petición es de tipo **GET** a partir de este momento las peticiones son de tipo **POST** con SessionId con el número que devolvió el servidor.  
 ![Imagen 6](Imagenes/CursoAzureImg06.png)
 
 ![Imagen 7](Imagenes/CursoAzureImg07.png)
 **Server.Transfer:**  
-Server es el objeto servidor me dá información del servidor.  
-El método Transfer solicita la página a la que quiere ir.  
+**Server** es el objeto servidor, me dá información del servidor.  
+El método **Transfer** solicita la página a la que quiere ir.  
 No permite poner como página una que no pertenezca al servidor. Google fallaría.  
 Basicamente le estoy diciendo al servidor. **No sigas procesando esta página y procesa la que te he pedido.**  
-![Imagen 8](Imagenes/CursoAzureImg06.png)
-En el ServerTransfer la página no va a salir en la linea de direcciones. Evitamos que el cliente no pueda ver el nombre de la página que realmente le estamos enseñando. Impide poder crear un acceso directo a una página.  
+![Imagen 8](Imagenes/CursoAzureImg08.png)
+En el Server.Transfer **la página no va a salir en la linea de direcciones**. Evitamos que el cliente pueda ver el nombre y dirección de la página que realmente le estamos enseñando. Impide poder crear un acceso directo a una página.  
 
 **Response.Redirect** (si podemos acceder a páginas externas)  
 El objeto `Response` contiene información del servidor al cliente.  
 El objeto `Request` contiene la información enviada del cliente al servidor.  
-![Imagen 9](Imagenes/CursoAzureImg06.png)
+![Imagen 9](Imagenes/CursoAzureImg09.png)
 
-En ambos casos hemos obtenido la página, si lo vemos en google con response si funciona.
+En ambos casos hemos obtenido la página, si lo vemos en google con response si funciona.  
 `<asp:Button ID="Button2" runat="server" Text="Server.Transfer" onclick="Button2_Click" />`
-Con la palabra `onclick` indicamos la función de C# que se va a ejecutar.  
+Con la palabra `onclick` indicamos la función de C# que se va a ejecutar esa función.  
 
-Las páginas pueden ser una primera carga o una recarga. Cuando mandamos algo al servidor mandamos un Postback  
+Las páginas pueden ser una **primera carga** o una **recarga**. Cuando mandamos algo al servidor mandamos un **Postback**  
 La propiedad [^1]**IsPostback** es la que me determina si es primera carga o es recarga.  
 [^1]: Posible pregunta de examen.  
 
-Si no es posbak debo cargar los datos de un combobox (por ejemplo).  
-Existe una propiedad PriviusPage es la página anterior. Es un puntero a la página anterior si la hay sino estará a NULL en C# o NOTHING en VB.  
+Si no es PostBack debo cargar los datos de un combobox (por ejemplo).  
+Existe una propiedad **PreviusPage** es la página anterior. Es un puntero a la página anterior si la hay sino estará a **NULL** en **C#** o **NOTHING** en **VB**.  
 
 ***25/10/2013***  
 ####Página maestra:
-Es una página especial que define una plantilla de visualización. Estará compuesta por todos los controles que queramos más al menos dos contenedores especiales. Esos dos contenedores seran donde se coloque todo lo que tengan las páginas que usa la página maestra.  
-Uno en el head (no visible) y otro en el body (visible), en este contenedor no puedo poner nada. Y en la página de inicio solo puedo poner dato en este contenedor.  
+Es una página especial que define una plantilla de visualización. Estará compuesta por todos los controles que queramos más **al menos dos contenedores especiales**. Esos dos contenedores seran donde se coloque todo lo que tengan las páginas que usa la página maestra.  
+Uno en el **head** (no visible) y otro en el **body** (visible), en este contenedor no **puedo poner nada**. Y en la página de inicio solo puedo poner dato en este contenedor.  
 Vamos a crear una página maestra.  
 El nombre del fichero tiene extensión **.master**  
-Las paginas maestras y las páginas que usan esa página maestra tienen que coincidir en número de contenedores y nombre.  
+Las paginas maestras y las páginas que usan esa página maestra tienen que **coincidir en número de contenedores y nombre**.  
 Poner los contenedores al principio o luego tendremos que cambiar todas las páginas que usen esa pagina maestra.  
 El programa fusiona la hoja maestra con la que tengamos en nuestra página. El usuario no sabrá diferenciar lo que es de la página maestra de lo que no.  
 Pueden tener lo que nos de la gana, siempre que pongamos el contenedor `<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">`.  
@@ -195,59 +195,63 @@ Para crear un formulario dependiente de la página maestra debemos marcar la opc
 La página creada solo tienen dos contenedores que son los que tenía la pagina maestra. La información solo podemos ponerla dentro de ellos.  
 
 ###Proyectos WEB
-Para crear proyectos no nos da opción de crearlo en un servidor IIS, luego tu ya lo subes se crea siempre en un directorio fisico.  
-Hay tres web.config un Debug un Release y según compiles de una manera o de otra puedes tener por ejemplo diferente base de datos según sea debug o release.  
-En el directorio bin estará la DLL.  
-Ya no tengo opción de cambiar de lenguaje, si la solución es C# ya no se cambia.  
+Para crear proyectos *NO nos da opción de crearlo en un servidor IIS*, luego tu ya lo subes cuando quieras. Se crea siempre en un directorio fisico.  
+Hay **tres web.config** un *Debug* un *Release* y según compiles de una manera o de otra puedes tener por ejemplo diferente base de datos según sea debug o release.  
+En el directorio **bin** estará la DLL.  
+Ya *NO tengo opción de cambiar de lenguaje*, si la solución es C# ya no se cambia.  
 ####**Diferencias de la página maestra de un proyecto web y un sitio web.**  
 ####Proyecto WEB
-`<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ProyectoHolaMundo.Site1" %>`  
+`<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" 
+     Inherits="ProyectoHolaMundo.Site1" %>`  
 `CodeBehind` aquí  
 `Inherits="ProyectoHolaMundo.Site1"` lleva espacio de nombres  
 ####Sitio WEB  
-`<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>`  
+`<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" 
+     Inherits="MasterPage" %>`  
 `CodeFile` aqui  
 `Inherits="MasterPage"` nombre de la página.  
-En la página de inicio también existen estas diferencias  
-`<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="ProyectoHolaMundo.Inicio" %>`  
+En la página de inicio también existen estas mismas diferencias  
+`<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" 
+     CodeBehind="Inicio.aspx.cs" Inherits="ProyectoHolaMundo.Inicio" %>`  
 
 ###Terminado Proyectos WEB
 
 
-`<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>`  
-**AutoEventWireup** puesto a true significa que los eventos de página se auto asignan si cumplen con la nomenclatura estandar.  
+`<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" 
+     Inherits="_Default" %>`  
+**AutoEventWireup** puesto a true significa que los *eventos* de página se *auto asignan* si cumplen con la *nomenclatura estandar*.  
 ###ViewState
-Es un control en que el servidor guarda el contenido de los controles que usen ViewState (podemos decir a algunos que no lo usen) y que permitirá al cliente mantener los datos y al servidor saber si ha habido cambios.  
-El control viewstate es un control hiden control con información codificado no encriptado.  
-Para que un control no guarde su estado se cambia la propiedad EnableViewState = False. (por defecto viene en verdadero)  
-Como el control está en el HTML hay que quitar la mayor información posible ya que influye en el trafico.  
-Tener en cuenta que el control de viewstate no tiene el valor de las cajas de texto que indiquemos pero la propiedad value de la caja de texto tiene todavía el valor.  
-Toda pagina web cuando se pide a un servidor se producen un g
-tres bloques de evento
-**Eventos de carga**  
+Es un control en que el servidor *guarda el contenido de los controles* que usen ViewState (podemos decir a algunos que no lo usen) y que permitirá al cliente mantener los datos y al servidor *saber si ha habido cambios*.  
+El control viewstate es un control **hiden** control con *información codificado no encriptado*.  
+Para que un control no guarde su estado se cambia la propiedad **EnableViewState** = False. (por defecto viene en verdadero)  
+Como el control está en el HTML hay que quitar la mayor información posible ya que *influye en el tráfico*.  
+Tener en cuenta que el control de viewstate no tiene el valor de las cajas de texto que indiquemos, pero la propiedad value de la caja de texto tiene todavía el valor.  
+Toda página web cuando se pide a un servidor se producen un grupo de eventos.  
+Existen tres bloques de evento
+* **Eventos de carga**  
 Preinicializacion, inicializacion, carga. `Load`  
-**Eventos de cambio**  0-n tantos como cambios en cajas de texto, etc.. haya habido. No se garantiza el orden de ejecución, no programar en relación a otro cambio.  
+* **Eventos de cambio (0-n)**  tantos como cambios en cajas de texto, comboboxex, etc.. que haya habido. **NO se garantiza el orden de ejecución**, no programar en relación a otro cambio.  
 Todos los eventos que se producen porque los controles han cambiado su valor. Pueden producirse de 0 a n.
-**Evento de acción**  0-1
+* **Evento de acción (0-1)**  
 Es el que fuerza que la página vaya al servidor.  
 Hay controles que obligan eventos de acción ejemplo un botón.  
 Hay controles que no forzarán nunca la acción al servidor.  
 Otros como programador decides si van o no al servidor, ejemplo un combo, un listbox, etc...  
 En los controles editables se le suele poner la propiedad **EnableViewState** a true.  
-La propiedad **IsPostBack** de la pagina nos indica si es una recarga o se carga por primera vez.  
-Si un control HiddenField le cambiamos la propiedad visible a false, deja de verse en el HTML, la funcionalidad sigue porque está todavía en el ViewState.  
+La propiedad **IsPostBack** de la pagina nos indica si es una *recarga* o se carga por *primera vez*.  
+Si un control **HiddenField** le cambiamos la propiedad *Visible* a false, deja de verse en el HTML, la funcionalidad sigue porque está todavía en el *ViewState*.  
 
 Todo lo que se crea en el servidor termina perdiendose.  
 Hay dos sitios en los que podemos guardar el estado. El cliente y el servidor.  
-Cuando guardamos el estado en el cliente, significa que enviamos la información desde el servidor al cliente. Eso implica HTML o similar y eso limita a que el contenido sea texto.  
-Se podría mandar uns instancia siempre que podamos serializarla  
-Cuando guardamos el estado en el servidor, podemos guardar información entre peticiones. Y al ser el servidor quien la guarda, podrá guardar cualquier tipo que pueda manejar. (Cadena, número, array, instancia, dataset, etc...)  
+Cuando guardamos el estado en el *cliente*, significa que enviamos la información desde el servidor al cliente. Eso implica HTML o similar y eso limita a que el contenido sea *texto*.  
+Se podría mandar una *instancia* siempre que podamos *serializarla*  
+Cuando guardamos el estado en el *servidor*, podemos guardar información entre peticiones. Y al ser el servidor quien la guarda, podrá guardar *cualquier tipo que pueda manejar*. (Cadena, número, array, instancia, dataset, etc...)  
 
 ###Mecanismos o formas para guardar datos en cliente y en servidor.
 Cliente      | Servidor
 ------------ | --------
 ViewState    | Estado de Sesión
-HiddenField  | Estado de Aplicacion
+HiddenField  | Estado de Aplicación
 ControlState | Cache (no la típica)
 Cookies      | 
 QueryString  | 
@@ -263,6 +267,6 @@ Con respecto a su **duración**.
 * Temporales.- Están en memoria del navegador y se pierden al cerrar este.
 * Permanentes.- Se guardan en disco, la ubicación depende del navegador.
 
-Toda cookie simple puede temporal o permanente y compuesta igual.  
-Se crea la cookie como nuevo objeto, pero para mandarla del servidor al cliente la añadimos al objeto Response con Response.Cookies.Add(c);  
+Toda cookie simple puede ser temporal o permanente y compuesta igual.  
+Se crea la *cookie* como nuevo objeto, pero para *mandarla* del servidor al cliente la añadimos al objeto *Response* con `Response.Cookies.Add(c);`  
 ![Imagen 11](Imagenes/CursoAzureImg11.png)
