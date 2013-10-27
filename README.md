@@ -201,24 +201,24 @@ En el directorio **bin** estará la DLL.
 Ya *NO tengo opción de cambiar de lenguaje*, si la solución es C# ya no se cambia.  
 ####**Diferencias de la página maestra de un proyecto web y un sitio web.**  
 ####Proyecto WEB
-`<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" 
-     Inherits="ProyectoHolaMundo.Site1" %>`  
+```<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs"  
+     Inherits="ProyectoHolaMundo.Site1" %>```  
 `CodeBehind` aquí  
 `Inherits="ProyectoHolaMundo.Site1"` lleva espacio de nombres  
 ####Sitio WEB  
-`<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" 
-     Inherits="MasterPage" %>`  
+```<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs"  
+     Inherits="MasterPage" %>```  
 `CodeFile` aqui  
 `Inherits="MasterPage"` nombre de la página.  
 En la página de inicio también existen estas mismas diferencias  
-`<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" 
-     CodeBehind="Inicio.aspx.cs" Inherits="ProyectoHolaMundo.Inicio" %>`  
+```<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true"  
+     CodeBehind="Inicio.aspx.cs" Inherits="ProyectoHolaMundo.Inicio" %>```  
 
 ###Terminado Proyectos WEB
 
 
-`<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" 
-     Inherits="_Default" %>`  
+```<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs"  
+     Inherits="_Default" %>```  
 **AutoEventWireup** puesto a true significa que los *eventos* de página se *auto asignan* si cumplen con la *nomenclatura estandar*.  
 ###ViewState
 Es un control en que el servidor *guarda el contenido de los controles* que usen ViewState (podemos decir a algunos que no lo usen) y que permitirá al cliente mantener los datos y al servidor *saber si ha habido cambios*.  
@@ -261,7 +261,9 @@ QueryString  |
 **QueryString.-** Son cadenas que se añaden a la petición de la página. Siempre son visibles. El truco para que no se vea es utilizar el **ServerTransfer** y de esa forma no se ve la línea de comandos web.  
 Cookies y querystring no van en el HTML  
 
-Existen dos maneras de ver las cookies, por su **contenido** las simples y las compuestas.  
+Existen dos maneras de ver las cookies:
+
+Por su **contenido** las simples y las compuestas.  
 * Simple.- la que guarda solo un contenido.
 * Compuesta.- En luegar de tener un value será un diccionario, de 1 a n valores.  
 
