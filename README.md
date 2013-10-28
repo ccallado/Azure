@@ -298,16 +298,15 @@ Si quiero modificar una cookie que tenga ya el cliente se la tengo que volver a 
 ###QueryString:
 Una cadena que se añade a la barra de direcciones con información para procesar. Limitación de la longitud de la cadena en el navegador. Podría tener ciertas limitaciones, porque no todo se puede poner en ella. Van en texto plano, no hay codificación y encriptación.  
 Como se escribe una querystring
-dirección de la página.aspx?nombre=valor&
-Con ? se separa la dirección de la página del los valores.  
-Siempre son pares de nombre = valor  
-Si hay más valores se separan con &  
+dirección de la página.aspx?nombre=valor&  
+Con **?** se separa la dirección de la página de los valores.  
+Siempre son pares de **nombre = valor  **  
+Si hay más valores se separan con **&**  
 Caracteres prohibidos a la hora de usar el QueryString el caracter &.  
 Esta es la petición que realiza el cliente. Esto no se guarda en ningún sitio, pero no se pierde porque está en la barra de direcciones.  
 En la QueryString no se deben poner espacios.  
 El objeto QueryString siempre existe aunque no tenga nada.  
-Caracteres especiales, %, ?, =.
-Los espacios los sustituye por %20 que es el 32 en decimal.
+Caracteres especiales, %, ?, =. Los espacios los sustituye por %20 que es el 32 en decimal.
 
 El objeto Server tiene dos métodos para codificar contenido que va dentro del propio HTML. 
 Métodos **HtmlEncode** y **HtmlDecode**.- Que transforma todos los caracteres especiales con significado en HTML en su HTML equivalente. Ejemplo: `<i>` en `&lt;i&gt;`  
@@ -326,5 +325,18 @@ Por defecto el sistema mantiene una sesión 20 mínutos. Si pasados los 20 minú
 Dentro de un navegador puede haber varias sesiones. En Internet Explorer opcion ![Imagen 12](Imagenes/CursoAzureImg12.png)  
 
 * Estado de Aplicación  
-
+Permite mantener objetos en memoria comunes a todas las sesiones abiertas. El funcionamiento es básicamente igual que el de sesión, el de aplicación mantiene los datos mientras esté activa. El tiempo que se mantiene activa por defecto 20 mínutos después de la petición de cualquiera.  Se puede configurar en el IIS o en el Web.config  
+La información en este área es común para todas las sesiones. Se suele usar para rellenar combos de provincias, días festivos.  
 * Cache
+
+¿ Como controlamos cuando se inicia una sesión ?  
+Existe un fichero **Global.asax** en .NET me va a vermitir poner todos los eventos generales de aplicación, sesión, e incluso página.  
+El fichero no aparece por defecto hay que agregarlo. Clase de aplicación global, no cambiarle el nombre. Ya viene con una serie de eventos a nivel de aplicación y de sesión.    
+* **Application_Start**.- Cuando se inicia la aplicación, de todos los que salen por defecto es el primero que se ejecuta.  
+* **Application_End**.- Cuando se para la aplicación. Se debe recorrer el objeto application destruirlos  
+* **Application_Error**.- código de error que se ejecuta un error no controlado. Si dentro de una pagina no ponemos el tratamiento de errores podemos crear un Page_Error, todo error de .NET no controlado, con **try catch** va a querer tratarse desde ese evento **Page_Error** de la página, llegado ha este punto la página es erronea, podría tratarla y mandar un **response.redirect**.  
+Si no hay Page_Error, lo controlo desde Application_Error.  
+Lo mismo, si lo soluciono debo redireccionarlo a una pantalla que me muestre los errores.  
+**Server.GetLastError** es el método que te dá el error que te ha dado el error.  
+**Server.ClearError** todos los errores deben ser limpiados, porque sino ese error de todas formas salta.  
+Debemos utilizar una variable de sesión para pasar la información a la página de error. Variable que habría que limpiar para que no quede por ahí.  

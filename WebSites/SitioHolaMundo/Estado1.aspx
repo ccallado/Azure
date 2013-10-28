@@ -41,5 +41,9 @@
     <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
     <asp:Button ID="Button8" runat="server" Text="Session" 
         onclick="Button8_Click" />
+    <br />
+    <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+    <asp:Button ID="Button9" runat="server" Text="Application" onclick="Button9_Click" 
+        />
 </asp:Content>
 

@@ -56,5 +56,12 @@ public partial class Estado2 : System.Web.UI.Page
             Label5.Text = "Dato Sesión: <i>" + Session["DatoSesion"] + "</i>";
         else
             Label5.Text = " No hay Dato Sesión";
+
+        //Aplicacion
+        //Capturar datos de aplicación
+        if (Application ["DatoApp"] != null)
+            Label6.Text = "Dato Aplicación: <i>" + Application["DatoApp"] + "</i>";
+        else
+            Label6.Text = " No hay Dato Aplicación";
     }
 }

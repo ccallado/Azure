@@ -80,10 +80,19 @@ public partial class Estado1 : System.Web.UI.Page
     protected void Button8_Click(object sender, EventArgs e)
     {
         if (TextBox8.Text.Trim() != "")
-            //Esto es un Diccionario de objetos que se mantendrá abierto en la ejecución de la aplicación
+            //Esto es un Diccionario de objetos que se mantendrá abierto en la ejecución de la sesión
             Session["DatoSesion"] = TextBox8.Text;
         else
             Session.Remove("DatoSesion");
+        Response.Redirect("Estado2.aspx");
+    }
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        if (TextBox9.Text.Trim() != "")
+            //Esto es un Diccionario de objetos que se mantendrá abierto en la ejecución de la aplicación
+            Application["DatoApp"] = TextBox9.Text;
+        else
+            Application.Remove("DatoApp");
         Response.Redirect("Estado2.aspx");
     }
 }

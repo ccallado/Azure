@@ -30,6 +30,16 @@
         <br />
         <asp:Button ID="Button3" runat="server" Text="Response.Redirect" 
             onclick="Button3_Click" />
+        <hr />
+        División para provocar y lanzar el Application_Error (en el <b>Global.asax</b>)
+        <br />
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Literal ID="Literal1" runat="server" Text=" / "></asp:Literal>
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:Literal ID="Literal2" runat="server" Text=" = "></asp:Literal>
+        <asp:Button ID="Button4" runat="server" Text="Dividir" 
+            onclick="Button4_Click" />
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     </div>
     </form>
 </body>

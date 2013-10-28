@@ -27,4 +27,24 @@ public partial class _Default : System.Web.UI.Page
         //Aquí SI aunque sea externa
         //Response.Redirect("https://www.google.es");
     }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        int x, y;
+
+        x = int.Parse(TextBox1.Text);
+        y = int.Parse(TextBox2.Text);
+        int res = x / y;
+        Label2.Text = "División entera: " + res;
+    }
+
+    protected void Page_Error(object sender, EventArgs e)
+    {
+        Exception ex = Server.GetLastError();
+        //string cad = "Excepción: " + ex.GetType() + 
+        //             "<br />" + ex.Message;
+
+        Session["Error"] = ex;
+        //Llamo a la página de errores
+        Server.Transfer("PaginaErrores.aspx");
+    }
 }
