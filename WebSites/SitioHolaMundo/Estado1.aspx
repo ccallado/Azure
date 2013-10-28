@@ -37,5 +37,9 @@
     <br />
     <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
     <asp:Button ID="Button7" runat="server" Text="QueryString" onclick="Button7_Click" />
+    <br />
+    <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+    <asp:Button ID="Button8" runat="server" Text="Session" 
+        onclick="Button8_Click" />
 </asp:Content>
 

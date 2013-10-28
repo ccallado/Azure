@@ -308,3 +308,23 @@ En la QueryString no se deben poner espacios.
 El objeto QueryString siempre existe aunque no tenga nada.  
 Caracteres especiales, %, ?, =.
 Los espacios los sustituye por %20 que es el 32 en decimal.
+
+El objeto Server tiene dos métodos para codificar contenido que va dentro del propio HTML. 
+Métodos **HtmlEncode** y **HtmlDecode**.- Que transforma todos los caracteres especiales con significado en HTML en su HTML equivalente. Ejemplo: `<i>` en `&lt;i&gt;`  
+Para la barra de direcciones los métodos del objeto **Server**, **UrlEncode** y **UrlDecode**.  
+
+##Servidor
+Hay tres maneras
+* Estado de Sesión  
+Puedo guardar en el diccionario de la sesión toda la información que quiera y el servidor la mantendrá mientras esté viva la sesión.
+No sale del servidor y si se puede eleminar del servidor.  
+Atentos que el contenido es de .NET por lo que puedes encontrar valores *(punteros)* a `null` 
+Donde están aquí los problemas.  
+Si cierro el brouser la sesión en el servidor no se cierra.  
+Por defecto el sistema mantiene una sesión 20 mínutos. Si pasados los 20 minútos no ha habido ningúna interacción con el servidor, los datos de la sesión se pierde en el servidor. Cuidado con la información que guardamos por sesión, porque cada usuario que habre una página y se va a comer deja mucha información abierta en el servidor.  
+¿ Que es una sesión ?  
+Dentro de un navegador puede haber varias sesiones. En Internet Explorer opcion ![Imagen 12](Imagenes/CursoAzureImg12.png)  
+
+* Estado de Aplicación  
+
+* Cache

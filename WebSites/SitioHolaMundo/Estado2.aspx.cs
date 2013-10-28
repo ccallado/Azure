@@ -49,5 +49,12 @@ public partial class Estado2 : System.Web.UI.Page
             else
                 Label4.Text += "&nbsp;&nbsp;No hay DatoCaja";
         }
+
+        //Session
+        //Capturar datos de sesion
+        if (Session["DatoSesion"] != null)
+            Label5.Text = "Dato Sesión: <i>" + Session["DatoSesion"] + "</i>";
+        else
+            Label5.Text = " No hay Dato Sesión";
     }
 }

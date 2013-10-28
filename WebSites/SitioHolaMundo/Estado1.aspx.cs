@@ -77,4 +77,13 @@ public partial class Estado1 : System.Web.UI.Page
             cad = "?DatoCaja=" + Server.UrlEncode(TextBox7.Text);
         Response.Redirect("~/Estado2.aspx" + cad);
     }
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        if (TextBox8.Text.Trim() != "")
+            //Esto es un Diccionario de objetos que se mantendrá abierto en la ejecución de la aplicación
+            Session["DatoSesion"] = TextBox8.Text;
+        else
+            Session.Remove("DatoSesion");
+        Response.Redirect("Estado2.aspx");
+    }
 }
