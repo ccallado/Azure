@@ -73,7 +73,8 @@ public partial class Estado1 : System.Web.UI.Page
         string cad = "";
         if (TextBox7.Text.Trim() != "")
             //Ojo no poner espacios
-            cad = "?DatoCaja=" + TextBox7.Text;
+            //Metodo del objeto Server UrlEncode codifica el QueryString para todos los caracteres especiales.
+            cad = "?DatoCaja=" + Server.UrlEncode(TextBox7.Text);
         Response.Redirect("~/Estado2.aspx" + cad);
     }
 }

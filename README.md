@@ -306,3 +306,5 @@ Caracteres prohibidos a la hora de usar el QueryString el caracter &.
 Esta es la petición que realiza el cliente. Esto no se guarda en ningún sitio, pero no se pierde porque está en la barra de direcciones.  
 En la QueryString no se deben poner espacios.  
 El objeto QueryString siempre existe aunque no tenga nada.  
+Caracteres especiales, %, ?, =.
+Los espacios los sustituye por %20 que es el 32 en decimal.

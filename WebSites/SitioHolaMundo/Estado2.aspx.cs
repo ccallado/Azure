@@ -15,7 +15,7 @@ public partial class Estado2 : System.Web.UI.Page
             Label1.Text = "Cookie Simple: <i>" + cs.Value + "</i>";
         else
             Label1.Text = "No hay Cookie Simple";
-        
+
         //CookieCompuesta
         HttpCookie cc = Request.Cookies["CookieCompuesta"];
         if (cc != null)
@@ -41,10 +41,13 @@ public partial class Estado2 : System.Web.UI.Page
         //QueryString
         Label4.Text = "QueryString (" + Request.QueryString.Count + " datos):";
 
-        string dcqs = Request.QueryString["DatoCaja"];
-        if (dcqs != null)
-            Label4.Text += " <i>" + dcqs + "</i>";
-        else
-            Label4.Text += " No hay QueryString";
+        if (Request.QueryString.Count > 0)
+        {
+            string dcqs = Request.QueryString["DatoCaja"];
+            if (dcqs != null)
+                Label4.Text += "&nbsp;&nbsp;DatoCaja = <i>" + dcqs + "</i>";
+            else
+                Label4.Text += "&nbsp;&nbsp;No hay DatoCaja";
+        }
     }
 }
