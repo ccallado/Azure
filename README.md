@@ -183,6 +183,7 @@ Existe una propiedad **PreviusPage** es la página anterior. Es un puntero a la 
 ***25/10/2013***  
 ####Página maestra:
 Es una página especial que define una plantilla de visualización. Estará compuesta por todos los controles que queramos más **al menos dos contenedores especiales**. Esos dos contenedores seran donde se coloque todo lo que tengan las páginas que usa la página maestra.  
+![Imagen 11](Imagenes/CursoAzureImg11.png)  
 Uno en el **head** (no visible) y otro en el **body** (visible), en este contenedor no **puedo poner nada**. Y en la página de inicio solo puedo poner dato en este contenedor.  
 Vamos a crear una página maestra.  
 El nombre del fichero tiene extensión **.master**  
@@ -273,7 +274,7 @@ Con respecto a su **duración**.
 
 Toda cookie simple puede ser temporal o permanente y compuesta igual.  
 Se crea la *cookie* como nuevo objeto, pero para *mandarla* del servidor al cliente la añadimos al objeto *Response* con `Response.Cookies.Add(c);`  
-![Imagen 11](Imagenes/CursoAzureImg11.png)  
+![Imagen 13](Imagenes/CursoAzureImg13.png)  
 La cookie compuesta se crea sin valor y luego se añade.  
 Para recuperarla referirnos a la colección values y seleccionamos el valor que queremos.  
 Al usar las cookies hay que tener cuidado con el Server.Transfer (va con una de retraso).  
