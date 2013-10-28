@@ -28,5 +28,14 @@
     <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
     <asp:Button ID="Button4" runat="server" Text="Cookie Compuesta" 
         onclick="Button4_Click" />
+    <hr />
+    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+    <asp:Button ID="Button5" runat="server" Text="Cookie Permanente" 
+        onclick="Button5_Click" />
+    <asp:Button ID="Button6" runat="server" Text="Caducar la cookie" onclick="Button6_Click" 
+        />
+    <br />
+    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+    <asp:Button ID="Button7" runat="server" Text="QueryString" onclick="Button7_Click" />
 </asp:Content>
 

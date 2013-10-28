@@ -46,10 +46,34 @@ public partial class Estado1 : System.Web.UI.Page
     {
         HttpCookie c = new HttpCookie("CookieCompuesta");
         c.Values.Add("DatoCaja", TextBox5.Text);
-        c.Values.Add("Fecha", DateTime.Now.ToString();
+        c.Values.Add("Fecha", DateTime.Now.ToString());
 
         Response.Cookies.Add(c);
         Response.Redirect("~/Estado2.aspx");
         //Server.Transfer("~/Estado2.aspx");
+    }
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        HttpCookie c = new HttpCookie("CookiePermanente", TextBox6.Text);
+        //Hago caducar la cookie es de tipo datetime
+        c.Expires = DateTime.Now.AddMinutes(1);
+        Response.Cookies.Add(c);
+        Response.Redirect("~/Estado2.aspx");
+    }
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        HttpCookie cp = new HttpCookie("CookiePermanente", TextBox6.Text);
+        cp.Expires = DateTime.Now.AddYears(-1);
+        //Mando la página
+        Response.Cookies.Add(cp);
+        Response.Redirect("~/Estado2.aspx");
+    }
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        string cad = "";
+        if (TextBox7.Text.Trim() != "")
+            //Ojo no poner espacios
+            cad = "?DatoCaja=" + TextBox7.Text;
+        Response.Redirect("~/Estado2.aspx" + cad);
     }
 }

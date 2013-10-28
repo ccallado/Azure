@@ -128,7 +128,7 @@ En algunos controles en la vista de visualización aparece un icono que permite 
 * **Lavel** Un texto, tiene propiedades (color, tipo de letra, y pocas más)  
 * **LinkButton** Es un botón con aspecto de hipervínculo.  
 * **ListBox** Solo textos, lista de testos que se pueden seleccionar.  
-* **Literal** Uno de los dos únicos controles que *no añade HTML*. Tiene propiedades, pero casi nada, ni color ni fuente. Pero se puede utilizar en programación puedo calificar el texto con tag's \<b\>  
+* **Literal** Uno de los dos únicos controles que *no añade HTML*. Tiene propiedades, pero casi nada, ni color ni fuente. Pero se puede utilizar en programación puedo calificar el texto con tag's \<b\>'  
 * **Localice** utilización en cuestiones de idioma.  
 * **Multiview** Es un contenedor de **Views** o visualiza 1 o ninguna.  
 ![Imagen 5](Imagenes/CursoAzureImg05.png)
@@ -273,4 +273,36 @@ Con respecto a su **duración**.
 
 Toda cookie simple puede ser temporal o permanente y compuesta igual.  
 Se crea la *cookie* como nuevo objeto, pero para *mandarla* del servidor al cliente la añadimos al objeto *Response* con `Response.Cookies.Add(c);`  
-![Imagen 11](Imagenes/CursoAzureImg11.png)
+![Imagen 11](Imagenes/CursoAzureImg11.png)  
+La cookie compuesta se crea sin valor y luego se añade.  
+Para recuperarla referirnos a la colección values y seleccionamos el valor que queremos.  
+Al usar las cookies hay que tener cuidado con el Server.Transfer (va con una de retraso).  
+
+Una cookie no se puede borrar en cliente. La única forma de invalidarla es darle un valor inválido que yo reconozca por programación.  
+Para revisar si una variable es null o vacia se hace con `string.IsNullOrWhiteSpace`  
+
+###Cookies permanentes.  
+Técnicamente es lo mismo que una cookie temporal, pero se guardan en disco en el cliente.  
+Para convertir una cookie temporal en permanente hay que ponerle fecha de caducidad.  
+Una cookie sin fecha de caducidad caduca cuando se cierra el navegador.  
+Mientras que la cookie no caduque esta permanecerá en disco, si supera la fecha de caducidad el sistema entiende que ya no existe aunque esté grabada en disco.
+El sistema solo la comprueba cuando va a mandarla al servidor.  
+`        //Hago caducar la cookie es de tipo datetime`  
+`        c.Expires = DateTime.Now.AddSeconds(30);`  
+Tener cuidado que la cookie es legible y es texto, no mandar cosas raras.  
+Podemos hacer que una cookie caduque.  
+`        cp.Expires = DateTime.Now.AddYears(-1);`  
+
+Si quiero modificar una cookie que tenga ya el cliente se la tengo que volver a mandar al cliente con el objeto **Response** `Response.Cookies.Add(cp);`  
+
+###QueryString:
+Una cadena que se añade a la barra de direcciones con información para procesar. Limitación de la longitud de la cadena en el navegador. Podría tener ciertas limitaciones, porque no todo se puede poner en ella. Van en texto plano, no hay codificación y encriptación.  
+Como se escribe una querystring
+dirección de la página.aspx?nombre=valor&
+Con ? se separa la dirección de la página del los valores.  
+Siempre son pares de nombre = valor  
+Si hay más valores se separan con &  
+Caracteres prohibidos a la hora de usar el QueryString el caracter &.  
+Esta es la petición que realiza el cliente. Esto no se guarda en ningún sitio, pero no se pierde porque está en la barra de direcciones.  
+En la QueryString no se deben poner espacios.  
+El objeto QueryString siempre existe aunque no tenga nada.  
