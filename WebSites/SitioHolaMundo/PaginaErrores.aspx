@@ -12,6 +12,9 @@
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         <br />
         <asp:Label ID="Label2" runat="server" Text="Label" ForeColor="Red"></asp:Label>
+        <br />
+        <asp:Button ID="Button1" runat="server" Text="Ir a inicio" 
+            PostBackUrl="~/Inicio.aspx" />
     </div>
     </form>
 </body>

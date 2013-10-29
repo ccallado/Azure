@@ -148,6 +148,8 @@ Utilizamos las propiedades **ImageUrl** para indicarle una imagen o **NavigateUr
 El **HiperLink** tiene una propiedad llamada **Target** me permite identificar donde se va a abrir ese hipervinculo. Esto es de cuando se utilizaban FRAMES. La opción _blanck nos habre una ventana nueva. (_parent, _search, _self o nada en la misma ventana, _top marco superior)  
 En los **LinkButton** tiene una propiedad **PostBackUrl** permite especificar la dirección a la que queremos ir. Tiene evento **Click** y pocos más, porque se ejecutan en el **servidor**. Inconveniente este control *NO tiene la propiedad* **Target** por lo que se abre siempre en la misma ventana.  
 
+Pregunta de examen métodos para mandar a otra página, **PostBackUrl**, en **OnClick** puedes usar **Server.Transfer** o **Response.Redirect**. Con Click puedo cargar un combobox, cambiar cajas de texto, mientras que con el PostBackUrl solo se ejecuta el **Load** de la página.
+
 La diferencia entre *HiperLink* y *ButtonLink*, es que el *Button* ejecuta *JavaScript* para llegar a la página, pero la forma de llamarla es diferente. El *Botón* actua como si ya estubiesemos en una pagina que ya está cargada metodo **POST**.  
 
 ####Sesión:
@@ -341,3 +343,7 @@ Lo mismo, si lo soluciono debo redireccionarlo a una pantalla que me muestre los
 **Server.GetLastError** es el método que te dá el error que te ha dado el error.  
 **Server.ClearError** todos los errores deben ser limpiados, porque sino ese error de todas formas salta.  
 Debemos utilizar una variable de sesión para pasar la información a la página de error. Variable que habría que limpiar para que no quede por ahí.  
+Las propiedades de error **GetType** y **Message** nos dan información del error.  
+
+Si uso el Page_Error de página no uso el Global.asax y al reves.  
+En el Global no estoy ya en la página que ha producido el error y me envuelve la excepción en otra. Recuperamos el error en la excepción HttpUnhandledException en la propiedad InnerException. Con el método **GetBaseException** del objeto error buscamos la excepción de origen.  

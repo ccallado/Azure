@@ -17,6 +17,13 @@
     void Application_Error(object sender, EventArgs e) 
     { 
         // Código que se ejecuta al producirse un error no controlado
+        Exception ex = Server.GetLastError();
+        //string cad = "Excepción: " + ex.GetType() + 
+        //             "<br />" + ex.Message;
+
+        Session["Error"] = ex;
+        //Llamo a la página de errores
+        Server.Transfer("PaginaErrores.aspx");
 
     }
 
