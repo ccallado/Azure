@@ -40,11 +40,15 @@
     void Session_Start(object sender, EventArgs e) 
     {
         // Código que se ejecuta cuando se inicia una nueva sesión
+        //Bloqueo el objeto application
+        Application.Lock();
         //Para convertir un objeto a otro tipo uso el cast y el convert
         //Con Cast
         Application["Sesiones"] = (int)Application["Sesiones"] + 1;
         //Con Convert
         //Application["Sesiones"] = Convert.ToInt32(Application["Sesiones"]) + 1;
+        //Desbloqueo el objeto application
+        Application.UnLock();
     }
 
     void Session_End(object sender, EventArgs e) 

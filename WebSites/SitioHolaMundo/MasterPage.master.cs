@@ -16,4 +16,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Label3.Text = "hora: <i>" + DateTime.Now.ToLongTimeString() + "</i>";
         Label4.Text = "Sesiones: " + Application["Sesiones"];
     }
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        //Fuerza el cierre de sesión
+        Session.Abandon();
+        Response.Redirect("https://www.google.es");
+    }
 }

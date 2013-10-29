@@ -330,7 +330,13 @@ Dentro de un navegador puede haber varias sesiones. En Internet Explorer opcion 
 * Estado de Aplicación  
 Permite mantener objetos en memoria comunes a todas las sesiones abiertas. El funcionamiento es básicamente igual que el de sesión, el de aplicación mantiene los datos mientras esté activa. El tiempo que se mantiene activa por defecto 20 mínutos después de la petición de cualquiera.  Se puede configurar en el IIS o en el Web.config  
 La información en este área es común para todas las sesiones. Se suele usar para rellenar combos de provincias, días festivos.  
-* Cache
+* Cache  
+Es similar al objeto application, pero es nativo de .NET y permite muchas opciones. Mientras que application y sesión es algo Web se puede acceder a ellos desde ASP tradicional. Sin embargo el objeto cache es nuevo en .NET.
+Es un diccionario de objetos como application pero tenemos un método add con muchas cosas y un método Insert que tiene 5 sobrecargas uno de ellos es el nombre y el valor, 2ª nombre, valor y CacheDependency una depende de otra cuando una cambie la otra es obsoleta, otro ejemplo, que dependa de un archivo ejemplo cadenas de conexión, si cambian el archivo cualquier cosa, caducan las variables. Estas dos dependencias puede ser de uno de de muchos. De muchos ficheros o de muchas variables.  
+3ª sobrecarga, expiración absoluta o expiración relativa (a tal hora de tal día, o a las 12 horas).
+4ª sobrecarga, CacheItemUpdateCallback (todo lo que termina con Callback son delegadas o punteros a funciones, especiales para la finalización de procesos/llamadas asíncronas). Utilizo esta función normalmente para recargar la variable.
+5ª sobrecarga, se mantiene por compatibilidad, se le indica una prioridad (si el sistema necesita memoria una variable de cache el sistema puede eliminarla, con esta prioridad indicamos cual es más importante y no queremos que se borre y cual nos importa menos.)
+6ª sobrecarga, CacheItenRemovedCallbak que esta si se usa cuando mandamos eliminar una variable de cache que función utiliza.
 
 ¿ Como controlamos cuando se inicia una sesión ?  
 Existe un fichero **Global.asax** en .NET me va a vermitir poner todos los eventos generales de aplicación, sesión, e incluso página.  
@@ -378,3 +384,20 @@ Las variables de **Sesión** se pueden guardar de tres maneras o en tres sitios.
 * **InProc**.- Las variables las mantienen el mismo proceso que gestiona la aplicación en si misma. (Por defecto)  
 * **StateServer**.- Que mantiene las variables de sesión en el mismo servidor Web (IIS), pero en un proceso independiente. Si tengo que tirar el proceso de la aplicación WEB se pierde la información de sesiones. En procesos independientes no se ven afectadas si paro el proceso de la aplicación para una actualización. No digo nada si se queda colgado el servidor Web (IIS).  
 * **SQLServer**.- Permite guardar toda la información de sesiones en una base de datos de SQLServer con unas características especiales. Cuando utilizas membership. En el caso de usar granjas de servidores, se distribuye la carga, si las variables de sesión se guardan en memoria de un ordenador en la siguiente petición puede no caer en el mismo ordenador, por lo que se guardan en un servidor de base de datos común a los dos ordenadores. En esa granja de servidores *NO se pueden compartir las variables de Aplicación*.  
+Si abandono sesión lo recomendable es mandar la aplicación a cualquier página de nuestra aplicación, si volviesemos a una página de la misma aplicación volvería a crear sesión. Y por eso en nuestro programa no funcionaba.  
+Podemos bloquear todo el objeto application para que nadie lo modifique mientras realizo un proceso con el método Application.Lock() y cuando terminomeos llamaremos al método Application.UnLock();  
+
+##Controles de validación
+Son controles que van a permitir validar la entrada de datos de usuario, normalmente en cliente, dando la posibilidad de algunos de ellos validar en ambos sitios (Cliente/Servidor). El sistema crea normalmente código de javascript para realizar esta validación en cliente, aunque a veces no veremos este código por encontrarse en ficheros aparte con extensión .js que son librerías.  
+Se ejecutaría el código y hay un error el control te muestra el error y no manda la página al servidor.
+![Imagen 16](Imagenes/CursoAzureImg16.png)
+Todas tienen propiedades comunes. Las tres propiedades que siempre tendremos que tener en cuenta son:
+* **ControlToValidate** me permite establecer que control de usuario quiero validar con este control.
+* **Text**.- Texto que mostrará el control cuando haya error. Si dejo este en blanco cogería el de **ErrorMessage**.
+* **ErrorMessage**.- Texto que se mostrará en el control de validación **ValidatiónSumary** si lo ponemos.
+* **Display**.- **Static** el espacio se reserva se vea o no el control, **Dynamic** el espacio no se reserva y **None** el error no se ve.
+Controles de Validación:  
+* **RequiredFieldValidator**.- Este control valida que haya dato o no en una caja de texto. Si hay dato el control valida correctamente, si no hay dato mostará los errores. Hay controles que validan cuando pierde el foco la caja de texto.
+* **CompareValidator**.- Permite comparar el contenido de un control o bien contra otro control o bien contra un valor. Otras dos propiedades que tienen que ver con lo que queremos comparar, **ControlToCompare** control contra el que vamos a comparar, **ValueToCompare** para establecer el valor contra el que vamos a validar. En la propiedad **Operator** indicamos mayor, mayor igual, menor, menor igual, igual, distinto, chequear el tipo de dato. La propiedad **Type** debemos indicarle el tipo (string, integer, doble, date, currency). No comparan si el control está vacío CustomValidator si controla el vacío.
+* **RegularExpressionValidator**.- No comparan si el control está vacío CustomValidator si controla el vacío.
+* **RangeValidator**.- No comparan si el control está vacío CustomValidator si controla el vacío. Permite validar que el dato está dentro de un rango. Propiedades **MinimumValue**, **MaximumValue** y **Type**.
