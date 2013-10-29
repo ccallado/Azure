@@ -360,8 +360,8 @@ En el Global no estoy ya en la página que ha producido el error y me envuelve l
         //y pierde la variable de sesión porque empieza automáticamente otra sesión.
         Server.ClearError();
         //Llamo a la página de errores
-        Response.Redirect ("PaginaErrores.aspx");
-`
+        Response.Redirect ("PaginaErrores.aspx");`
+
 Solo **se pierde la sesión** en el **ApplicationError** con **Response.Redirect**.  
 Cuando hay un PageError no se genera el HTML de la página, o redirecciono o pongo un texto a capón Response.Write("ERROR de División por Cero !!!");  
 Si hemos usado Server.ClearError ocurre eso sino como hay error ejecutaría el Application.Error  
@@ -371,8 +371,8 @@ En Application_Start creo la variable y en Session_Start incremento la variable.
         //Con Cast
         Application["Sesiones"] = (int)Application["Sesiones"] + 1;
         //Con Convert
-        Application["Sesiones"] = Convert.ToInt32(Application["Sesiones"]) + 1;
-`
+        Application["Sesiones"] = Convert.ToInt32(Application["Sesiones"]) + 1;`
+
 
 Las variables de **Sesión** se pueden guardar de tres maneras o en tres sitios. Según el valor de la propiedad **SessionState** del fichero **Web.config**  
 * **InProc**.- Las variables las mantienen el mismo proceso que gestiona la aplicación en si misma. (Por defecto)  
