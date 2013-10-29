@@ -346,4 +346,35 @@ Debemos utilizar una variable de sesión para pasar la información a la página
 Las propiedades de error **GetType** y **Message** nos dan información del error.  
 
 Si uso el Page_Error de página no uso el Global.asax y al reves.  
+![Imagen 14](Imagenes/CursoAzureImg14.png)
+![Imagen 15](Imagenes/CursoAzureImg15.png)
 En el Global no estoy ya en la página que ha producido el error y me envuelve la excepción en otra. Recuperamos el error en la excepción HttpUnhandledException en la propiedad InnerException. Con el método **GetBaseException** del objeto error buscamos la excepción de origen.  
+`
+        Session["Error"] = ex;
+
+        //Llamo a la página de errores
+        //Server.Transfer("PaginaErrores.aspx");
+        
+        //Si uso Response.Redirect en Application_Error SI necesito limpiar el error 
+        // antes de terminar, porque si no el cliente recibe una redirección SIN Id de Sesión,
+        //y pierde la variable de sesión porque empieza automáticamente otra sesión.
+        Server.ClearError();
+        //Llamo a la página de errores
+        Response.Redirect ("PaginaErrores.aspx");
+`
+Solo **se pierde la sesión** en el **ApplicationError** con **Response.Redirect**.  
+Cuando hay un PageError no se genera el HTML de la página, o redirecciono o pongo un texto a capón Response.Write("ERROR de División por Cero !!!");  
+Si hemos usado Server.ClearError ocurre eso sino como hay error ejecutaría el Application.Error  
+En Application_Start creo la variable y en Session_Start incremento la variable.  
+`
+        //Para convertir un objeto a otro tipo uso el cast y el convert
+        //Con Cast
+        Application["Sesiones"] = (int)Application["Sesiones"] + 1;
+        //Con Convert
+        Application["Sesiones"] = Convert.ToInt32(Application["Sesiones"]) + 1;
+`
+
+Las variables de **Sesión** se pueden guardar de tres maneras o en tres sitios. Según el valor de la propiedad **SessionState** del fichero **Web.config**  
+* **InProc**.- Las variables las mantienen el mismo proceso que gestiona la aplicación en si misma. (Por defecto)  
+* **StateServer**.- Que mantiene las variables de sesión en el mismo servidor Web (IIS), pero en un proceso independiente. Si tengo que tirar el proceso de la aplicación WEB se pierde la información de sesiones. En procesos independientes no se ven afectadas si paro el proceso de la aplicación para una actualización. No digo nada si se queda colgado el servidor Web (IIS).  
+* **SQLServer**.- Permite guardar toda la información de sesiones en una base de datos de SQLServer con unas características especiales. Cuando utilizas membership. En el caso de usar granjas de servidores, se distribuye la carga, si las variables de sesión se guardan en memoria de un ordenador en la siguiente petición puede no caer en el mismo ordenador, por lo que se guardan en un servidor de base de datos común a los dos ordenadores. En esa granja de servidores *NO se pueden compartir las variables de Aplicación*.  

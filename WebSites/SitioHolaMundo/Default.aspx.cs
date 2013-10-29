@@ -39,12 +39,13 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Error(object sender, EventArgs e)
     {
-    //    Exception ex = Server.GetLastError();
+        Exception ex = Server.GetLastError();
     //    //string cad = "Excepción: " + ex.GetType() + 
     //    //             "<br />" + ex.Message;
 
-    //    Session["Error"] = ex;
-    //    //Llamo a la página de errores
-    //    Server.Transfer("PaginaErrores.aspx");
+        Session["Error"] = ex;
+       //Llamo a la página de errores
+        Response.Redirect("PaginaErrores.aspx");
+        //Server.Transfer("PaginaErrores.aspx");
     }
 }
