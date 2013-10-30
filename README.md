@@ -401,3 +401,36 @@ Controles de Validación:
 * **CompareValidator**.- Permite comparar el contenido de un control o bien contra otro control o bien contra un valor. Otras dos propiedades que tienen que ver con lo que queremos comparar, **ControlToCompare** control contra el que vamos a comparar, **ValueToCompare** para establecer el valor contra el que vamos a validar. En la propiedad **Operator** indicamos mayor, mayor igual, menor, menor igual, igual, distinto, chequear el tipo de dato. La propiedad **Type** debemos indicarle el tipo (string, integer, doble, date, currency). No comparan si el control está vacío CustomValidator si controla el vacío.
 * **RegularExpressionValidator**.- No comparan si el control está vacío CustomValidator si controla el vacío.
 * **RangeValidator**.- No comparan si el control está vacío CustomValidator si controla el vacío. Permite validar que el dato está dentro de un rango. Propiedades **MinimumValue**, **MaximumValue** y **Type**.
+* **RegularExpressionValidator**.- Valida utilizando una expresión regular. Las expresiones regulares son cadenas (strings) que definen un formato o plantilla.  
+Ejemplo:  
+código postal
+\d{5} escape \\ d - dígito entre llaves el número de caracteres.  
+Dirección de correo electrónico.  
+\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*  
+letras mínimo una (de 0 a n de un - o in + o un .) una @ caracteres de 1 a n veces (de 0 a n veces o - o . al menos una letra) un . de una a n letras (de 0 a n veces o - o . al menos una letra)  
+Direción web  
+http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?  
+http una s o nada ://(una o mas veces una letra o un guión un punto) una letra o un guión una o mas veces una /
+**\?** 1 o ninguna  
+**\*** 0 a n veces  
+**\+** 1 a n veces  
+Web con una base de datos de expresiones regulares http://regexlib.com/DisplayPatterns.aspx  
+* **CustomValidator**.- Como su nombre indica el customvalidator permite validar a gusto del consumidor. Yo voy a escribir la validación que voy a hacer. Este control igual que os otros tiene la propiedad EnableClientScript. Este cliente puede validad en cliente y en servidor cosas diferentes, si queremos validar en cliente tendremos que escribir una función de script para validar y si queremos validar en servidor usaremos el evento **ServerValidate**. Este control tiene un evento más que los demás controles **ServerValidate**. Primero valida en cliente y luego valida en servidor.
+
+Todos estos controles validan en el cliente pero algunos puede validar tambien en servidor, por ejemplo en un rangevalidator los valores máximo y mínimo quiero que sea en base a otro dato que me haya dado en el formulario o que el servidor lo indique, tengo que hacer que el control vaya al servidor. Con la propiedad **EnambleClientScript** que por defecto el control valida en cliente si está puesta a true, cuando la ponemos a false no valida en cliente y pasa a validar en servidor.  
+Si se valida en el servidor debemos hacer algo para que si hay un error en la validación no le permitamos que vaya a la página que le hemos indicado y que nos presente la pagina de nuevo con los errores. La variable Page.IsValid es false algún control de validación ha dicho que la página no es correcta, ya en el servidor.   
+
+Un control de validación solo puede validar a un control.
+
+En el evento del servidor el parámetro args es un objeto y tiene varias propiedades y metodos, uso normalmente **args.value**. Para devolver la validación correcta o incorrecta lo hacemos con la propiedad **args.IsValid = false**.    
+ValidateEmptyText="True" comprueba la validación de cliente y de servidor aunque la caja esté vacía. Si lo ponemos a false no comprueba la caja vacía ni en cliente ni en el servidor.  
+**Orden de los eventos de página:**  
+* Load
+* Eventos de Cambio
+* Eventos de validación
+* Eventos de Acción
+
+Existen script que se ejecutan en cualquier momento de la página,  en el PostBack de la página y script de función que yo las llamo cuando quiero.  
+Los de función se tienen que escribir antes de la línea en donde se use. Lo más normal es ponerlo en el head. Al estar en una página que usa una página maestra, lo pondremos en el ContentPlaceHolder del Head.  
+El nombre de la función que hayamos creado en javascript se debe poner en la propiedad **ClientValidationFunction** del control.  
+
