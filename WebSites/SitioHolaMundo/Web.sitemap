@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Inicio.aspx" title="Inicio"  description="Página de inicio">
+    <siteMapNode url="~/Default.aspx" title="Default" />
+    <siteMapNode url="~/Default2.aspx" title="Default 2" />
+    <siteMapNode url="~/Default3.aspx" title="Default 3" />
+    <siteMapNode url="~/Estado1.aspx" title="Estado 1"  description="Preparación Estado">
+      <siteMapNode url="~/Estado2.aspx" title="Estado 2"  description="Captura Estado" />
+    </siteMapNode>
+    <siteMapNode url="~/Validaciones.aspx" title="Validaciones"  description="Controles de validación" />
+  </siteMapNode>
+</siteMap>

@@ -5,10 +5,17 @@
     <script type="text/javascript">
         function ChequeaCliente(source, args) {
             if (args.Value.length >= 5 &&
-                args.Value.length <= 10) 
+                args.Value.length <= 10)
                 args.IsValid = true;
-            else
-                arg.IsValid = false;
+            else {
+                args.IsValid = false;
+//                document.getElementById("ContentPlaceHolder1_CustomValidator1").innerText = "Longitud incorrecta";
+                source.innerText = "Longitud incorrecta";
+                //Esta línea no es muy compatible
+                //source.setAttribute("ErrorMessage", "Caja de texto 5 tiene longitud incorrecta");
+                //Esto funciona en IE10, Chorme y Firefox...
+                source.errormessage = "Caja de texto 5 tiene longitud incorrecta";
+            }
         }
     </script>
 </asp:Content>
@@ -40,6 +47,7 @@
         ValidateEmptyText="True" ClientValidationFunction="ChequeaCliente">Texto incorrecto longitud de 5 a 10 caracteres y contenido PROFE o CURSO</asp:CustomValidator>
     <hr />
     <div style="display: inline-block;">
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
+            ShowMessageBox="True" />
     </div>
 </asp:Content>

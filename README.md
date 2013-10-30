@@ -406,7 +406,7 @@ Ejemplo:
 código postal
 \d{5} escape \\ d - dígito entre llaves el número de caracteres.  
 Dirección de correo electrónico.  
-\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*  
+\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*  '
 letras mínimo una (de 0 a n de un - o in + o un .) una @ caracteres de 1 a n veces (de 0 a n veces o - o . al menos una letra) un . de una a n letras (de 0 a n veces o - o . al menos una letra)  
 Direción web  
 http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?  
@@ -434,3 +434,25 @@ Existen script que se ejecutan en cualquier momento de la página,  en el PostBa
 Los de función se tienen que escribir antes de la línea en donde se use. Lo más normal es ponerlo en el head. Al estar en una página que usa una página maestra, lo pondremos en el ContentPlaceHolder del Head.  
 El nombre de la función que hayamos creado en javascript se debe poner en la propiedad **ClientValidationFunction** del control.  
 
+Como cambiar el Text y el ErrorMessage del control cumstomvalidator. Hay que acceder al control. El nombre del control se llama ContentPlaceHolder1_CustomValidator1 **NombreDelContenedor.NombreDelControl**
+la propiedad Text del control de validación en JavaScript está en la propiedad **innerText**  
+En este caso la función de JavaScript tiene un parametro **source** que me indica el control que ha llamado a la función, que es él mismo. Por lo tanto `source.innerText = "Longitud incorrecta";` será lo mismo que `document.getElementById("ContentPlaceHolder1_CustomValidator1").innerText = "Longitud incorrecta";`  
+El ErrorMessage es un atributo del CustomValidator. En javascript se usa **source.errormessage** en minúsculas.  
+
+El control **ValidationSummary** tiene una propiedad DisplyMode BulletList puntito y lista, List lista yu SingleParagraph que es un parrafo donde vienen todos los errores seguidos.
+Dos propiedades para determinar como queremos mostrar los errores.  
+**ShowSummary**.- que hace que salga una lista.  
+**ShowMessageBox**.- Muestra un mensaje en el navegador del cliente. Típico **Alert** de JavaScript.  
+Los controles que validan en el servidor no aparecen en el mensaje de alerta con ShowMessageBox a true.  
+
+###Controles de navegación
+
+Permiten moverse por las páginas del sitio según la estructura definida.  
+Tiene que haber una jerarquía lógica no física en este proyecto todo cuelga del directorio raíz.  
+Para utilizar el control SiteMap tenemos que añadir un fichero que se llama Web.sitemap es un fichero xml puro y duro, y con una estructura concreta, cuando lo creas, él te crea una estructura base.  
+Hay un nodo principal que es **siteMap** y nodos en formato jerarquía con nombre **siteMapNode** parametros **url** la url de la página **title** el título de la página y **description** que es opcional donde pondremos una explicación que aparecerá como un tooltip.  
+
+Para que este fichero que hemos creado se vea en la página, tendremos que crearla en la página maestra poniendo el control **SiteMapPath**.  
+Todo lo que tenga que ver con datos en Web viene de un **DataSource**.  
+En el menú del iconito sacamos una ventana elegimos origen de datos, nuevo origen de datos y en este caso Mapa de sitio.  
+Para que el checkButton se ejecute en el servidor hay que cambiar la propiedad de los controles AutoPostBack a true.  

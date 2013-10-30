@@ -15,11 +15,27 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Label2.Text = DateTime.Now.ToLongDateString();
         Label3.Text = "hora: <i>" + DateTime.Now.ToLongTimeString() + "</i>";
         Label4.Text = "Sesiones: " + Application["Sesiones"];
+
+        if (!Page.IsPostBack)
+        {
+            Menu1.Visible = false;
+            TreeView1.Visible = false;
+        }
     }
     protected void LinkButton1_Click(object sender, EventArgs e)
     {
         //Fuerza el cierre de sesión
         Session.Abandon();
         Response.Redirect("https://www.google.es");
+    }
+    protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+    {
+        Menu1.Visible = true;
+        TreeView1.Visible = false;
+    }
+    protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
+    {
+        Menu1.Visible = false;
+        TreeView1.Visible = true;
     }
 }
