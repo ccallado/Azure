@@ -15,8 +15,29 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Label2.Text = DateTime.Now.ToLongDateString();
         Label3.Text = "hora: <i>" + DateTime.Now.ToLongTimeString() + "</i>";
         Label4.Text = "Sesiones: " + Application["Sesiones"];
-
-        if (!Page.IsPostBack)
+        string ms = Session["MapaSitio"] as string;
+        if (ms != null)
+        { 
+            if (ms == "Menu")
+            {
+                if (!Page.IsPostBack)
+                {
+                    RadioButton1.Checked = true;
+                    Menu1.Visible = true;
+                    TreeView1.Visible = false;
+                }
+            }
+            else
+            {
+                if (!Page.IsPostBack)
+                {
+                    RadioButton2.Checked = true;
+                    Menu1.Visible = false;
+                    TreeView1.Visible = true;
+                }
+            }
+        }
+        else
         {
             Menu1.Visible = false;
             TreeView1.Visible = false;
@@ -32,10 +53,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         Menu1.Visible = true;
         TreeView1.Visible = false;
+        Session["MapaSitio"] = "Menu";
     }
     protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
     {
         Menu1.Visible = false;
         TreeView1.Visible = true;
+        Session["MapaSitio"] = "Treeview";
     }
 }

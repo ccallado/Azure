@@ -388,15 +388,15 @@ Si abandono sesión lo recomendable es mandar la aplicación a cualquier página
 Podemos bloquear todo el objeto application para que nadie lo modifique mientras realizo un proceso con el método Application.Lock() y cuando terminomeos llamaremos al método Application.UnLock();  
 
 ##Controles de validación
-Son controles que van a permitir validar la entrada de datos de usuario, normalmente en cliente, dando la posibilidad de algunos de ellos validar en ambos sitios (Cliente/Servidor). El sistema crea normalmente código de javascript para realizar esta validación en cliente, aunque a veces no veremos este código por encontrarse en ficheros aparte con extensión .js que son librerías.  
-Se ejecutaría el código y hay un error el control te muestra el error y no manda la página al servidor.
-![Imagen 16](Imagenes/CursoAzureImg16.png)
-Todas tienen propiedades comunes. Las tres propiedades que siempre tendremos que tener en cuenta son:
+Son controles que van a permitir validar la entrada de datos de usuario, normalmente en cliente, dando la posibilidad de algunos de ellos validar en ambos sitios (Cliente/Servidor). El sistema crea normalmente código de javascript para realizar esta validación en cliente, aunque a veces no veremos este código por encontrarse en ficheros aparte con extensión **.js** que son librerías.  
+Se ejecutaría el código y hay un error el control te muestra el error y no manda la página al servidor.  
+![Imagen 16](Imagenes/CursoAzureImg16.png)  
+Todas tienen propiedades comunes. Las tres propiedades que siempre tendremos que tener en cuenta son:  
 * **ControlToValidate** me permite establecer que control de usuario quiero validar con este control.
 * **Text**.- Texto que mostrará el control cuando haya error. Si dejo este en blanco cogería el de **ErrorMessage**.
 * **ErrorMessage**.- Texto que se mostrará en el control de validación **ValidatiónSumary** si lo ponemos.
 * **Display**.- **Static** el espacio se reserva se vea o no el control, **Dynamic** el espacio no se reserva y **None** el error no se ve.
-Controles de Validación:  
+###Controles de Validación:  
 * **RequiredFieldValidator**.- Este control valida que haya dato o no en una caja de texto. Si hay dato el control valida correctamente, si no hay dato mostará los errores. Hay controles que validan cuando pierde el foco la caja de texto.
 * **CompareValidator**.- Permite comparar el contenido de un control o bien contra otro control o bien contra un valor. Otras dos propiedades que tienen que ver con lo que queremos comparar, **ControlToCompare** control contra el que vamos a comparar, **ValueToCompare** para establecer el valor contra el que vamos a validar. En la propiedad **Operator** indicamos mayor, mayor igual, menor, menor igual, igual, distinto, chequear el tipo de dato. La propiedad **Type** debemos indicarle el tipo (string, integer, doble, date, currency). No comparan si el control está vacío CustomValidator si controla el vacío.
 * **RegularExpressionValidator**.- No comparan si el control está vacío CustomValidator si controla el vacío.
@@ -455,4 +455,6 @@ Hay un nodo principal que es **siteMap** y nodos en formato jerarquía con nombr
 Para que este fichero que hemos creado se vea en la página, tendremos que crearla en la página maestra poniendo el control **SiteMapPath**.  
 Todo lo que tenga que ver con datos en Web viene de un **DataSource**.  
 En el menú del iconito sacamos una ventana elegimos origen de datos, nuevo origen de datos y en este caso Mapa de sitio.  
-Para que el checkButton se ejecute en el servidor hay que cambiar la propiedad de los controles AutoPostBack a true.  
+Para que el checkButton se ejecute en el servidor hay que cambiar la propiedad de los controles **AutoPostBack** a true.  
+
+Tener en cuenta si es postbak o carga para rellenar controles al inicio.  

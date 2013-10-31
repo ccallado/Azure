@@ -39,7 +39,7 @@
     <br />
     <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Caja 4 código postal incorrecto"
-        ControlToValidate="TextBox4" ValidationExpression="\d{5}" EnableClientScript="False">Código postal incorrecto</asp:RegularExpressionValidator>
+        ControlToValidate="TextBox4" ValidationExpression="\d{5}">Código postal incorrecto</asp:RegularExpressionValidator>
     <br />
     <asp:TextBox ID="TextBox5" runat="server" OnTextChanged="TextBox5_TextChanged"></asp:TextBox>
     <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Caja de texto 5 Texto incorrecto longitud de 5 a 10 caracteres y contenido PROFE o CURSO"
