@@ -458,3 +458,30 @@ En el menú del iconito sacamos una ventana elegimos origen de datos, nuevo orig
 Para que el checkButton se ejecute en el servidor hay que cambiar la propiedad de los controles **AutoPostBack** a true.  
 
 Tener en cuenta si es postbak o carga para rellenar controles al inicio.  
+
+##Datos
+Usaremos el control Multiview 
+![Imagen 5](Imagenes/CursoAzureImg05.png)
+Por defecto no pone visible ninguna view.
+La propiedad **ActiveViewIndex** no dice o nos permite poner la vista activa indicandole el índice.
+Hay un méto SetActiveView que nos permi y nos pide el nombre de la vista.
+En el directorio App_Data es donde van a estar los ficheros de datos.
+En . Net hay carpertas especiales ASP.NET (Bin, App_Code, App_GlobalResources, App_LocalResource, App_Data, etc...)
+Filtros posibles para filtrar un dataset, Control, Cookie, Form, Profile dato de cuando uso membership que se almacena en el usuario en una base de datos, QueryString, Sesion, Route).
+En ASP.NET solo hay una copia de la base de datos ya que no hay un directorio bin.  
+Entorno ADO conectado es de solo lectura (Pregunta de examen).  
+Entorno ADO desconectado 
+**Datasets** son objetos que contendrán tablas basadas en datos de una base de datos.  
+El dataset puede ser una **tabla** completa, campos seleccionados o join de varias tablas.  
+Habrá objetos **TableAdapter**, abrá uno por tabla, este tiene una **consulta principal** que indicará la estructura de la tabla.  
+**Comandos Actualización** se exponen como metodos, para actualización de la base de datos.  
+**Comandos Adicionales**.- Serán consultas que o bien traen un dato o si traen registros (que suele ser lo avitual) tienen que traer la extructura completa de la tabla. Podrán filtrarse por lo que yo quiera (Esto no es una vista).  
+Todo lo que sea código de .NET que no sea de página en los **Sitios Web** tiene que estar en un directorio expecial llamado **App_Code** por ejemplo un **DataSet**. Esto no ocurre en un **Proyecto Web**.  
+Creo un TableAdapter y me creará automáticamente la tabla.  
+Dos métodos para bajar información desde la base de datos:  
+* Rellenar un DataTable.* cargame en la tabla que yo te diga lo que salga de la Select. Tiene que haber una tabla creada.  
+* Crea un método que te debuelve una tabla con los datos rellenos. No hace falta que me des la tabla.  
+
+Cuando se instancia un DataSet se instancian automáticamente todas las tablas que tiene.  
+Los TableAdapters no guardan datos, son meros intermediarios (Pregunta de examen).  
+Cuando enlazamos cualquier control a través de la propiedad **DataSource** tenemos que asegurarnos de utilizar el método **DataBind** de ese control. Este método se encarga de forzar la petición y crear el HTML.  

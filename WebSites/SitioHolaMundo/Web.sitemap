@@ -8,5 +8,8 @@
       <siteMapNode url="~/Estado2.aspx" title="Estado 2"  description="Captura Estado" />
     </siteMapNode>
     <siteMapNode url="~/Validaciones.aspx" title="Validaciones"  description="Controles de validación" />
+    <siteMapNode url="~/Datos.aspx" title="Datos"  description="Página principal de datos">
+      <siteMapNode url="~/Datos1.aspx" title="Datos 1"  description="DataSources" />
+    </siteMapNode>
   </siteMapNode>
 </siteMap>

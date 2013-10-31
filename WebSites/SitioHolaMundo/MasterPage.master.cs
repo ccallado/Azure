@@ -61,4 +61,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         TreeView1.Visible = true;
         Session["MapaSitio"] = "Treeview";
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
 }

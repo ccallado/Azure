@@ -19,6 +19,9 @@
     <asp:Button ID="Button5" runat="server" Text="Validaciones" 
         PostBackUrl="~/Validaciones.aspx" />
     <br />
+    <asp:Button ID="Button6" runat="server" Text="Datos" 
+        PostBackUrl="~/Datos.aspx" />
+    <br />
 
 </asp:Content>
 
