@@ -541,4 +541,4 @@ Linq tiene ciertos métodos que tienen un icono con flechita que son métodos de
 
 `                //No puedo usar p.CategoryID == int.Parse(DropDownList4.SelectedValue)
                 //el int.Parse lo hago fuera de LINQ en una variable y ya funciona.`  
-**Expresión Lamda** son ......... mirarlo en manual del curso anterior.
+**Expresión Lamda** son ......... mirarlo en manual del curso anterior.  
