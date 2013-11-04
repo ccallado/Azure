@@ -12,6 +12,8 @@
         AutoPostBack="True" oncheckedchanged="RadioButton3_CheckedChanged" />
     <asp:RadioButton ID="RadioButton4" runat="server" GroupName="G1" Text="Entity" 
         AutoPostBack="True" oncheckedchanged="RadioButton4_CheckedChanged" />
+    <asp:RadioButton ID="RadioButton5" runat="server" GroupName="G1" Text="Validaciones" 
+        AutoPostBack="True" oncheckedchanged="RadioButton5_CheckedChanged" />
     <br />
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="ViewAccess" runat="server">
@@ -105,6 +107,25 @@
             </asp:DropDownList>
             <asp:GridView ID="GridView4" runat="server">
             </asp:GridView>
+        </asp:View>
+        <asp:View ID="ViewValidaciones" runat="server">
+            <b>Datos Validaciones</b>
+            <br />
+            Categoría
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                ErrorMessage="ID de Categoría obligatorio" ControlToValidate="TextBox1" 
+                ForeColor="Red" ToolTip="Campo obligatorio">*</asp:RequiredFieldValidator>
+            <asp:RangeValidator ID="RangeValidator1" runat="server" 
+                ErrorMessage="El ID debe estar entre 1 y 1000" 
+                ControlToValidate="TextBox1" ForeColor="Red" MaximumValue="1000" 
+                MinimumValue="1" ToolTip="Valor incorrecto" Type="Integer">*</asp:RangeValidator>
+            <asp:Button ID="Button1" runat="server" Text="Cargar" />
+            <br />
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <asp:GridView ID="GridView5" runat="server">
+            </asp:GridView>
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         </asp:View>
     </asp:MultiView>
 </asp:Content>

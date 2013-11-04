@@ -118,6 +118,7 @@ public partial class Datos1 : System.Web.UI.Page
         DropDownList4.DataValueField = "CategoryID";
         //Ejecutamos físicamente la consulta
         DropDownList4.DataBind();
+        DropDownList4_SelectedIndexChanged(null, null);
     }
 
     public class CategoriaBase
@@ -136,18 +137,30 @@ public partial class Datos1 : System.Web.UI.Page
             //Saliendo del using se destruyen los datos.
             //Llamando al metodo .Dispose()
             using(northwindModel.northwindEntities contexto = 
-                new northwindModel.northwindEntities();
+                new northwindModel.northwindEntities())
             {
+                int cat = int.Parse(DropDownList4.SelectedValue);
+                //Usando consulta de LINQ
+                //var productos = from p in contexto.Products
+                //                where p.CategoryID == cat
+                //                select p;
+                ////No puedo usar p.CategoryID == int.Parse(DropDownList4.SelectedValue)
+                ////el int.Parse lo hago fuera de LINQ en una variable y ya funciona.
 
+                //Usando Método de extensión sobre el conjunto de entidades
+                var productos = contexto.Products.Where(p => p.CategoryID == cat);
+                //Esto lo filtra en la consulta no se trae todo hace lo mismo que el de arriba
+                //En este formato todavía podemos seguir poniendo puntos (). ya que es un objeto
+                //IQueryable
+
+                GridView4.DataSource = productos;
+                GridView4.DataBind();
             }
-
-
-            NWDataSetTableAdapters.ProductsTableAdapter taProd;
-            taProd = new NWDataSetTableAdapters.ProductsTableAdapter();
-
-            //Otro método para no cargar todas las tablas
-            GridView4.DataSource = taProd.ObtenerTablaPorCategoryID(int.Parse(DropDownList4.SelectedValue));
-            GridView4.DataBind();
         }
+    }
+    protected void RadioButton5_CheckedChanged(object sender, EventArgs e)
+    {
+        MultiView1.SetActiveView(ViewValidaciones); 
+
     }
 }

@@ -512,7 +512,7 @@ Marcar el pincho Poner en plural o en singular los nombres de objeto generados. 
 ![Imagen 19](Imagenes/CursoAzureImg19.png)  
 Linq nos permite tipos anónimos que me permite definir la estructura diferente a la tabla, como si fuese una vista.  
 En .NET podemos definir una variable sin deteminar el tipo que tiene, pero el compilador según los datos que le estoy pasando la define de un tipo o de otro.  
-Sintaxis LINQ
+Sintaxis LINQ  
 `from alias in contenedor  
 [where ......]  
 [order by .......]  
@@ -533,7 +533,12 @@ el méto using Permite definir e instanciar una variable con la seguridad de que
             using(northwindModel.northwindEntities contexto = 
                 new northwindModel.northwindEntities();
             {
-            }`  
+            }  `
 
 Si quiero añadir cosas a nuestro modelo, sobre el escritorio botón derecho, Actualizar modelo desde base de datos.  
 
+Linq tiene ciertos métodos que tienen un icono con flechita que son métodos de extensión que añade el sistema en diseño que te permiten hacer ciertos ej filtrar, sumar, ordenar, ...)  
+
+`                //No puedo usar p.CategoryID == int.Parse(DropDownList4.SelectedValue)
+                //el int.Parse lo hago fuera de LINQ en una variable y ya funciona.`  
+**Expresión Lamda** son ......... mirarlo en manual del curso anterior.
