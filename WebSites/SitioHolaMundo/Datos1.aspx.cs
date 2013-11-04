@@ -74,4 +74,80 @@ public partial class Datos1 : System.Web.UI.Page
             GridView3.DataBind();
         }
     }
+    protected void RadioButton4_CheckedChanged(object sender, EventArgs e)
+    {
+        MultiView1.SetActiveView(ViewEntity); 
+
+        //Varios métodos
+
+        //Crear el objeto del modelo
+        northwindModel.northwindEntities contexto;
+        contexto = new northwindModel.northwindEntities();
+
+        //TODA la tabla de SQL directamente en el contenedor de entidades...
+        //DropDownList4.DataSource = contexto.Categories; //Se considera internamente como una consulta
+
+        //TODA la tabla de SQL con consulta LINQ...
+        //var categorias = from cat in contexto.Categories
+        //                 select cat;
+        //DropDownList4.DataSource = categorias;
+
+        //Sólo los campos que necesitamos con consulta LINQ en clase definida por nosotros...
+        //Usando una clase
+        //var categorias = from cat in contexto.Categories
+        //                 select new CategoriaBase() 
+        //                 {
+        //                     CategoryID = cat.CategoryID,
+        //                     CategoryName = cat.CategoryName 
+        //                 };
+
+        //DropDownList4.DataSource = categorias;
+
+        //Sólo los campos que necesitamos con consulta LINQ en tipo anónimo...
+        var categorias = from cat in contexto.Categories
+                         select new 
+                         {
+                             cat.CategoryID,
+                             cat.CategoryName
+                         };
+
+        DropDownList4.DataSource = categorias;
+
+        //Asignamos las columnas visible y de valor
+        DropDownList4.DataTextField = "CategoryName";
+        DropDownList4.DataValueField = "CategoryID";
+        //Ejecutamos físicamente la consulta
+        DropDownList4.DataBind();
+    }
+
+    public class CategoriaBase
+    {
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
+    }
+
+    protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //Cuando cambie modificaremos el contenido de la grid
+        //Cuando no hay ninguno seleccionado valor -1
+        if (DropDownList4.SelectedIndex != -1)
+        {
+            //Usando using no tiene nada que ver los de cabecera.
+            //Saliendo del using se destruyen los datos.
+            //Llamando al metodo .Dispose()
+            using(northwindModel.northwindEntities contexto = 
+                new northwindModel.northwindEntities();
+            {
+
+            }
+
+
+            NWDataSetTableAdapters.ProductsTableAdapter taProd;
+            taProd = new NWDataSetTableAdapters.ProductsTableAdapter();
+
+            //Otro método para no cargar todas las tablas
+            GridView4.DataSource = taProd.ObtenerTablaPorCategoryID(int.Parse(DropDownList4.SelectedValue));
+            GridView4.DataBind();
+        }
+    }
 }

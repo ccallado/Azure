@@ -500,13 +500,40 @@ Con **LINQ** (Language INtergrated Query) Consultas integradas en el lenguaje. E
 * Linq to objects
 Una coleccion, una cadena, un array, etc...
 * Linq to ADO.Net
-* * Datasets.- Creo un dataset 
-* * SQL (obsoleto por ser solo para MSSQL)
-* * Entity,  Atacar a un modelo de datos de Entity y entity accede a cualquier servidor de base de datos, (no Access)
+  * Datasets.- Creo un dataset 
+  * SQL (obsoleto por ser solo para MSSQL)
+  * Entity,  Atacar a un modelo de datos de Entity y entity accede a cualquier servidor de base de datos, (no Access)
 * Linq to XML. Cadenas o ficheros xml.
 
 Entity es un formato que evoluciona de dataset, No hay un dataset en memoria, sino un objeto de contexto **objectContext** que permitirá mantener en memoria los datos solicitados.  
 En vez de usar tablas y registros utiliza conjuntos de entidades y entidades. Donde una entidad representará la extructura de unos datos de origen y los conjuntos de entidades que serán las colecciones de instancias creadas de esos datos.  
 El entity data model me permite crearme el modelo y me genera la base de datos desde mi modelo. También podemos tomar una base de datos ya creadas.  
-Marcar el pincho Poner en prlural o en singular los nombres de objeto generados. Conjunto en plural, elemento simple en singular.  
-![Imagen 19](Imagenes/CursoAzureImg19.png)
+Marcar el pincho Poner en plural o en singular los nombres de objeto generados. Conjunto en plural, elemento simple en singular.  
+![Imagen 19](Imagenes/CursoAzureImg19.png)  
+Linq nos permite tipos anónimos que me permite definir la estructura diferente a la tabla, como si fuese una vista.  
+En .NET podemos definir una variable sin deteminar el tipo que tiene, pero el compilador según los datos que le estoy pasando la define de un tipo o de otro.  
+Sintaxis LINQ
+`from alias in contenedor  
+[where ......]  
+[order by .......]  
+select proyección  `  
+Detalle select  
+`select proyección  `  
+
+Todo lo que se ponga debe poderse transformar en transacsql por lo que int.parse no valdría.  
+Tipos Anónimos.- En LINQ aparece la incialización y puedo con unas llaves poner el valor a cada una de las propiedades de la clase.  
+`CategoriaBase cb2 = new CategoriaBase() { ID = 3, Nombre = "Klb" };`  
+
+Una clase de tipo anónimo que no se puede tocar y no se puede ver, sin nombre, que no hay que crear porque lo hace el sistema. (Pregunta de examen).  
+No es necesario poner un alias para los nombres de campo, si es un campo calculado debo ponerle un alias.  
+el méto using Permite definir e instanciar una variable con la seguridad de que al salir del using se va a llamar a su método Dispose
+`            //Usando using no tiene nada que ver los de cabecera.
+            //Saliendo del using se destruyen los datos.
+            //Llamando al metodo .Dispose()
+            using(northwindModel.northwindEntities contexto = 
+                new northwindModel.northwindEntities();
+            {
+            }`  
+
+Si quiero añadir cosas a nuestro modelo, sobre el escritorio botón derecho, Actualizar modelo desde base de datos.  
+

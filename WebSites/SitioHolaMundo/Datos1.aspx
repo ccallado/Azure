@@ -10,6 +10,8 @@
         OnCheckedChanged="RadioButton2_CheckedChanged" />
     <asp:RadioButton ID="RadioButton3" runat="server" GroupName="G1" Text="Dataset" 
         AutoPostBack="True" oncheckedchanged="RadioButton3_CheckedChanged" />
+    <asp:RadioButton ID="RadioButton4" runat="server" GroupName="G1" Text="Entity" 
+        AutoPostBack="True" oncheckedchanged="RadioButton4_CheckedChanged" />
     <br />
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="ViewAccess" runat="server">
@@ -93,6 +95,15 @@
                 onselectedindexchanged="DropDownList3_SelectedIndexChanged">
             </asp:DropDownList>
             <asp:GridView ID="GridView3" runat="server">
+            </asp:GridView>
+        </asp:View>
+        <asp:View ID="ViewEntity" runat="server">
+            <b>Datos Entity</b>
+            <br />
+            <asp:DropDownList ID="DropDownList4" runat="server" AutoPostBack="True" 
+                onselectedindexchanged="DropDownList4_SelectedIndexChanged">
+            </asp:DropDownList>
+            <asp:GridView ID="GridView4" runat="server">
             </asp:GridView>
         </asp:View>
     </asp:MultiView>

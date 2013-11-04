@@ -16,6 +16,11 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region Metadatos de relaciones en EDM
+
+[assembly: EdmRelationshipAttribute("northwindModel", "FK_Products_Categories", "Category", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(northwindModel.Category), "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(northwindModel.Product), true)]
+
+#endregion
 
 namespace northwindModel
 {
@@ -80,6 +85,22 @@ namespace northwindModel
             }
         }
         private ObjectSet<Category> _Categories;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<Product> Products
+        {
+            get
+            {
+                if ((_Products == null))
+                {
+                    _Products = base.CreateObjectSet<Product>("Products");
+                }
+                return _Products;
+            }
+        }
+        private ObjectSet<Product> _Products;
 
         #endregion
         #region Métodos AddTo
@@ -90,6 +111,14 @@ namespace northwindModel
         public void AddToCategories(Category category)
         {
             base.AddObject("Categories", category);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet Products. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToProducts(Product product)
+        {
+            base.AddObject("Products", product);
         }
 
         #endregion
@@ -227,6 +256,347 @@ namespace northwindModel
 
         #endregion
     
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("northwindModel", "FK_Products_Categories", "Products")]
+        public EntityCollection<Product> Products
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("northwindModel.FK_Products_Categories", "Products");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("northwindModel.FK_Products_Categories", "Products", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="northwindModel", Name="Product")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Product : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto Product.
+        /// </summary>
+        /// <param name="productID">Valor inicial de la propiedad ProductID.</param>
+        /// <param name="productName">Valor inicial de la propiedad ProductName.</param>
+        /// <param name="discontinued">Valor inicial de la propiedad Discontinued.</param>
+        public static Product CreateProduct(global::System.Int32 productID, global::System.String productName, global::System.Boolean discontinued)
+        {
+            Product product = new Product();
+            product.ProductID = productID;
+            product.ProductName = productName;
+            product.Discontinued = discontinued;
+            return product;
+        }
+
+        #endregion
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ProductID
+        {
+            get
+            {
+                return _ProductID;
+            }
+            set
+            {
+                if (_ProductID != value)
+                {
+                    OnProductIDChanging(value);
+                    ReportPropertyChanging("ProductID");
+                    _ProductID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ProductID");
+                    OnProductIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ProductID;
+        partial void OnProductIDChanging(global::System.Int32 value);
+        partial void OnProductIDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ProductName
+        {
+            get
+            {
+                return _ProductName;
+            }
+            set
+            {
+                OnProductNameChanging(value);
+                ReportPropertyChanging("ProductName");
+                _ProductName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ProductName");
+                OnProductNameChanged();
+            }
+        }
+        private global::System.String _ProductName;
+        partial void OnProductNameChanging(global::System.String value);
+        partial void OnProductNameChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SupplierID
+        {
+            get
+            {
+                return _SupplierID;
+            }
+            set
+            {
+                OnSupplierIDChanging(value);
+                ReportPropertyChanging("SupplierID");
+                _SupplierID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SupplierID");
+                OnSupplierIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SupplierID;
+        partial void OnSupplierIDChanging(Nullable<global::System.Int32> value);
+        partial void OnSupplierIDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CategoryID
+        {
+            get
+            {
+                return _CategoryID;
+            }
+            set
+            {
+                OnCategoryIDChanging(value);
+                ReportPropertyChanging("CategoryID");
+                _CategoryID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CategoryID");
+                OnCategoryIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CategoryID;
+        partial void OnCategoryIDChanging(Nullable<global::System.Int32> value);
+        partial void OnCategoryIDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuantityPerUnit
+        {
+            get
+            {
+                return _QuantityPerUnit;
+            }
+            set
+            {
+                OnQuantityPerUnitChanging(value);
+                ReportPropertyChanging("QuantityPerUnit");
+                _QuantityPerUnit = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuantityPerUnit");
+                OnQuantityPerUnitChanged();
+            }
+        }
+        private global::System.String _QuantityPerUnit;
+        partial void OnQuantityPerUnitChanging(global::System.String value);
+        partial void OnQuantityPerUnitChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> UnitPrice
+        {
+            get
+            {
+                return _UnitPrice;
+            }
+            set
+            {
+                OnUnitPriceChanging(value);
+                ReportPropertyChanging("UnitPrice");
+                _UnitPrice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UnitPrice");
+                OnUnitPriceChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _UnitPrice;
+        partial void OnUnitPriceChanging(Nullable<global::System.Decimal> value);
+        partial void OnUnitPriceChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> UnitsInStock
+        {
+            get
+            {
+                return _UnitsInStock;
+            }
+            set
+            {
+                OnUnitsInStockChanging(value);
+                ReportPropertyChanging("UnitsInStock");
+                _UnitsInStock = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UnitsInStock");
+                OnUnitsInStockChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _UnitsInStock;
+        partial void OnUnitsInStockChanging(Nullable<global::System.Int16> value);
+        partial void OnUnitsInStockChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> UnitsOnOrder
+        {
+            get
+            {
+                return _UnitsOnOrder;
+            }
+            set
+            {
+                OnUnitsOnOrderChanging(value);
+                ReportPropertyChanging("UnitsOnOrder");
+                _UnitsOnOrder = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UnitsOnOrder");
+                OnUnitsOnOrderChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _UnitsOnOrder;
+        partial void OnUnitsOnOrderChanging(Nullable<global::System.Int16> value);
+        partial void OnUnitsOnOrderChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> ReorderLevel
+        {
+            get
+            {
+                return _ReorderLevel;
+            }
+            set
+            {
+                OnReorderLevelChanging(value);
+                ReportPropertyChanging("ReorderLevel");
+                _ReorderLevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ReorderLevel");
+                OnReorderLevelChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _ReorderLevel;
+        partial void OnReorderLevelChanging(Nullable<global::System.Int16> value);
+        partial void OnReorderLevelChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Discontinued
+        {
+            get
+            {
+                return _Discontinued;
+            }
+            set
+            {
+                OnDiscontinuedChanging(value);
+                ReportPropertyChanging("Discontinued");
+                _Discontinued = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Discontinued");
+                OnDiscontinuedChanged();
+            }
+        }
+        private global::System.Boolean _Discontinued;
+        partial void OnDiscontinuedChanging(global::System.Boolean value);
+        partial void OnDiscontinuedChanged();
+
+        #endregion
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("northwindModel", "FK_Products_Categories", "Category")]
+        public Category Categories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("northwindModel.FK_Products_Categories", "Category").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("northwindModel.FK_Products_Categories", "Category").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Category> CategoriesReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("northwindModel.FK_Products_Categories", "Category");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("northwindModel.FK_Products_Categories", "Category", value);
+                }
+            }
+        }
+
+        #endregion
     }
 
     #endregion
