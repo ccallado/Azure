@@ -492,6 +492,7 @@ Todo se pierde si no se guarda en sesión o variables de aplicación o Route.
 Cuando la información va y viene del cliente al servidor mantiene la información porque está en el HTML, a parte del ViewState.  
 
 Al trabajar en web por rendimiento no se suele utilizar el metodo estandar. Cuantas menos cosas creemos en memoria mejor. Para no crear todas las tablas del dataset usaremos el otro método el de Obtener tabla. El creará la tabla y me la dará, no tendré que instanciar un dataset para pasarselo al otro método Llenar tabla. Revisar el código de RadioButton3_CheckedChanged y DropDownList3_SelectedIndexChanged del formulario Datos1.aspx.cs para ver la optimización de código.  
+![Imagen 18](Imagenes/CursoAzureImg18.png)
 
 Ahora vamos a conectar a través de Entity.
 Limitaciones la estructura es la misma de la tabla o un valor.
@@ -506,3 +507,6 @@ Una coleccion, una cadena, un array, etc...
 
 Entity es un formato que evoluciona de dataset, No hay un dataset en memoria, sino un objeto de contexto **objectContext** que permitirá mantener en memoria los datos solicitados.  
 En vez de usar tablas y registros utiliza conjuntos de entidades y entidades. Donde una entidad representará la extructura de unos datos de origen y los conjuntos de entidades que serán las colecciones de instancias creadas de esos datos.  
+El entity data model me permite crearme el modelo y me genera la base de datos desde mi modelo. También podemos tomar una base de datos ya creadas.  
+Marcar el pincho Poner en prlural o en singular los nombres de objeto generados. Conjunto en plural, elemento simple en singular.  
+![Imagen 19](Imagenes/CursoAzureImg19.png)
