@@ -462,11 +462,11 @@ Tener en cuenta si es postbak o carga para rellenar controles al inicio.
 ##Datos
 Usaremos el control Multiview 
 ![Imagen 5](Imagenes/CursoAzureImg05.png)
-Por defecto no pone visible ninguna view.
-La propiedad **ActiveViewIndex** no dice o nos permite poner la vista activa indicandole el índice.
-Hay un méto SetActiveView que nos permi y nos pide el nombre de la vista.
-En el directorio App_Data es donde van a estar los ficheros de datos.
-En . Net hay carpertas especiales ASP.NET (Bin, App_Code, App_GlobalResources, App_LocalResource, App_Data, etc...)
+Por defecto no pone visible ninguna view.  
+La propiedad **ActiveViewIndex** no dice o nos permite poner la vista activa indicandole el **índice de la vista**.  
+Hay un método **SetActiveView** que nos permite poner la vista activa y nos pide el **nombre de la vista**.  
+En el directorio **App_Data** es donde van a estar los ficheros de datos.
+En .Net hay carpertas especiales ASP.NET (**Bin, App_Code, App_GlobalResources, App_LocalResource, App_Data**, etc...)
 Filtros posibles para filtrar un dataset, Control, Cookie, Form, Profile dato de cuando uso membership que se almacena en el usuario en una base de datos, QueryString, Sesion, Route).
 En ASP.NET solo hay una copia de la base de datos ya que no hay un directorio bin.  
 Entorno ADO conectado es de solo lectura (Pregunta de examen).  
@@ -485,3 +485,24 @@ Dos métodos para bajar información desde la base de datos:
 Cuando se instancia un DataSet se instancian automáticamente todas las tablas que tiene.  
 Los TableAdapters no guardan datos, son meros intermediarios (Pregunta de examen).  
 Cuando enlazamos cualquier control a través de la propiedad **DataSource** tenemos que asegurarnos de utilizar el método **DataBind** de ese control. Este método se encarga de forzar la petición y crear el HTML.  
+ForeingKey.- Cada dato de producto tiene que tener una categoría que debe existir en la tabla categorías. ForeingKey 1 a varios.  
+Relación.- no es necesario cargar la tabla categorías. Relación 0 o 1 a varios.  
+
+Todo se pierde si no se guarda en sesión o variables de aplicación o Route.
+Cuando la información va y viene del cliente al servidor mantiene la información porque está en el HTML, a parte del ViewState.  
+
+Al trabajar en web por rendimiento no se suele utilizar el metodo estandar. Cuantas menos cosas creemos en memoria mejor. Para no crear todas las tablas del dataset usaremos el otro método el de Obtener tabla. El creará la tabla y me la dará, no tendré que instanciar un dataset para pasarselo al otro método Llenar tabla. Revisar el código de RadioButton3_CheckedChanged y DropDownList3_SelectedIndexChanged del formulario Datos1.aspx.cs para ver la optimización de código.  
+
+Ahora vamos a conectar a través de Entity.
+Limitaciones la estructura es la misma de la tabla o un valor.
+Con **LINQ** (Language INtergrated Query) Consultas integradas en el lenguaje. Es un sistema de consulta para atacar a origenes de datos.  
+* Linq to objects
+Una coleccion, una cadena, un array, etc...
+* Linq to ADO.Net
+* * Datasets.- Creo un dataset 
+* * SQL (obsoleto por ser solo para MSSQL)
+* * Entity,  Atacar a un modelo de datos de Entity y entity accede a cualquier servidor de base de datos, (no Access)
+* Linq to XML. Cadenas o ficheros xml.
+
+Entity es un formato que evoluciona de dataset, No hay un dataset en memoria, sino un objeto de contexto **objectContext** que permitirá mantener en memoria los datos solicitados.  
+En vez de usar tablas y registros utiliza conjuntos de entidades y entidades. Donde una entidad representará la extructura de unos datos de origen y los conjuntos de entidades que serán las colecciones de instancias creadas de esos datos.  
