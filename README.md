@@ -469,8 +469,68 @@ En el directorio **App_Data** es donde van a estar los ficheros de datos.
 En .Net hay carpertas especiales ASP.NET (**Bin, App_Code, App_GlobalResources, App_LocalResource, App_Data**, etc...)
 Filtros posibles para filtrar un dataset, Control, Cookie, Form, Profile dato de cuando uso membership que se almacena en el usuario en una base de datos, QueryString, Sesion, Route).
 En ASP.NET solo hay una copia de la base de datos ya que no hay un directorio bin.  
-Entorno ADO conectado es de solo lectura (Pregunta de examen).  
-Entorno ADO desconectado 
+###Entorno ADO conectado
+Es de solo lectura (Pregunta de examen).  
+**Conexión**.
+
+Propiedades:  
+* **ConnectionString**.- Cadena de conexión.  
+* **State**.- es una enumeración, hay 6 posibles estados, 4 de ellos falsos (no se pueden obtener) y (**open** y **close**). 
+
+**Métodos**:
+* **Open**
+* **Close**
+
+**Comando** con parámetros
+ExecuteNonQyery(), ExcecuteScalar, ExecuteReader, ExecuteXMLReader.
+
+Tipos de conexiones:  
+* **OdbcConnection** System.Data.OdbcConnection.- La mayoría, Excel, etc...
+* **OledbConnection** System.Data.OledbConnection.- Access, etc...
+* **SqlConnection** System.Data.SqlClient.- SQLServer, SQLExpress
+
+Propiedades:  
+* **Connection**.- La conexión, no la cadena.
+* **CommandType**.- Tipo de conexión tres posibles valores.
+	* **StoredProcedure**.- si vamos a lanzar un procedimiento almacenado.
+	* **TableDirect**.- solo válido para ciertos origenes de datos, e indica que le daremos el nombre de una tabla directamente.
+	* **Text**.- valor por defecto, que indica que vamos a dar una sentencia o consulta de TransatSQL.
+* **CommandText**.- que depende de CommandType (nombre del procedimiento almacenado, o nombre de la tabla, o la sentencia que quiero ejecutar).
+* **Parameters**.- Colección que va a tener los parametros que utilizará ese comando. 
+* **Transaction**.- La transacción se crea en la conexión, pero se asigna a los comandos para que esté incluido en la transacción.
+
+Métodos:  
+* **ExecuteNonQyery()**.- Ejecuta el comando y como resultado no obtiene nada o como mucho un valor númerico, ese valor númerico se corresponde con el RowsAffected, serán los valores que devuelven los **Insert**, **Delete** o **Update**.
+* **ExcecuteScalar()**.- Para consultas que devuelven un solo dato. De cualquier tipo porque es un **Object**.
+* **ExecuteReader()**.- Para consultas que devuelven registros.
+* **ExecuteXMLReader()**.- Solo existe en SqlClient. En vez de devolver registros devuelve un xml con los datos en forma de nodos.
+
+Pregunta de examen. En un DataReader no existe ninguna propiedad que indique la cantidad de registros que hay. Solo existe una propiedad llamada **HasRows** booleana que indica si hay o no.
+Un **DataReader** es un conjunto de registros en el Servidor. Es un pun tero a los datos en el Servidor. El Servidor crea una tabla, lista, etc. y me manda un puntero a esa lista en el cliente.  
+
+Si utilizo parámetros puedo indicar el tipo de dato y evito conflictos con las fechas (sobre todo).  
+`
+                //Formato SIN parámetros
+                //En este caso el error daría en el Servidor de Base de datos
+                //cmd.CommandText = "SELECT * FROM Products WHERE CategoryID = " +
+                //    DropDownList5.SelectedValue;
+
+                //Formato CON parámetros SIN tipo
+                //Se realiza la petición en el servidor
+                cmd.CommandText = "SELECT * FROM Products WHERE CategoryID = @Cat";
+                cmd.Parameters.AddWithValue("@Cat", DropDownList5.SelectedValue);
+
+                //Formato CON parámetros CON tipo
+                //El error lo daría aquí y no llegaría a abrirse la conexión
+                cmd.CommandText = "SELECT * FROM Products WHERE CategoryID = @Cat";
+                cmd.Parameters.Add("@Cat", System.Data.SqlDbType.Int);
+                cmd.Parameters["@Cat"].Value = int.Parse(DropDownList5.SelectedValue);
+                //o sobre una variable
+                //var p = cmd.Parameters.Add("@Cat", System.Data.SqlDbType.Int);
+                //p.Value = int.Parse(DropDownList5.SelectedValue);
+`
+
+###Entorno ADO desconectado 
 **Datasets** son objetos que contendrán tablas basadas en datos de una base de datos.  
 El dataset puede ser una **tabla** completa, campos seleccionados o join de varias tablas.  
 Habrá objetos **TableAdapter**, abrá uno por tabla, este tiene una **consulta principal** que indicará la estructura de la tabla.  
@@ -520,7 +580,7 @@ select proyección  `
 Detalle select  
 `select proyección  `  
 
-Todo lo que se ponga debe poderse transformar en transacsql por lo que int.parse no valdría.  
+Todo lo que se ponga debe poderse transformar en Transact-SQL por lo que int.parse no valdría.  
 Tipos Anónimos.- En LINQ aparece la incialización y puedo con unas llaves poner el valor a cada una de las propiedades de la clase.  
 `CategoriaBase cb2 = new CategoriaBase() { ID = 3, Nombre = "Klb" };`  
 
@@ -551,3 +611,11 @@ Cuando dentro de una página hay controles de validación varios el control de v
 Para poder separar las validaciones de los controles en diferentes grupos usaremos la propiedad **ValidationGroup**.  
 **¿Que controles hay meter dentro de cada grupo?**  
 Los controles de validación los controles validados y los controles que fuerzan la validación.  
+
+Como acceder a la cadena de conexión del web.config
+Hay que acceder a un objeto que se llama **System.Configuration.ConfigurationManager** y ciertas secciones que se usan con mucha frecuencia las expone como diccionarios, (ConnectionStrings, ...).  La configuración del web.config puede heredar valores previos, definidos en un web.config superior a nivel de IIS, a nivel de máquina o nivel de políticas empresariales.  
+`            cnn.ConnectionString = System.Configuration
+                                   .ConfigurationManager
+                                   .ConnectionStrings["NWConnectionString"]
+                                   .ConnectionString;
+`

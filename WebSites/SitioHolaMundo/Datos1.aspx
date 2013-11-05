@@ -157,9 +157,15 @@
                 ValidationGroup="G2" />
 
         </asp:View>
-        <asp:View ID="ViewAdo" runat="server">
-            <b>Ado Conectado</b>
+        <asp:View ID="ViewAdoConectado" runat="server">
+            <b>Datos Ado Conectado</b>
             <br />
+            <asp:DropDownList ID="DropDownList5" runat="server" AutoPostBack="True" 
+                onselectedindexchanged="DropDownList5_SelectedIndexChanged">
+            </asp:DropDownList>
+            <asp:GridView ID="GridView6" runat="server">
+            </asp:GridView>
+            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
         </asp:View>
     </asp:MultiView>
 </asp:Content>

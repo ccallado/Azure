@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClasesSql = System.Data.SqlClient;
 
 public partial class Datos1 : System.Web.UI.Page
 {
@@ -14,16 +15,16 @@ public partial class Datos1 : System.Web.UI.Page
     }
     protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
     {
-        MultiView1.SetActiveView(ViewAccess); 
+        MultiView1.SetActiveView(ViewAccess);
     }
     protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
     {
-        MultiView1.SetActiveView(ViewSql); 
+        MultiView1.SetActiveView(ViewSql);
     }
     protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
     {
         MultiView1.SetActiveView(ViewDataset);
-        
+
         //Este no el modo normal de utilizarlo, porque en cuanto instancio
         //un DataSet automáticamente me instancia todas las tablas de las que está
         //compuesto y ocupa recursos en exceso.
@@ -31,7 +32,7 @@ public partial class Datos1 : System.Web.UI.Page
         //Instancia del TableAdapter
         NWDataSetTableAdapters.CategoriesTableAdapter taCat =
             new NWDataSetTableAdapters.CategoriesTableAdapter();
-        
+
         //Usando Dataset
         ////Instancia del DataSet
         //NWDataSet ds = new NWDataSet();
@@ -40,7 +41,7 @@ public partial class Datos1 : System.Web.UI.Page
 
         ////Enlazamos el DropDownList a la tabla.
         //DropDownList3.DataSource = ds.Categories;
-        
+
         //Usando Llenar pero SIN Dataset
         //NWDataSet.CategoriesDataTable tCat = new NWDataSet.CategoriesDataTable();
         //taCat.LlenarTabla(taCat);
@@ -71,13 +72,13 @@ public partial class Datos1 : System.Web.UI.Page
             taProd = new NWDataSetTableAdapters.ProductsTableAdapter();
 
             //Otro método para no cargar todas las tablas
-            GridView3.DataSource=taProd.ObtenerTablaPorCategoryID(int.Parse(DropDownList3.SelectedValue));
+            GridView3.DataSource = taProd.ObtenerTablaPorCategoryID(int.Parse(DropDownList3.SelectedValue));
             GridView3.DataBind();
         }
     }
     protected void RadioButton4_CheckedChanged(object sender, EventArgs e)
     {
-        MultiView1.SetActiveView(ViewEntity); 
+        MultiView1.SetActiveView(ViewEntity);
 
         //Varios métodos
 
@@ -106,7 +107,7 @@ public partial class Datos1 : System.Web.UI.Page
 
         //Sólo los campos que necesitamos con consulta LINQ en tipo anónimo...
         var categorias = from cat in contexto.Categories
-                         select new 
+                         select new
                          {
                              cat.CategoryID,
                              cat.CategoryName
@@ -137,7 +138,7 @@ public partial class Datos1 : System.Web.UI.Page
             //Usando using no tiene nada que ver los de cabecera.
             //Saliendo del using se destruyen los datos.
             //Llamando al metodo .Dispose()
-            using(northwindModel.northwindEntities contexto = 
+            using (northwindModel.northwindEntities contexto =
                 new northwindModel.northwindEntities())
             {
                 int cat = int.Parse(DropDownList4.SelectedValue);
@@ -161,7 +162,7 @@ public partial class Datos1 : System.Web.UI.Page
     }
     protected void RadioButton5_CheckedChanged(object sender, EventArgs e)
     {
-        MultiView1.SetActiveView(ViewValidaciones); 
+        MultiView1.SetActiveView(ViewValidaciones);
 
     }
     protected void Button1_Click(object sender, EventArgs e)
@@ -200,7 +201,7 @@ public partial class Datos1 : System.Web.UI.Page
                 GridView5.DataBind();
                 //GridView5.Visible = false;
             }
- 
+
         }
 
     }
@@ -215,7 +216,7 @@ public partial class Datos1 : System.Web.UI.Page
         {
             int prod = int.Parse(TextBox2.Text);
             northwindModel.Product Producto = contexto.Products
-                                              .Where (p => p.ProductID == prod)
+                                              .Where(p => p.ProductID == prod)
                                               .SingleOrDefault();
 
             if (Producto != null)
@@ -232,6 +233,96 @@ public partial class Datos1 : System.Web.UI.Page
     }
     protected void RadioButton6_CheckedChanged(object sender, EventArgs e)
     {
+        MultiView1.SetActiveView(ViewAdoConectado);
+
+        GridView6.DataSource = null;
+        using (ClasesSql.SqlConnection cnn = new ClasesSql.SqlConnection())
+        {
+            cnn.ConnectionString = System.Configuration
+                                   .ConfigurationManager
+                                   .ConnectionStrings["NWConnectionString"]
+                                   .ConnectionString;
+            ClasesSql.SqlCommand cmd;
+
+            //Así lo instancio y asigno la conexión por separado
+            //cmd = new ClasesSql.SqlCommand();
+            //cmd.Connection = cnn;
+
+            //Esto crea el comando y se autoasigna la conexión
+            cmd = cnn.CreateCommand();
+
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "SELECT CategoryID, CategoryName FROM Categories";
+
+            //Abrimos la conexión
+            cnn.Open();
+
+            //variable para guardar los datos ExecuteReader
+            //var datos = cmd.ExecuteReader();
+
+            //No podemos cerrar la conexión hasta que no hagamos el databind
+            //que es cuando se va a recorrer el contenido
+            DropDownList5.DataSource = cmd.ExecuteReader();
+            DropDownList5.DataTextField = "CategoryName";
+            DropDownList5.DataValueField = "CategoryID";
+            DropDownList5.DataBind();
+        }
+        DropDownList5_SelectedIndexChanged(null, null);
+    }
+    protected void DropDownList5_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //Cuando cambie modificaremos el contenido de la grid
+        //Cuando no hay ninguno seleccionado valor -1
+        if (DropDownList5.SelectedIndex != -1)
+        {
+            using (ClasesSql.SqlConnection cnn = new ClasesSql.SqlConnection())
+            {
+                cnn.ConnectionString = System.Configuration
+                                       .ConfigurationManager
+                                       .ConnectionStrings["NWConnectionString"]
+                                       .ConnectionString;
+                ClasesSql.SqlCommand cmd;
+                //Esto crea el comando y se autoasigna la conexión
+                cmd = cnn.CreateCommand();
+
+                //Formato SIN parámetros
+                //En este caso el error daría en el Servidor de Base de datos
+                //cmd.CommandText = "SELECT * FROM Products WHERE CategoryID = " +
+                //    DropDownList5.SelectedValue;
+
+                //Formato CON parámetros SIN tipo
+                //Se realiza la petición en el servidor
+                //cmd.CommandText = "SELECT * FROM Products WHERE CategoryID = @Cat";
+                //cmd.Parameters.AddWithValue("@Cat", DropDownList5.SelectedValue);
+
+                //Formato CON parámetros CON tipo
+                //El error lo daría aquí y no llegaría a abrirse la conexión
+                cmd.CommandText = "SELECT * FROM Products WHERE CategoryID = @Cat";
+                cmd.Parameters.Add("@Cat", System.Data.SqlDbType.Int);
+                cmd.Parameters["@Cat"].Value = int.Parse(DropDownList5.SelectedValue);
+                //o sobre una variable
+                //var p = cmd.Parameters.Add("@Cat", System.Data.SqlDbType.Int);
+                //p.Value = int.Parse(DropDownList5.SelectedValue);
+
+                //Abrimos la conexión
+                cnn.Open();
+
+                //Ejecutamos sobre una variable auxiliar
+                var prods = cmd.ExecuteReader();
+                if (prods.HasRows)
+                {
+                    Label3.Text = "";
+                    GridView6.DataSource = prods;
+                }
+                else
+                {
+                    Label3.Text = "No hay productos de esa categoría.";
+                    GridView6.DataSource = null;
+                }
+
+                GridView6.DataBind();
+            }
+        }
 
     }
 }
