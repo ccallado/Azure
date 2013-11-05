@@ -14,6 +14,8 @@
         AutoPostBack="True" oncheckedchanged="RadioButton4_CheckedChanged" />
     <asp:RadioButton ID="RadioButton5" runat="server" GroupName="G1" Text="Validaciones" 
         AutoPostBack="True" oncheckedchanged="RadioButton5_CheckedChanged" />
+    <asp:RadioButton ID="RadioButton6" runat="server" GroupName="G1" Text="Ado Conectado" 
+        AutoPostBack="True" oncheckedchanged="RadioButton6_CheckedChanged" />
     <br />
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="ViewAccess" runat="server">
@@ -111,21 +113,53 @@
         <asp:View ID="ViewValidaciones" runat="server">
             <b>Datos Validaciones</b>
             <br />
+            <div style="display: inline-block; width: 250px">
             Categoría
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" ValidationGroup="G1"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ErrorMessage="ID de Categoría obligatorio" ControlToValidate="TextBox1" 
-                ForeColor="Red" ToolTip="Campo obligatorio">*</asp:RequiredFieldValidator>
+                ForeColor="Blue" ToolTip="Campo obligatorio" Display="Dynamic" 
+                    ValidationGroup="G1">*</asp:RequiredFieldValidator>
             <asp:RangeValidator ID="RangeValidator1" runat="server" 
                 ErrorMessage="El ID debe estar entre 1 y 1000" 
                 ControlToValidate="TextBox1" ForeColor="Red" MaximumValue="1000" 
-                MinimumValue="1" ToolTip="Valor incorrecto" Type="Integer">*</asp:RangeValidator>
-            <asp:Button ID="Button1" runat="server" Text="Cargar" />
+                MinimumValue="1" ToolTip="Valor incorrecto" Type="Integer" Display="Dynamic" 
+                    ValidationGroup="G1">*</asp:RangeValidator>
+            </div>
+            <asp:Button ID="Button1" runat="server" Text="Cargar" onclick="Button1_Click" 
+                ValidationGroup="G1" />
             <br />
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <asp:GridView ID="GridView5" runat="server">
             </asp:GridView>
-            <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+            <br />
+            <br />
+            <div style="display: inline-block; width: 250px">
+            Producto
+            <asp:TextBox ID="TextBox2" runat="server" ValidationGroup="G2"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                ErrorMessage="ID de Producto obligatorio" ControlToValidate="TextBox2" 
+                ForeColor="Blue" ToolTip="Campo obligatorio" Display="Dynamic" 
+                    ValidationGroup="G2">*</asp:RequiredFieldValidator>
+            <asp:RangeValidator ID="RangeValidator2" runat="server" 
+                ErrorMessage="El ID debe estar entre 1 y 1000" 
+                ControlToValidate="TextBox2" ForeColor="Red" MaximumValue="1000" 
+                MinimumValue="1" ToolTip="Valor incorrecto" Type="Integer" Display="Dynamic" 
+                    ValidationGroup="G2">*</asp:RangeValidator>
+            </div>
+            <asp:Button ID="Button2" runat="server" Text="Cargar" onclick="Button2_Click" 
+                ValidationGroup="G2" />
+            <br />
+            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
+                ValidationGroup="G1" />
+            <asp:ValidationSummary ID="ValidationSummary2" runat="server" 
+                ValidationGroup="G2" />
+
+        </asp:View>
+        <asp:View ID="ViewAdo" runat="server">
+            <b>Ado Conectado</b>
+            <br />
         </asp:View>
     </asp:MultiView>
 </asp:Content>

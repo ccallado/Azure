@@ -9,7 +9,8 @@ public partial class Datos1 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Label1.Text = "";
+        Label2.Text = "";
     }
     protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
     {
@@ -161,6 +162,76 @@ public partial class Datos1 : System.Web.UI.Page
     protected void RadioButton5_CheckedChanged(object sender, EventArgs e)
     {
         MultiView1.SetActiveView(ViewValidaciones); 
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        TextBox2.Text = "";
+
+        using (northwindModel.northwindEntities contexto =
+            new northwindModel.northwindEntities())
+        {
+            int cat = int.Parse(TextBox1.Text);
+            string nombre;
+
+            //nombre = (from c in contexto.Categories
+            //         where c.CategoryID == cat
+            //         select c.CategoryName).SingleOrDefault();
+
+            //Con métodos de extensión
+            nombre = contexto.Categories
+                     .Where(c => c.CategoryID == cat)
+                     .Select(c => c.CategoryName)
+                     .SingleOrDefault();
+
+            if (nombre != null)
+            {
+                Label1.Text = "Categoría: <i>" + nombre + "</i>";
+                var productos = contexto.Products.Where(p => p.CategoryID == cat);
+                Label1.Text += " (Productos: " + productos.Count() + ")";
+                GridView5.DataSource = productos;
+                GridView5.DataBind();
+                //GridView5.Visible = true;
+            }
+            else
+            {
+                Label1.Text = "Categoría NO encontrada";
+                GridView5.DataSource = null;
+                GridView5.DataBind();
+                //GridView5.Visible = false;
+            }
+ 
+        }
+
+    }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        TextBox1.Text = "";
+        GridView5.DataSource = null;
+        GridView5.DataBind();
+
+        using (northwindModel.northwindEntities contexto =
+            new northwindModel.northwindEntities())
+        {
+            int prod = int.Parse(TextBox2.Text);
+            northwindModel.Product Producto = contexto.Products
+                                              .Where (p => p.ProductID == prod)
+                                              .SingleOrDefault();
+
+            if (Producto != null)
+            {
+                Label2.Text = "<i>" + Producto.ProductName +
+                              "</i><br />Stock: " + Producto.UnitsInStock +
+                              "<br />Precio: " + (Producto.UnitPrice.HasValue ? Producto.UnitPrice.Value.ToString("c") : "0");
+            }
+            else
+            {
+                Label2.Text = "Producto NO encontrado";
+            }
+        }
+    }
+    protected void RadioButton6_CheckedChanged(object sender, EventArgs e)
+    {
 
     }
 }

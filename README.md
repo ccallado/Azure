@@ -542,3 +542,12 @@ Linq tiene ciertos métodos que tienen un icono con flechita que son métodos de
 `                //No puedo usar p.CategoryID == int.Parse(DropDownList4.SelectedValue)
                 //el int.Parse lo hago fuera de LINQ en una variable y ya funciona.`  
 **Expresión Lamda** son ......... mirarlo en manual del curso anterior.  
+Cuando hago una select de linq me da un IEnumerable, debo asegurarme que queda solo un registro, puedo utilizar .First .Last o .Single
+si no devuelven un registro dan error, existe una variación que no da error .FirstOrDefault, .LastOrDefault, .SingleOrDefault.  
+`Label1.Text += from c in contexto.Categories
+                           where c.CategoryID == cat
+                           select c.CategoryName;`  
+Cuando dentro de una página hay controles de validación varios el control de validación de arriba me impide que se pruebe lo de abajo.  
+Para poder separar las validaciones de los controles en diferentes grupos usaremos la propiedad **ValidationGroup**.  
+**¿Que controles hay meter dentro de cada grupo?**  
+Los controles de validación los controles validados y los controles que fuerzan la validación.  
