@@ -619,3 +619,11 @@ Hay que acceder a un objeto que se llama **System.Configuration.ConfigurationMan
                                    .ConnectionStrings["NWConnectionString"]
                                    .ConnectionString;
 `
+Para paginar en un gridview existe una propiedad AllowPaging a true debemos rellenar tres propiedades, PagerSettings (arriba, abajo, texto << < > >> imagenes para esto, número de páginas en la barra, etc...) y PagerStyle (Colores, Alineación, bordes, etc...) y PageSize (número de registros que queremos ver en la página.  
+Para paginar no funciona con EntityFrameword, ya que al pedir la siguiente página no tendría datos por haberse perdido el objeto. Deberíamos haber utilizado los eventos PageIndexChanged y PageIndexChanging.  
+Crearemos origen de datos al GridView utilizando el asistente.  
+Al GridView tiene una propiedad AutoGenerateSelectButton a true, que añade una columna al principio con un botón de seleccionar.  
+Cada vez que pinchamos esta selección nos lanza un evento, este es de los pocos objetos que tiene muchos eventos.  
+Para contar columnas comienza por 0 y la columna seleccionar cuenta.  
+La propiedad del grid SelectedRow tiene el contenido completo de fila seleccionada en una colección con `GridView1.SelectedRow.Cells[2].Text` selecionaremos una celda concreta.  
+Cada vez que apliquemos un filtro deberíamos inicializar la fila seleccionada con `GridView1.SelectedIndex = -1;`.  

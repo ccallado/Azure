@@ -10,6 +10,9 @@
     <siteMapNode url="~/Validaciones.aspx" title="Validaciones"  description="Controles de validación" />
     <siteMapNode url="~/Datos.aspx" title="Datos"  description="Página principal de datos">
       <siteMapNode url="~/Datos1.aspx" title="Datos 1"  description="DataSources" />
+      <siteMapNode url="~/Datos2.aspx" title="Datos 2"  description="Entity con selección">
+        <siteMapNode url="~/Datos2b.aspx" title="Datos 2b"  description="Entity con modificación" />
+      </siteMapNode>
     </siteMapNode>
   </siteMapNode>
 </siteMap>

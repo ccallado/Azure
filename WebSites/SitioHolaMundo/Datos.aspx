@@ -5,6 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:Button ID="Button1" runat="server" Text="Datos 1" 
         PostBackUrl="~/Datos1.aspx" />
-
+    <br />
+    <asp:Button ID="Button2" runat="server" Text="Datos 2" 
+        PostBackUrl="~/Datos2.aspx" />
 </asp:Content>
 
