@@ -42,7 +42,7 @@ El servidor manda el .aspx.cs al Framework, los resultados serán para los contr
 `<asp:TextBox .......`  
 
 
-![Imagen 1](Imagenes/CursoAzureImg01.png)
+![Imagen 1](Imagenes/CursoAzureImg01.png)  
 Cada vez que compilamos un proyecto crea un **Ensamblado**  
 
 #####Solución
@@ -509,8 +509,7 @@ Pregunta de examen. En un DataReader no existe ninguna propiedad que indique la 
 Un **DataReader** es un conjunto de registros en el Servidor. Es un pun tero a los datos en el Servidor. El Servidor crea una tabla, lista, etc. y me manda un puntero a esa lista en el cliente.  
 
 Si utilizo parámetros puedo indicar el tipo de dato y evito conflictos con las fechas (sobre todo).  
-`
-                //Formato SIN parámetros
+`                //Formato SIN parámetros
                 //En este caso el error daría en el Servidor de Base de datos
                 //cmd.CommandText = "SELECT * FROM Products WHERE CategoryID = " +
                 //    DropDownList5.SelectedValue;
@@ -573,12 +572,14 @@ Marcar el pincho Poner en plural o en singular los nombres de objeto generados. 
 Linq nos permite tipos anónimos que me permite definir la estructura diferente a la tabla, como si fuese una vista.  
 En .NET podemos definir una variable sin deteminar el tipo que tiene, pero el compilador según los datos que le estoy pasando la define de un tipo o de otro.  
 Sintaxis LINQ  
-`from alias in contenedor  
-[where ......]  
-[order by .......]  
-select proyección  `  
+
+`	from alias in contenedor  
+	[where ......]  
+	[order by .......]  
+	select proyección  `  
+
 Detalle select  
-`select proyección  `  
+`	select proyección  `  
 
 Todo lo que se ponga debe poderse transformar en Transact-SQL por lo que int.parse no valdría.  
 Tipos Anónimos.- En LINQ aparece la incialización y puedo con unas llaves poner el valor a cada una de las propiedades de la clase.  
@@ -627,3 +628,9 @@ Cada vez que pinchamos esta selección nos lanza un evento, este es de los pocos
 Para contar columnas comienza por 0 y la columna seleccionar cuenta.  
 La propiedad del grid SelectedRow tiene el contenido completo de fila seleccionada en una colección con `GridView1.SelectedRow.Cells[2].Text` selecionaremos una celda concreta.  
 Cada vez que apliquemos un filtro deberíamos inicializar la fila seleccionada con `GridView1.SelectedIndex = -1;`.  
+EntityFilterType.- Las entidades son clases a diferencia de dataset que son registros. En .Net podemos hacer herencia de otras entidades. Ejemplo Cliente y Empleado, para campos iguales en los dos podemos heredar de una clase superior Persona y el resto de los campos se los añado a cada clase hija. Podría filtrar por Persona, Cliente o Empleado. Todo perteneciente a la misma tabla en la base de datos.  
+![Imagen 20](Imagenes/CursoAzureImg20.png)  
+Si vemos el EntityDataSource en la propiedad Select encontraremos algo parecido a `it.[OrderID], it.[CustomerID], it.[EmployeeID], it.[OrderDate], it.[RequiredDate], it.[ShippedDate]`  
+Por cada dato que aplique el formato {0:d} el dato 0 lo ponga en formato d fecha corta.  
+Para poder paginar debemos utilizar la propiedad AutoGenerateOrderby a true o la propiedad Orderby a algo parecido a it.[OrderID]  
+A la hora de crear el parametro en el PfopertyName del parametro, dejo el selectedValue que traia por defecto. La propiedad DataValueFiled del combo en el grid se llama DataKeyNames el campo o campos, separados por comas, que queremos usar como clave. Si pongo OrderID podría haber usado el SelectedValue en lugar de `PropertyName="SelectedRow.Cells[1].Text"`  
