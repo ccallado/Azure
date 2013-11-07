@@ -634,3 +634,12 @@ Si vemos el EntityDataSource en la propiedad Select encontraremos algo parecido 
 Por cada dato que aplique el formato {0:d} el dato 0 lo ponga en formato d fecha corta.  
 Para poder paginar debemos utilizar la propiedad AutoGenerateOrderby a true o la propiedad Orderby a algo parecido a it.[OrderID]  
 A la hora de crear el parametro en el PfopertyName del parametro, dejo el selectedValue que traia por defecto. La propiedad DataValueFiled del combo en el grid se llama DataKeyNames el campo o campos, separados por comas, que queremos usar como clave. Si pongo OrderID podría haber usado el SelectedValue en lugar de `PropertyName="SelectedRow.Cells[1].Text"`  
+Al hacerlo en la entity la actualización lo hace directamente sobre la base de datos. Si hubiesemos usado Datasource tendríamos que decirle por programa que actualice la base de datos.  
+En las columnas puedo indicarle que en edición me aplique el estilo la propiedad es ApplyFormatInEditMode = true.  
+En el evento RowUpdating salta justo antes de actualizar la fila del grid.  
+Los eventos de un GridView son multiples el tipo de evento es un GridViewUpdateEvent tiene multiples propiedades.  
+* **RowIndex**.-  el número de la fila que estamos editando.
+* **Keys**.- 
+* **OldValues**.- Es un diccionario que permite acceder por posición o por nombre de campo a los valores originales, antes de la edición. Los contenidos son Objects del tipo System.Collections.DictionaryEntry. 
+* **NewValues**.- Es un diccionario igual que el otro con los valores actuales, los que quieres poner.  
+* **Cancel**.- Booleana que me permite cancelar la actualización.

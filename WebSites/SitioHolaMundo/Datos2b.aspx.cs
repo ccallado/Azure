@@ -43,4 +43,50 @@ public partial class Datos2b : System.Web.UI.Page
     {
         GridView1.SelectedIndex = -1;
     }
+    protected void GridView3_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        string cad = "";
+
+        ////Hay que especificar el tipo  System.Collections.DictionaryEntry
+        ////Valores antiguos
+        //foreach (System.Collections.DictionaryEntry x in e.OldValues)
+        //    cad += x.Key + "->>" +
+        //           x.Value + " (" +
+        //           x.Value.GetType() +
+        //           ")    ";
+        //cad = "";
+        ////Valores actuales
+        //foreach (System.Collections.DictionaryEntry x in e.NewValues )
+        //    cad += x.Key + "->>" +
+        //           x.Value + " (" +
+        //           x.Value.GetType() +
+        //           ")    ";
+        //cad = "";
+        ////Keys
+        //foreach (System.Collections.DictionaryEntry x in e.Keys )
+        //    cad += x.Key + "->>" +
+        //           x.Value + " (" +
+        //           x.Value.GetType() +
+        //           ")    ";
+        //cad = "";
+
+        //Soluciono el posible problema del precio...
+        //Viene el signo del €uro
+
+        decimal precio;
+        bool precioOk = decimal.TryParse(e.NewValues["UnitPrice"].ToString(), System.Globalization.NumberStyles.Currency , new System.Globalization.CultureInfo("es-ES"), out precio);
+        //bool precioOk = decimal.TryParse(e.NewValues["UnitPrice"].ToString(), System.Globalization.NumberStyles.Currency, System.Globalization.CultureInfo.CurrentCulture, out precio);
+        if (precioOk)
+        {
+            e.NewValues["UnitPrice"] = Server.HtmlEncode(precio.ToString());
+            Single descuento;
+            string dato = e.NewValues["Discount"].ToString().Replace("%", "");
+            if (Single.TryParse(dato, out descuento))
+                e.NewValues["Discount"] = descuento/100;
+            else
+                e.Cancel = true;
+        }
+        else
+            e.Cancel = true;
+    }
 }

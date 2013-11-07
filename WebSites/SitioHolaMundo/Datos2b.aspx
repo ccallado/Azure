@@ -42,7 +42,22 @@
                 QueryStringField="Id" Size="5" Type="String" />
         </WhereParameters>
     </asp:EntityDataSource>
-    <asp:GridView ID="GridView2" runat="server" DataSourceID="EntityDataSource2">
+    <asp:GridView ID="GridView3" runat="server" DataSourceID="EntityDataSource2" 
+        AutoGenerateColumns="False" DataKeyNames="OrderID,ProductID" 
+        onrowupdating="GridView3_RowUpdating">
+        <Columns>
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:BoundField DataField="OrderID" HeaderText="OrderID" ReadOnly="True" 
+                SortExpression="OrderID" />
+            <asp:BoundField DataField="ProductID" HeaderText="ProductID" ReadOnly="True" 
+                SortExpression="ProductID" />
+            <asp:BoundField ApplyFormatInEditMode="True" DataField="UnitPrice" 
+                DataFormatString="{0:c}" HeaderText="UnitPrice" SortExpression="UnitPrice" />
+            <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
+                SortExpression="Quantity" />
+            <asp:BoundField ApplyFormatInEditMode="True" DataField="Discount" 
+                DataFormatString="{0:p}" HeaderText="Discount" SortExpression="Discount" />
+        </Columns>
     </asp:GridView>
     <asp:EntityDataSource ID="EntityDataSource2" runat="server" 
         ConnectionString="name=northwindEntities" 
