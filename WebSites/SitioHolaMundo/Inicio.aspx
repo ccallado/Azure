@@ -22,6 +22,9 @@
     <asp:Button ID="Button6" runat="server" Text="Datos" 
         PostBackUrl="~/Datos.aspx" />
     <br />
+    <asp:Button ID="Button7" runat="server" Text="Ajax" 
+        PostBackUrl="~/Ajax.aspx" />
+    <br />
 
 </asp:Content>
 

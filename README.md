@@ -645,3 +645,13 @@ Los eventos de un GridView son multiples el tipo de evento es un GridViewUpdateE
 * **Cancel**.- Booleana que me permite cancelar la actualización.  
 Evento RowDeleting, se produce justo antes de borrar el registro.  
 Por defecto en EntityFramawork no se chequea concurrencia. Defino la concurrencia por campos. Esto se define en el modelo. En el campo de la tabla la propiedad **Modo de simultaneidad** = Fixed  
+
+##AJAX
+Si queremos que la validación o lo que sea se haga en cliente tenemos que hacerlo en JavaScript.  
+Es un conjunto de controles que generan JavaScript en el cliente para hacer llamadas parciales al servidor.  
+Vamos a hacer peticiones parciales hacemos peticiones no de la página completa sino de partes de ella.  
+Reducimos de esta manera el tráfico con el servidor.  
+Siempre tiene que haber un objeto accesible y solo uno de tipo **ScriptManager**.  
+Este se encargará de añadir todo el JavaScript para los controles usados con Ajax.  
+Luego pondremos 1 o muchos controles UpdatePanel estos serán los contenedores de todo lo que se verá afectado por Ajax.  
+El updatepanel es un contenedor que puede tener varias cosas dentro. Debe tener la etiqueta ContentTemplate. Todo lo que meta dentro de la etiqueta se va a ejecutar via Ajax.  

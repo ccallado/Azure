@@ -14,5 +14,6 @@
         <siteMapNode url="~/Datos2b.aspx" title="Datos 2b"  description="Entity con modificación" />
       </siteMapNode>
     </siteMapNode>
+    <siteMapNode url="~/Ajax.aspx" title="Ajax" />
   </siteMapNode>
 </siteMap>
