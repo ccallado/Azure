@@ -9,6 +9,7 @@ public partial class Datos2b : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Label3.Text = "";
         if (!Page.IsPostBack)
         {
             //Recupero de Request la colección QueryString 
@@ -76,32 +77,50 @@ public partial class Datos2b : System.Web.UI.Page
         //           ")    ";
         //cad = "";
 
-        //Soluciono el posible problema del precio...
+        //Soluciono el posible problema del precio y del descuento...
         //Viene el signo del €uro
 
         decimal precio;
-        bool precioOk = decimal.TryParse(e.NewValues["UnitPrice"].ToString(), System.Globalization.NumberStyles.Currency , new System.Globalization.CultureInfo("es-ES"), out precio);
-        //bool precioOk = decimal.TryParse(e.NewValues["UnitPrice"].ToString(), System.Globalization.NumberStyles.Currency, System.Globalization.CultureInfo.CurrentCulture, out precio);
-        if (precioOk)
+        bool precioOk = decimal.TryParse(e.NewValues["UnitPrice"].ToString(),
+                                         System.Globalization.NumberStyles.Currency,
+                                         System.Globalization.CultureInfo.CurrentCulture,
+                                         out precio);
+        Single descuento;
+        bool descuentoOk;
+        if (e.NewValues["Discount"].ToString().Contains("%"))
         {
-            //e.NewValues["UnitPrice"] = precio;
-            
-            Single descuento;
-            string dato = e.NewValues["Discount"].ToString().Replace("%", "");
-            if (!Single.TryParse(dato, out descuento))
-            //    e.NewValues["Discount"] = descuento/100;
-            //else
-                e.Cancel = true;
+            descuentoOk = Single.TryParse(e.NewValues["Discount"].ToString().Replace("%", ""),
+                                           System.Globalization.NumberStyles.Float,
+                                           System.Globalization.CultureInfo.CurrentCulture,
+                                           out descuento);
+            descuento /= 100;
         }
         else
+            descuentoOk = Single.TryParse(e.NewValues["Discount"].ToString(),
+                                           System.Globalization.NumberStyles.Float,
+                                           System.Globalization.CultureInfo.CurrentCulture,
+                                           out descuento);
+        if (precioOk && descuentoOk)
+        {
+            e.OldValues["UnitPrice"] = decimal.Parse(e.OldValues["UnitPrice"].ToString(),
+                                                     System.Globalization.NumberStyles.Currency);
+            e.OldValues["Discount"] = Single.Parse(e.OldValues["Discount"].ToString().Replace("%", ""));
+            e.NewValues["UnitPrice"] = precio;
+            e.NewValues["Discount"] = descuento;
+        }
+        else
+        {
+            Label3.Text = (!precioOk ? "Precio incorrecto<br />" : "");
+            Label3.Text += (!descuentoOk ? "Descuento incorrecto" : "");
             e.Cancel = true;
+        }
     }
 
     protected void GridView3_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         e.Values["UnitPrice"] = decimal.Parse(e.Values["UnitPrice"].ToString(), System.Globalization.NumberStyles.Currency);
         string d = e.Values["Discount"].ToString().Replace("%", "");
-        e.Values["Discount"] = Single.Parse(d)/100;
+        e.Values["Discount"] = Single.Parse(d) / 100;
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,8 +137,8 @@ public partial class Datos2b : System.Web.UI.Page
             od.OrderID = int.Parse(Label2.Text);
             od.ProductID = int.Parse(TextBox1.Text);
             od.UnitPrice = decimal.Parse(TextBox2.Text);
-            od.Quantity  = short.Parse(TextBox3.Text);
-            od.Discount  = Single.Parse(TextBox4.Text);
+            od.Quantity = short.Parse(TextBox3.Text);
+            od.Discount = Single.Parse(TextBox4.Text);
 
             contexto.Order_Details.AddObject(od);
 
@@ -133,7 +152,7 @@ public partial class Datos2b : System.Web.UI.Page
             //var mio = GridView1.SelectedIndex;
             //GridView1.SelectedIndex = -1;
             //GridView1.SelectedIndex = mio;
-//            GridView1_SelectedIndexChanged(null, null);
+            //            GridView1_SelectedIndexChanged(null, null);
         }
     }
 }

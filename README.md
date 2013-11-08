@@ -653,22 +653,47 @@ Para poder paginar debemos utilizar la propiedad AutoGenerateOrderby a true o la
 A la hora de crear el parametro en el PropertyName del parametro, dejo el selectedValue que traia por defecto. La propiedad DataValueFiled del combo en el grid se llama DataKeyNames el campo o campos, separados por comas, que queremos usar como clave. Si pongo OrderID podría haber usado el SelectedValue en lugar de `PropertyName="SelectedRow.Cells[1].Text"`  
 Al hacerlo en la entity la actualización lo hace directamente sobre la base de datos. Si hubiesemos usado Datasource tendríamos que decirle por programa que actualice la base de datos.  
 En las columnas puedo indicarle que en edición me aplique el estilo la propiedad es ApplyFormatInEditMode = true.  
-En el evento RowUpdating salta justo antes de actualizar la fila del grid.  
-Los eventos de un GridView son multiples el tipo de evento es un GridViewUpdateEvent tiene multiples propiedades.  
+En el evento **RowUpdating** salta justo antes de actualizar la fila del GridView.  
+Los eventos de un GridView son múltiples el tipo de evento es un GridViewUpdateEvent tiene multiples propiedades.  
 * **RowIndex**.-  el número de la fila que estamos editando.
 * **Keys**.- 
-* **OldValues**.- Es un diccionario que permite acceder por posición o por nombre de campo a los valores originales, antes de la edición. Los contenidos son Objects del tipo System.Collections.DictionaryEntry. 
+* **OldValues**.- Es un diccionario que permite acceder por posición o por nombre de campo a los valores originales, antes de la edición. Los contenidos son Objects del tipo `System.Collections.DictionaryEntry`.  
 * **NewValues**.- Es un diccionario igual que el otro con los valores actuales, los que quieres poner.  
 * **Cancel**.- Booleana que me permite cancelar la actualización.  
 Evento RowDeleting, se produce justo antes de borrar el registro.  
 Por defecto en EntityFramawork no se chequea concurrencia. Defino la concurrencia por campos. Esto se define en el modelo. En el campo de la tabla la propiedad **Modo de simultaneidad** = Fixed  
 
-##AJAX
-Si queremos que la validación o lo que sea se haga en cliente tenemos que hacerlo en JavaScript.  
-Es un conjunto de controles que generan JavaScript en el cliente para hacer llamadas parciales al servidor.  
-Vamos a hacer peticiones parciales hacemos peticiones no de la página completa sino de partes de ella.  
-Reducimos de esta manera el tráfico con el servidor.  
-Siempre tiene que haber un objeto accesible y solo uno de tipo **ScriptManager**.  
-Este se encargará de añadir todo el JavaScript para los controles usados con Ajax.  
-Luego pondremos 1 o muchos controles UpdatePanel estos serán los contenedores de todo lo que se verá afectado por Ajax.  
-El updatepanel es un contenedor que puede tener varias cosas dentro. Debe tener la etiqueta ContentTemplate. Todo lo que meta dentro de la etiqueta se va a ejecutar via Ajax.  
+Se pueden poner validaciones en cliente con controles de validación en plantillas.
+Es asp las columnas tienen este formato.
+
+    <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
+                SortExpression="Quantity" />
+
+Se habrá convertido en:
+
+    <asp:TemplateField HeaderText="Quantity" SortExpression="Quantity">
+      <EditItemTemplate>
+        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bin("Quantity") %>'>
+        </asp:TextBox>
+      </EditItemTemplate>
+      <ItemTemplate>
+        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Quantity") %>'></asp:Label>
+      </ItemTemplate>
+    </asp:TemplateField>
+
+Añadimos un RangeValidator.
+
+      <EditItemTemplate>
+        <asp:TextBox ID="TextBoxCantidad" runat="server" Text='<%# Bind("Quantity") %>'></asp:TextBox>
+        <asp:RangeValidator ID="RangeValidator1" runat="server" 
+          ControlToValidate="TextBoxCantidad"
+          ErrorMessage="La cantidad debe estar entre 1 y 100" 
+          Text="*" 
+          TollTip="La cantidad debe estar entre 1 y 100"
+          MinimumValue="1" 
+          MaximumValue="100" 
+          Type="Integer"
+          ForeColor="Red"
+          Font-Bold="true">
+        </asp:RangeValidator>
+      </EditItemTemplate>
