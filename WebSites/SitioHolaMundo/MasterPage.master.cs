@@ -9,6 +9,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Compruebo si las llamadas son en asincrono
+        bool asincrono = ScriptManager1.IsInAsyncPostBack;
+
         //Al cargar la página pongo la hora.
         //No se actualizará hasta que carge de nuevo la página
 

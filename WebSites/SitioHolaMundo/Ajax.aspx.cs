@@ -34,4 +34,28 @@ public partial class Ajax : System.Web.UI.Page
     {
         Label2.Text = DateTime.Now.ToLongTimeString();
     }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Label3.Text = DateTime.Now.ToLongTimeString();
+    }
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Label4.Text = DateTime.Now.ToLongTimeString();
+
+        
+        if (ScriptManager.GetCurrent(this).IsInAsyncPostBack)
+            Label4.Text += "<br />Llamada via AJAX";
+        else
+            Label4.Text += "<br />Llamada normal";
+    }
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        int s = int.Parse(TextBox1.Text);
+        DateTime entrada = DateTime.Now;
+        //Objeto para cargar hilos
+        System.Threading.Thread.Sleep(s * 1000);
+        Label5.Text = "Terminado tras " + 
+                      DateTime.Now.Subtract(entrada).TotalMilliseconds + 
+                      " milisegundos.";
+    }
 }

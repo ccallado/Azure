@@ -52,7 +52,7 @@ public partial class Datos2b : System.Web.UI.Page
 
     protected void GridView3_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
-        string cad = "";
+        //string cad = "";
 
         ////Hay que especificar el tipo  System.Collections.DictionaryEntry
         ////Valores antiguos
