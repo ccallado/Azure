@@ -1,59 +1,55 @@
-Azure
-=====
+##Azure
 
   Desarrollo para la plataforma Windows Azure con Visual Studio
 
-Orden de los cursos
--------------------
+###Orden de los cursos
 * 10267 Web Basico  
 * 10264 Web Avanzado
 * 10263 WCF  
 * 50466 Azure  
 
-## MODULO: 10267A: Introducción al Desarrollo Web con Microsoft Visual Studio 2010. 32 horas de duración
+#### MODULO: 10267A: Introducción al Desarrollo Web con Microsoft Visual Studio 2010. 32 horas de duración
 
-### CONTENIDOS TEÓRICOS
---
-#### MODULO 1: EXPLORACION DE MICROSOFT APLICACIONES WEB ASP.NET EN MICROSOFT VISUAL STUDIO 2010
+##### CONTENIDOS TEÓRICOS
+>MODULO 1: EXPLORACION DE MICROSOFT APLICACIONES WEB ASP.NET EN MICROSOFT VISUAL STUDIO 2010
 * Introducción al Marco. NET
 * Visión general de SAP.NET
 * Visión general de la aplicación del laboratorio
 
-#### MODULO 2: CREACIÓN DE APLICACIONES WEB. MEDIANTE MICROSOFT VISUAL ESTUDIO 2010 Y MICROSOFT NET.
+> MODULO 2: CREACIÓN DE APLICACIONES WEB. MEDIANTE MICROSOFT VISUAL ESTUDIO 2010 Y MICROSOFT NET.
 * Elección de un lenguaje de programacion
 * Descripcion general de Visual Studio 2010
 * Creación de una aplicación web simple
 
-***23/10/2013***  
 Todas las aplicaciones WEB necesitan un servidor IIS.  
 
-#####ASP
+##### ASP
 El fichero **.asp** tiene etiquetas de HTML  
-Las etiquetas de tipo `<%-------%>` lo procesará el servidor.  
-Al pedir una página al servidor IIS este realiza una copia del fichero para el usuario que las ha pedido.  
-El servidor procesa todas las etiquetas `<%` y una vez que ha convertido a etiquetas estandar , el servidor manda el fichero, lo borra y no espera a ninguna respuesta por parte del cliente.  
+Las etiquetas de tipo **<%-------%>** lo procesará el servidor.  
+Al pedir una página al servidor IIS, este realiza una copia del fichero para el usuario que la ha pedido.  
+El servidor procesa todas las etiquetas **<%** y una vez que ha convertido a etiquetas estándar, el servidor manda el fichero, lo borra y no espera a ninguna respuesta por parte del cliente.  
 Si quiero de nuevo la página el proceso se repetirá.  
 
 #####.NET
-El fichero **.aspx**, estas páginas normalmente llevan un fichero asociado con el mismo nombre de la página  
-**.aspx.cs** en visual basic **.aspx.vb**  
-El servidor manda el .aspx.cs al Framework, los resultados serán para los controles del .aspx  
+El fichero **.aspx**, estas páginas normalmente llevan un fichero asociado con el mismo nombre de la página + **.aspx.cs** eb **C#** y **.aspx.vb** en **Visual Basic**.  
+El servidor manda el .aspx.cs al Framework, los resultados serán para los controles del fichero **.aspx**. Del tipo
+`<asp:TextBox .......`
 
-`<asp:TextBox .......`  
+![Imagen 1](Imagenes/CursoAzureImg01.png)
 
-
-![Imagen 1](Imagenes/CursoAzureImg01.png)  
 Cada vez que compilamos un proyecto crea un **Ensamblado**  
 
 #####Solución
-Conjunto de proyectos destinados a solucionar un problema.  
+Conjunto de proyectos destinados a solucionar un problema.
 
-Siempre se va a crear una solución para trabajar con Visual Studio.  
-**Ficheros:**  
+Siempre se va a crear una solución para trabajar con Visual Studio.
+
+**Ficheros que crea:**
+
 **.sln** información de los proyectos que tiene que cargar Visual Studio y en que orden  
-**.suo**  
+**.suo** posición. 
 
-Jerarquicamente de la solución cuelgan los diferentes proyectos, puede ir en diferentes directorios o no según seleccionemos.  
+Jerárquicamente de la solución cuelgan los diferentes proyectos, puede ir en diferentes directorios o no según seleccionemos.  
 
 Por cada proyecto creará un fichero **.csproj**  
 ![Imagen 2](Imagenes/CursoAzureImg02.png)
@@ -80,6 +76,7 @@ El código fuente se precompila en IL automáticamente se recompila y es cuando 
 ![Imagen 4](Imagenes/CursoAzureImg04.png)
 
 #####Explicacion del HTML
+
 `<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>`  
 
 **Page** indica que es una página web  
