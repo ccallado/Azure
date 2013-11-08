@@ -61,8 +61,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         TreeView1.Visible = true;
         Session["MapaSitio"] = "Treeview";
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void Timer1_Tick(object sender, EventArgs e)
     {
-
+        Label2.Text = DateTime.Now.ToShortTimeString();
     }
 }

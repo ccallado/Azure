@@ -21,6 +21,8 @@
 * Descripcion general de Visual Studio 2010
 * Creación de una aplicación web simple
 
+[https://github.com/ccallado/Azure/blob/master/AJAX.md](https://github.com/ccallado/Azure/blob/master/AJAX.md "AJAX")
+
 Todas las aplicaciones WEB necesitan un servidor IIS.  
 
 ### ASP
