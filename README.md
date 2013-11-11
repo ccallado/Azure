@@ -239,7 +239,29 @@ En la página de inicio también existen estas mismas diferencias
 
 **AutoEventWireup** puesto a true significa que los *eventos* de página se *auto asignan* si cumplen con la *nomenclatura estandar*.
 
+Toda página web cuando se pide a un servidor se producen un grupo de eventos.  
+**Existen tres bloques de evento**
+
+* **Eventos de carga**.- Preinicialización, Inicialización, Carga. `Load`
+
+* **Eventos de cambio (0-n)**.- Tantos como cambios en cajas de texto, ComboBoxes, etc.. que haya habido.  
+**NO se garantiza el orden de ejecución**, no programar en relación a otro cambio.  
+Todos los eventos que se producen se producen porque los controles han cambiado su valor. Pueden producirse de 0 a n.
+* **Evento de acción (0-1)**.- Es el que fuerza que la página vaya al servidor. Hay *controles* que **obligan** eventos de acción ejemplo un **botón**. Hay controles que **no obligan** nunca la acción al servidor.  
+
+Otros, como programador, decides si van o no al servidor, ejemplo un ComboBox, un ListBox, etc...
+
 ###Mecanismos o formas para guardar datos en cliente y en servidor.
+
+Todo lo que se crea en el servidor termina perdiendose.
+
+Hay dos sitios en los que podemos guardar el estado. El cliente y el servidor.
+
+Cuando guardamos el estado en el *cliente*, significa que enviamos la información desde el servidor al cliente. Eso implica HTML o similar y eso limita a que el contenido sea *texto*.
+
+Se podría mandar una *instancia* siempre que podamos *serializarla*
+
+Cuando guardamos el estado en el *servidor*, podemos guardar información entre peticiones. Y al ser el servidor quien la guarda, podrá guardar *cualquier tipo que pueda manejar*. (Cadena, número, array, instancia, dataset, etc...)  
 
 Cliente      | Servidor  
 ------------ | --------  
@@ -249,64 +271,64 @@ ControlState | Cache (no la típica)
 Cookies      |   
 QueryString  |   
 
-**ViewState**
+* **ViewState**.- Es un control en que el servidor *guarda el contenido de los controles* que usen ViewState (podemos decir a algunos que no lo usen) y que permitirá al cliente mantener los datos y al servidor *saber si ha habido cambios*.
 
-Es un control en que el servidor *guarda el contenido de los controles* que usen ViewState (podemos decir a algunos que no lo usen) y que permitirá al cliente mantener los datos y al servidor *saber si ha habido cambios*.  
-El control viewstate es un control **hiden** control con *información codificado no encriptado*.  
-Para que un control no guarde su estado se cambia la propiedad **EnableViewState** = False. (por defecto viene en verdadero)  
-Como el control está en el HTML hay que quitar la mayor información posible ya que *influye en el tráfico*.  
-Tener en cuenta que el control de viewstate no tiene el valor de las cajas de texto que indiquemos, pero la propiedad value de la caja de texto tiene todavía el valor.  
-Toda página web cuando se pide a un servidor se producen un grupo de eventos.  
-Existen tres bloques de evento
-* **Eventos de carga**  
-Preinicializacion, inicializacion, carga. `Load`  
-* **Eventos de cambio (0-n)**  tantos como cambios en cajas de texto, comboboxex, etc.. que haya habido. **NO se garantiza el orden de ejecución**, no programar en relación a otro cambio.  
-Todos los eventos que se producen porque los controles han cambiado su valor. Pueden producirse de 0 a n.
-* **Evento de acción (0-1)**  
-Es el que fuerza que la página vaya al servidor.  
-Hay controles que obligan eventos de acción ejemplo un botón.  
-Hay controles que no forzarán nunca la acción al servidor.  
-Otros como programador decides si van o no al servidor, ejemplo un combo, un listbox, etc...  
-En los controles editables se le suele poner la propiedad **EnableViewState** a true.  
-La propiedad **IsPostBack** de la pagina nos indica si es una *recarga* o se carga por *primera vez*.  
-Si un control **HiddenField** le cambiamos la propiedad *Visible* a false, deja de verse en el HTML, la funcionalidad sigue porque está todavía en el *ViewState*.  
+    El control viewstate es un control **hiden** control con *información codificado no encriptado*.
 
-Todo lo que se crea en el servidor termina perdiendose.  
-Hay dos sitios en los que podemos guardar el estado. El cliente y el servidor.  
-Cuando guardamos el estado en el *cliente*, significa que enviamos la información desde el servidor al cliente. Eso implica HTML o similar y eso limita a que el contenido sea *texto*.  
-Se podría mandar una *instancia* siempre que podamos *serializarla*  
-Cuando guardamos el estado en el *servidor*, podemos guardar información entre peticiones. Y al ser el servidor quien la guarda, podrá guardar *cualquier tipo que pueda manejar*. (Cadena, número, array, instancia, dataset, etc...)  
+    Para que un control no guarde su estado se cambia la propiedad **EnableViewState** = False. (por defecto viene en verdadero). Como el control está en el HTML hay que quitar la mayor información posible ya que *influye en el tráfico*.
 
-**ControlState.-** Lo gestiona automáticamente  
-**Cookies.-** Pequeños ficheros no suelen llegar a 1 kb. que se envían del servidor al cliente con información.  
-**QueryString.-** Son cadenas que se añaden a la petición de la página. Siempre son visibles. El truco para que no se vea es utilizar el **ServerTransfer** y de esa forma no se ve la línea de comandos web.  
-Cookies y querystring no van en el HTML  
+    Tener en cuenta que el control de *viewstate* con la propiedad *EnableViewState* a false ya no tiene el valor de las cajas de texto donde se lo indiquemos, pero la propiedad de HTML **value** de la caja de texto tiene todavía el valor.
+
+    En los controles editables se le suele poner la propiedad **EnableViewState** a true.  
+
+    Si un control **HiddenField** le cambiamos la propiedad *Visible* a false, deja de verse en el HTML, la funcionalidad sigue porque está todavía en el *ViewState*.
+
+* **ControlState.-** Lo gestiona automáticamente.
+
+* **Cookies.-** Pequeños ficheros no suelen llegar a 1 kb. que se envían del servidor al cliente con información. *(no van en el HTML)*
+
+* **QueryString.-** Son cadenas que se añaden a la petición de la página. Siempre son visibles. El truco para que no se vea es utilizar el **ServerTransfer** y de esa forma no se ve la línea de comandos web. *(no van en el HTML)*
+
+###Cookies
 
 Existen dos maneras de ver las cookies:
 
-Por su **contenido** las simples y las compuestas.  
-* Simple.- la que guarda solo un contenido.
-* Compuesta.- En luegar de tener un value será un diccionario, de 1 a n valores.  
+Por su **contenido** las simples y las compuestas.
 
-Con respecto a su **duración**.  
-* Temporales.- Están en memoria del navegador y se pierden al cerrar este.
-* Permanentes.- Se guardan en disco, la ubicación depende del navegador.
+* **Simple**.- la que guarda solo un contenido.
+* **Compuesta**.- En luegar de tener un value será un diccionario, de 1 a n valores.  
 
-Toda cookie simple puede ser temporal o permanente y compuesta igual.  
-Se crea la *cookie* como nuevo objeto, pero para *mandarla* del servidor al cliente la añadimos al objeto *Response* con `Response.Cookies.Add(c);`  
+Con respecto a su **duración**.
+
+* **Temporales**.- Están en memoria del navegador y se pierden al cerrar este.
+* **Permanentes**.- Se guardan en disco, la ubicación depende del navegador.
+
+Toda cookie simple puede ser temporal o permanente y compuesta igual.
+
+Se crea la *cookie* como objeto nuevo, pero para *mandarla* del servidor al cliente la añadimos al objeto *Response* con `Response.Cookies.Add(c);`
+
 ![Imagen 13](Imagenes/CursoAzureImg13.png)  
-La cookie compuesta se crea sin valor y luego se añade.  
-Para recuperarla referirnos a la colección values y seleccionamos el valor que queremos.  
+
+La **cookie compuesta** se crea sin valor y luego se añade los valores.
+
+Para recuperarla referirnos a la *colección* **values** y seleccionamos el valor que queremos.
+
 Al usar las cookies hay que tener cuidado con el Server.Transfer (va con una de retraso).  
 
-Una cookie no se puede borrar en cliente. La única forma de invalidarla es darle un valor inválido que yo reconozca por programación.  
+Una cookie **NO** *se puede borrar en cliente *. La única forma de invalidarla es darle un valor inválido que yo reconozca por programación.
+
 Para revisar si una variable es null o vacia se hace con `string.IsNullOrWhiteSpace`  
 
-###Cookies permanentes.  
-Técnicamente es lo mismo que una cookie temporal, pero se guardan en disco en el cliente.  
-Para convertir una cookie temporal en permanente hay que ponerle fecha de caducidad.  
-Una cookie sin fecha de caducidad caduca cuando se cierra el navegador.  
+**Cookies permanentes**.
+
+Técnicamente es lo mismo que una cookie temporal, pero se guardan en disco en el cliente.
+
+Para convertir una cookie temporal en permanente hay que ponerle **fecha de caducidad**.
+
+Una cookie sin fecha de caducidad caduca cuando se cierra el navegador.
+
 Mientras que la cookie no caduque esta permanecerá en disco, si supera la fecha de caducidad el sistema entiende que ya no existe aunque esté grabada en disco.
+
 El sistema solo la comprueba cuando va a mandarla al servidor.  
 `        //Hago caducar la cookie es de tipo datetime`  
 `        c.Expires = DateTime.Now.AddSeconds(30);`  
