@@ -73,3 +73,14 @@ Control **UpdateProgress** no sirve para informar al cliente mientras el servido
 
 Para ejecutar una función JavaScript al pulsar un botón existe una propiedad OnClientClick donde le diremos la función de JavaScript que queremos ejecutar.
 
+El UpdateProgress no tiene porque estar anidado dentro de un UpdatePanel.
+
+Propiedad AsociatedUpdatePanelID debe tener el ID del UpdatePanel asociado.
+
+La propiedad DisplayAfter se utiliza para que si el proceso tarda menos que el tiempo que pongamos aquí no salga el mensaje.
+
+Utilizar un control de HTML que no mande submit para que no haga un PostBack de la página y no se reinicie la ejecución del load de la página.
+
+
+El proceso del servidor no se para aunque lo cancelemos en el cliente. Y no responde al resto de eventos de la pantalla.
+

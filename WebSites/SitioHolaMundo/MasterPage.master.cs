@@ -18,6 +18,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Label2.Text = DateTime.Now.ToLongDateString();
         Label3.Text = "hora: <i>" + DateTime.Now.ToLongTimeString() + "</i>";
         Label4.Text = "Sesiones: " + Application["Sesiones"];
+
+        //Autenticación
+        Label5.Text = "Usuario: " + 
+            (Page.User.Identity.IsAuthenticated ?
+            Page.User.Identity.Name + " <i>(" + Page.User.Identity.AuthenticationType + ")</i>":
+            "<i>No autenticado...</i>");
+
         string ms = Session["MapaSitio"] as string;
         if (ms != null)
         { 

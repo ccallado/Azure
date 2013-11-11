@@ -51,6 +51,9 @@
         <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" Visible="False">
         </asp:TreeView>
         <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+        <hr />
+        <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+        <hr />
     </div>
     <!-- Ponemos la posición relativa para que se ponga a continuación del contenedor anterior -->
     <div style="position: relative">

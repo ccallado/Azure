@@ -16,7 +16,7 @@
             var prm = Sys.WebForms.PageRequestManager.getInstance();
             if (prm.get_isInAsyncPostBack) {
                 prm.abortPostBack();
-                document.getElementById("ContentPlaceHolder1_Label5").innerText = "";
+                document.getElementById("ContentPlaceHolder1_Label5").innerText = "Cancelado por el usuario...";
             }
         }
     </script>
@@ -74,19 +74,19 @@
         <ContentTemplate>
             Segundos Parada
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <asp:Button ID="Button8" runat="server" Text="Lanzar" OnClick="Button8_Click" 
-                onclientclick="BorraLabel()" />
+            <asp:Button ID="Button8" runat="server" Text="Lanzar" OnClick="Button8_Click" OnClientClick="BorraLabel()" />
             <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
             <br />
-            <asp:UpdateProgress ID="UpdateProgress1" runat="server">
-                <ProgressTemplate>
-                    <asp:Label ID="Label6" runat="server" Text="Proceso lanzado. Por favor, espere..." BackColor="#FFFF99" Font-Italic="True"></asp:Label>
-                    (
-                    <asp:LinkButton ID="LinkButton1" runat="server" 
-                        onclientclick="AbortarPostBack()" >Cancelar</asp:LinkButton>
-                    )
-                </ProgressTemplate>
-            </asp:UpdateProgress>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel4">
+        <ProgressTemplate>
+            <asp:Label ID="Label6" runat="server" Text="Proceso lanzado. Por favor, espere..."
+                BackColor="#FFFF99" Font-Italic="True"></asp:Label>
+            (
+<%--            <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick="AbortarPostBack()">Cancelar</asp:LinkButton>--%>
+                <a href="#" onclick="AbortarPostBack()" >Cancelar</a>
+            )
+        </ProgressTemplate>
+    </asp:UpdateProgress>
 </asp:Content>
