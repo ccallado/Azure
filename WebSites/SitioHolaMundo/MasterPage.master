@@ -28,7 +28,7 @@
         </asp:SiteMapPath>
     </div>
     <!-- div vertical de la izquierda -->
-    <div style="background-color: #00FFFF; width: 200px; height: 400px; float: left;">
+    <div style="background-color: #00FFFF; width: 200px; height: 600px; float: left;">
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <asp:Timer ID="Timer1" runat="server" Interval="10000" OnTick="Timer1_Tick">
@@ -54,6 +54,17 @@
         <hr />
         <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
         <hr />
+        <asp:LoginView ID="LoginView1" runat="server">
+            <AnonymousTemplate>
+                Hola, desconocido...
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+                Hola, 
+                <asp:LoginName ID="LoginName1" runat="server" />
+            </LoggedInTemplate>
+        </asp:LoginView>
+        <br />
+        <asp:LoginStatus ID="LoginStatus1" runat="server" />
     </div>
     <!-- Ponemos la posición relativa para que se ponga a continuación del contenedor anterior -->
     <div style="position: relative">
