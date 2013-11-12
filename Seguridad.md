@@ -90,6 +90,13 @@ Si no hemos terminado no ha creado todavía de crear nada.
 **Usuario:** curso  
 **Password:** QWERTY1!
 
+Segundo usuario:
+
+**Usuario:** curso2  
+**Password:** asdfg
+
+
+
 Entramos en el **web.config** y vemos que nos ha añadido el siguiente código:
 
     <appSettings>
@@ -129,7 +136,7 @@ En la segunda sobrecarga podemos decir que la cookie sea permanente o no.
 
 ###Autorización.
 
-Se va a basar en una jerarquía de paso. hay que pasar por Empresa, Maquina, Servidor IIS, Aplicacion
+Se va a basar en una jerarquía de paso. hay que pasar por Empresa, Maquina, Servidor IIS, Aplicacion, si no pasas por una ya no pasas los siguientes controles.
 
 ![Imagen 32](Imagenes/CursoAzureImg32.png)
 
@@ -148,4 +155,135 @@ Se va a basar en una jerarquía de paso. hay que pasar por Empresa, Maquina, Ser
         <authorization>
           <deny users="?"/>
         </authorization>
+
+En este bloque la seguridad va en el orden en el que se lo encuentra.
+
+En el caso
+ 
+    <allow users="*" /> permite a todo el mundo
+    <deny users="?" />  excluye a los anónimos.
+
+Al permitir a todo el mundo ya entraría y no comprobaría nada.
+
+En este otro caso
+
+    <deny users="?" />  excluye a los anónimos.
+    <allow users="*" /> permite a todo el mundo
+
+Exige que estés logado *(no permite anónimos)*.
+Y luego puede entrar cualquiera.
+
+Este caso comprobaremos el orden de las instrucciones.
+
+    <deny users="?" />  excluye a los anónimos.
+    <deny users="Pepe" />  excluye a Pepe.
+    <allow users="*" /> permite a todo el mundo
+
+En este caso Pepe no entra.
+
+Sin embargo en este otro
+
+    <deny users="?" />  excluye a los anónimos.
+    <allow users="*" /> permite a todo el mundo
+    <deny users="Pepe" />  excluye a Pepe.
+
+Pepe entra porque antes le han dejado entrar.
+
+###Seguridad por páginas.
+En el web.config fuera de la sección `<configuration>` la etiqueta `<location>` permite poner configuración especial a páginas concretas, de una en una, no hay comodines. La página se indica con el parámetro **path** sin indicarle `~/` son todas del directorio principal.
+
+Antes de aplicar lo general aplicamos lo individual. Como hemos dado derecho a la página a todo el mundo ya no va a mirar la seguridad general.
+
+Ejemplo:
+
+	<!--Derechos de páginas-->
+	  <location path="Inicio.aspx">
+	<!--Bloque de autorización-->
+	    <system.web>
+	      <authorization >
+	        <allow users="*"/>
+	      </authorization>
+	    </system.web>
+	  </location>
+	
+	<!--Derechos generales-->
+	  <system.web>
+	    <authentication mode="Forms">
+	      <forms loginUrl="~/Admin/formLogin.aspx" />
+	    </authentication>
+	    <authorization>
+	      <deny users="?"/>
+	      <!--<allow users="*"/>-->
+	    </authorization>
+
+Con controles de inicio de sesión. Poniendo el control `Login` tira por defecto del controlador de la base de datos ASPNETDB.MDF que viene configurado ya en el `/windows/Microsoft.NET/Framework/v4.0.../Config/machine.config`.
+
+    <asp:Login ID="Login1" runat="server">
+    </asp:Login>
+
+Proveedor en machine.config
+
+	<membership>
+		<providers>
+			<add 
+			name="AspNetSqlMembershipProvider"
+			type="System.Web.Security.SqlMembershipProvider, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
+			connectionStringName="LocalSqlServer"
+			enablePasswordRetrieval="false"
+			enablePasswordReset="true"
+			requiresQuestionAndAnswer="true"
+			applicationName="/"
+			requiresUniqueEmail="false"
+			passwordFormat="Hashed"
+			maxInvalidPasswordAttempts="5"
+			minRequiredPasswordLength="7" 
+			minRequiredNonalphanumericCharacters="1" 
+			passwordAttemptWindow="10" 
+			passwordStrengthRegularExpression=""/>
+		</providers>
+	</membership>
+
+No hay que poner todas, pero hay más.
+
+Te puedes crear otro proveedor incluso otra conexión y podríamos utilizar este nuevo proveedor en mi aplicación web.
+
+Veamos el código en el web.config.
+
+	  <!--Derechos generales-->
+	  <system.web>
+	    <membership defaultProvider="MiSqlMembershipProvider">
+	      <!--Este proveedor de Membership es para que lo veamos en configuración
+	      y veamos que se pueden tener varios.
+	      En este voy a "relajar" las limitaciones de la password.-->
+	      <providers>
+	        <add connectionStringName="LocalSqlServer" enablePasswordRetrieval="false"
+	          enablePasswordReset="false" requiresQuestionAndAnswer="false"
+	          applicationName="/" requiresUniqueEmail="false" passwordFormat="Hashed"
+	          maxInvalidPasswordAttempts="5" minRequiredPasswordLength="5"
+	          minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10"
+	          passwordStrengthRegularExpression="" name="MiSqlMembershipProvider"
+	          type="System.Web.Security.SqlMembershipProvider, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	      </providers>
+	    </membership>
+
+Al cambiar de proveedor por defecto ahora apunta a nuestro proveedor `membership defaultProvider="MiSqlMembershipProvider"`
+
+![Imagen 33](Imagenes/CursoAzureImg33.png)
+
+Ya no me pide la pregunta/respuesta de seguridad y las limitaciones del password también han cambiado.
+
+Login SIN Membership y con controles de INICIO DE SESION
+
+El control Login tiene eventos.
+
+* **LoggingIn**.- se produce antes de hacer la validación.
+* **LoggedIn**.-
+* **LoginError**.-
+
+En la variable e tenemos el argumento **cancel** me permite cancelar el logeado.
+
+Propiedades del control Login:
+* **Username**.- Usuario que se ha introducido en el control.
+* **Password**.- La password que ha introducido en el control.
+
 

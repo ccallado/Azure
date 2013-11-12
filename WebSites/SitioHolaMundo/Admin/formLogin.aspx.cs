@@ -26,6 +26,6 @@ public partial class formLogin : System.Web.UI.Page
             System.Web.Security.FormsAuthentication.RedirectFromLoginPage(TextBox1.Text, false);
         }
         else
-            Label2.Text = "Usuario y/object password incorrectos...";
+            Label2.Text = "Usuario y/o password incorrectos...";
     }
 }
