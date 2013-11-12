@@ -139,17 +139,14 @@ Control de máquina,
 			* Aplicacion (validado o anónimo, a nivel de **web.config**)  
 			   **allow** es para permitir explícitamente a usuarios o grupos de usuarios (roles).  
 			   **deny** es para denegar explícitamente a usuarios o grupos de usuarios (roles).
+			   Hay dos comodines `?` Anonimos, `*` Todos  
+		            * Subdirectorios  
+###.
+    <authentication mode="Forms">
+      <forms loginUrl="~/Admin/formLogin.aspx" />
+    </authentication>
+    <authorization>
+      <deny users="?"/>
+    </authorization>
 
-
-               <authentication mode="Forms">
-                 <forms loginUrl="~/Admin/formLogin.aspx" />
-               </authentication>
-               <authorization>
-                 <deny users="?"/>
-               </authorization>
-
-
-			   Hay dos comodines `?` Anonimos, `*` Todos
-  
-               * Subdirectorios
 
