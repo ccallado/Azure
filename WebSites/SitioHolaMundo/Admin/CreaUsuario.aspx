@@ -5,7 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" BackColor="#F7F7DE" 
         BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" 
-        Font-Names="Verdana" Font-Size="10pt">
+        ContinueDestinationPageUrl="~/Admin/CreaUsuario.aspx" Font-Names="Verdana" 
+        Font-Size="10pt">
         <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" 
             BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
             ForeColor="#284775" />

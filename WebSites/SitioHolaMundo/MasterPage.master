@@ -66,7 +66,7 @@
         <br />
         <asp:LoginStatus ID="LoginStatus1" runat="server" />
         <br />
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AdminPassword.aspx">Admin. Password</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin/AdminPassword.aspx">Admin. Password</asp:HyperLink>
     </div>
     <!-- Ponemos la posición relativa para que se ponga a continuación del contenedor anterior -->
     <div style="position: relative">

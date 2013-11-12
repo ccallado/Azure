@@ -297,3 +297,54 @@ Propiedades del control Login:
 
 Si la llamada a la página la hacemos con Server.Transfer se salta la seguridad de la página.
 
+En el propio control hay una propiedad **LoginCreatedUser** = false no logea con ese nuevo usuario. Así un administrador podría crear diferentes usuarios.
+
+La propiedad **ContinueDestinationPageUrl** ponemos la página a la que queremos ir después de crear el usuario.
+
+Agregar reglas de acceso desde la aplicación de configurar web.config.
+
+![Imagen 34](Imagenes/CursoAzureImg34.png)
+
+Pulso en administrar reglas de acceso.
+
+![Imagen 35](Imagenes/CursoAzureImg35.png)
+
+Agregamos una nueva regla de acceso.
+
+![Imagen 36](Imagenes/CursoAzureImg36.png)
+
+Puedo pinchando en la carita subir o bajar la regla.
+
+Y me ha dejado el web.config asi:
+
+    <authorization>
+      <deny users="?" />
+      <deny users="Pepe" />
+    </authorization>
+
+Al entrar en un directorio no me permite modificar reglas anteriores.
+
+La seguridad de ese directorio se ha creado con un fichero web.config en ese directorio con la configuración se seguridad creada con el asistente.
+
+![Imagen 37](Imagenes/CursoAzureImg37.png)
+
+Con el contenido:
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<configuration>
+	    <system.web>
+	        <authorization>
+	            <allow users="Admin" />
+	            <deny users="*" />
+	        </authorization>
+	    </system.web>
+	</configuration>
+
+![Imagen 38](Imagenes/CursoAzureImg38.png)
+
+La manera de interpretarlo, sería por ficheros, la primera seguridad sería permitir a todos que viene del machine.config.
+
+Luego vendría la seguridad del primer web.config denegaría anónimos, denegaría a Pepe y por último, permitiría al usuario Admin y denegaría a todos.
+
+El **location** manda sobre todo lo demás.
+
