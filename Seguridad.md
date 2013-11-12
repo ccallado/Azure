@@ -131,22 +131,21 @@ En la segunda sobrecarga podemos decir que la cookie sea permanente o no.
 
 Se va a basar en una jerarquía de paso. hay que pasar por Empresa, Maquina, Servidor IIS, Aplicacion
 
-Control de máquina, 
+![Imagen 32](Imagenes/CursoAzureImg32.png)
 
 * Empresa (Seguridad a nivel general, seguridar de dominio)
-	* Maquina (Seguridad a nivel de máquina **machine.config**)
-		* Servidor IIS (Hasta aquí no limita nada, normalmente)
-			* Aplicacion (validado o anónimo, a nivel de **web.config**)  
-			   **allow** es para permitir explícitamente a usuarios o grupos de usuarios (roles).  
-			   **deny** es para denegar explícitamente a usuarios o grupos de usuarios (roles).
-			   Hay dos comodines `?` Anonimos, `*` Todos  
-		            * Subdirectorios  
-###.
-    <authentication mode="Forms">
-      <forms loginUrl="~/Admin/formLogin.aspx" />
-    </authentication>
-    <authorization>
-      <deny users="?"/>
-    </authorization>
+* Maquina (Seguridad a nivel de máquina **machine.config**)
+* Servidor IIS (Hasta aquí no limita nada, normalmente)
+* Aplicacion (validado o anónimo, a nivel de **web.config**)  
+  **allow** es para permitir explícitamente a usuarios o grupos de usuarios (roles).  
+  **deny** es para denegar explícitamente a usuarios o grupos de usuarios (roles).  
+  Hay dos comodines `?` Anonimos, `*` Todos  
+* Subdirectorios  
 
+        <authentication mode="Forms">
+          <forms loginUrl="~/Admin/formLogin.aspx" />
+        </authentication>
+        <authorization>
+          <deny users="?"/>
+        </authorization>
 
