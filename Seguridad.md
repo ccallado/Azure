@@ -277,13 +277,23 @@ Login SIN Membership y con controles de INICIO DE SESION
 El control Login tiene eventos.
 
 * **LoggingIn**.- se produce antes de hacer la validación.
-* **LoggedIn**.-
-* **LoginError**.-
+* **LoggedIn**.- se produce cuando se ha validado el usuario correctamente.
+* **LoginError**.- se produce cuando se ha validado el usuario de forma incorrecta.
 
-En la variable e tenemos el argumento **cancel** me permite cancelar el logeado.
+Esto funciona en validación via membership o manualmente.
+
+Manualmente tenemos que capturar uno más **Authenticate** este fuerza la validación manual.
+
+Dentro del evento el argumento de **e.Authenticated** si la ponemos a true da por hecho que hemos autenticado bien.
+
+Si el control tiene asignado el evento **Authenticate** la validación ya no se hace automáticamente.
+
+En la variable **e** tenemos el argumento **cancel** me permite cancelar el logeado.
 
 Propiedades del control Login:
+
 * **Username**.- Usuario que se ha introducido en el control.
 * **Password**.- La password que ha introducido en el control.
 
+Si la llamada a la página la hacemos con Server.Transfer se salta la seguridad de la página.
 

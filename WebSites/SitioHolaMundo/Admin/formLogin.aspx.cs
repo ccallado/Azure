@@ -28,4 +28,10 @@ public partial class formLogin : System.Web.UI.Page
         else
             Label2.Text = "Usuario y/o password incorrectos...";
     }
+    protected void Login2_Authenticate(object sender, AuthenticateEventArgs e)
+    {
+        if (Login2.UserName == "cursoAux" &&
+            Login2.Password == "cursoAux")
+            e.Authenticated = true;
+    }
 }

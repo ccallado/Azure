@@ -15,5 +15,6 @@
       </siteMapNode>
     </siteMapNode>
     <siteMapNode url="~/Ajax.aspx" title="Ajax" />
+    <siteMapNode url="~/Admin/CreaUsuario.aspx" title="Crea Usuario" />
   </siteMapNode>
 </siteMap>
