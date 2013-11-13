@@ -13,7 +13,7 @@
 ##### CONTENIDOS TEÓRICOS
 >MODULO 1: EXPLORACION DE MICROSOFT APLICACIONES WEB ASP.NET EN MICROSOFT VISUAL STUDIO 2010
 * Introducción al Marco. NET
-* Visión general de SAP.NET
+* Visión general de ASP.NET
 * Visión general de la aplicación del laboratorio
 
 > MODULO 2: CREACIÓN DE APLICACIONES WEB. MEDIANTE MICROSOFT VISUAL ESTUDIO 2010 Y MICROSOFT NET.
@@ -27,3 +27,5 @@
 * [Datos](https://github.com/ccallado/Azure/blob/master/Datos.md "Datos")
 * [AJAX](https://github.com/ccallado/Azure/blob/master/AJAX.md "AJAX")
 * [Seguridad Membership](https://github.com/ccallado/Azure/blob/master/Seguridad.md "Seguridad Membership")
+* [Servicios WCF](https://github.com/ccallado/Azure/blob/master/WCF.md "Servicios WCF")
+
