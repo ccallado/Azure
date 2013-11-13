@@ -115,8 +115,8 @@ El contract es el interface.
 
 Pilares de los servicios WCF (el ABC).
 
-A**ddress**.- La dirección que está el servicio `<endpoint address="http://localhost:49883/MiServicioWCF.svc"`  
-B**inding**.- Tipo de conexión contra el servicio.
+**Address**.- La dirección que está el servicio `<endpoint address="http://localhost:49883/MiServicioWCF.svc"`  
+**Binding**.- Tipo de conexión contra el servicio.
 
         <bindings>
             <basicHttpBinding>
@@ -124,7 +124,7 @@ B**inding**.- Tipo de conexión contra el servicio.
             </basicHttpBinding>
         </bindings>
 
-C**ontract**.- El interface del servicio que estamos usando.
+**Contract**.- El interface del servicio que estamos usando.
 
 Un mismo servicio se pueden exponer con diferentes Binding seguramente necesitará diferentes interfaces.
 
@@ -132,7 +132,7 @@ Todos los métodos que me cree en el interface tendré que implementarlo en la c
 
 Para crear la enumeración en el servicio agrego un elemento tipo código con la plantilla Archivo de código de Vicual C#.
 
-En un switch es necesario el break; si continua la ejecución, si me salgo con return; no es necesario el break.
+En un **switch** es necesario el **break** si continua la ejecución, si me salgo con **return** no sería necesario.
 
 Las sobrecargas de métodos en clases no dan ningún problema en las clases. Pero en los servicios no puede haber dos métodos con el mismo nombre.
 
@@ -143,3 +143,21 @@ En SOAP no se admiten sobrecargas. Utilizo en la etiqueta OperationContract el p
         [OperationContract(Name="FechaD")]
         string Fecha(enumTipoFecha tipoFecha);
 
+###Datos
+
+La base de datos estará en el Proyecto del Servicio.
+
+Utilizaremos en primer caso Datasets.
+
+Visual C#, Datos, plantilla Conjunto de Datos.
+
+Todas las conexiones generadas por mi siempre se mantendrán creadas.
+
+Al pasar la primera tabla al Dataset me pregunta si copia la BBDD al proyecto como local y cambiar automáticamente la cadena de conexión.
+El web.config de el servicio queda así.
+
+	  <connectionStrings>
+	    <add name="northwindConnectionString" connectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\northwind.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True"
+	      providerName="System.Data.SqlClient" />
+	  </connectionStrings>
+ 
