@@ -13,7 +13,17 @@
         <asp:Button ID="Button1" runat="server" Text="GetData()" 
             onclick="Button1_Click" />
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-
+        <br />
+        <asp:Button ID="Button2" runat="server" Text="Fecha()" 
+            onclick="Button2_Click" />
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        <br />
+        <asp:RadioButton ID="RadioButton1" runat="server" GroupName="G1" Text="Larga" />
+        <asp:RadioButton ID="RadioButton2" runat="server" GroupName="G1" Text="Corta" />
+        <asp:RadioButton ID="RadioButton3" runat="server" GroupName="G1" Text="Completa" />
+        <asp:Button ID="Button3" runat="server" Text="Fecha (con tipo)" 
+            onclick="Button3_Click" />
+        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
     </div>
     </form>
 </body>

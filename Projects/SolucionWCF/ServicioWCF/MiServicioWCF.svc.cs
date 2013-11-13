@@ -18,17 +18,39 @@ namespace ServicioWCF
             return "Has enviado el " + value;
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        //public CompositeType GetDataUsingDataContract(CompositeType composite)
+        //{
+        //    if (composite == null)
+        //    {
+        //        throw new ArgumentNullException("composite");
+        //    }
+        //    if (composite.BoolValue)
+        //    {
+        //        composite.StringValue += "Suffix";
+        //    }
+        //    return composite;
+        //}
+
+
+        public string Fecha()
         {
-            if (composite == null)
+            return Fecha(enumTipoFecha.Completa);
+        }
+
+        public string Fecha(enumTipoFecha tipoFecha)
+        {
+            switch (tipoFecha)
             {
-                throw new ArgumentNullException("composite");
+                case enumTipoFecha.Larga:
+                    return DateTime.Now.ToLongDateString();
+                case enumTipoFecha.Corta:
+                    return DateTime.Now.ToShortDateString();
+                //Esto que hay abajo se puede hacer porque no hay nada entre case y default
+                //No puede haber ni siquiera un comentario.
+                case enumTipoFecha.Completa:
+                default:
+                    return DateTime.Now.ToString();
             }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
         }
     }
 }

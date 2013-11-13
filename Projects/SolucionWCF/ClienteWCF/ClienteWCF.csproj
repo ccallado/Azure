@@ -53,12 +53,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ProxyWCF\ClienteWCF.ProxyWCF.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ProxyWCF\MiServicioWCF.disco" />
     <None Include="Service References\ProxyWCF\configuration91.svcinfo" />
     <None Include="Service References\ProxyWCF\configuration.svcinfo" />
+    <None Include="Service References\ProxyWCF\MiServicioWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ProxyWCF\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -71,9 +71,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="WebForm1.aspx" />
-    <None Include="Service References\ProxyWCF\MiServicioWCF1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ProxyWCF\MiServicioWCF2.xsd">
       <SubType>Designer</SubType>
     </None>

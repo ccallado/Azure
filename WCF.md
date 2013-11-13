@@ -80,6 +80,7 @@ Esta pantalla no es para agregar servicios web. Debería entrar en Avanzadas y p
 
 ![Imagen 39](Imagenes/CursoAzureImg39.png)
 ![Imagen 40](Imagenes/CursoAzureImg40.png)
+![Imagen 41](Imagenes/CursoAzureImg41.png)
 
 Para usarlo en el cliente:
 
@@ -87,4 +88,58 @@ Para usarlo en el cliente:
             ProxyWCF.MiServicioWCFClient s = new ProxyWCF.MiServicioWCFClient();
             //Si el contenido de la caja de texto petará
             Label1.Text = s.GetData(int.Parse(TextBox1.Text));
+
+Se pone el cliente como proyecto por dejecto y la página WebForm1.aspx como página de inicio.
+
+Que ha ocurrido al ejecutar.
+
+Mi aplicación entra y al pulsar el botón hace un PostBack para el uso del servicio vemos en el web.config lo que nos ha creado.
+
+Cuando hago la petición lanza de un IIS a otro IIS la petición si el servicio no está arrancado lo pone en marcha ejecuta todo el código devuelve la petición al servidor IIS, el servidor IIS del servicio pierde todo lo que ha creado.
+![Imagen 42](Imagenes/CursoAzureImg42.png)
+
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IMiServicioWCF" />
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:49883/MiServicioWCF.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMiServicioWCF"
+                contract="ProxyWCF.IMiServicioWCF" name="BasicHttpBinding_IMiServicioWCF" />
+        </client>
+    </system.serviceModel>
+
+El contract es el interface.
+
+Pilares de los servicios WCF (el ABC).
+
+A**ddress**.- La dirección que está el servicio `<endpoint address="http://localhost:49883/MiServicioWCF.svc"`  
+B**inding**.- Tipo de conexión contra el servicio.
+
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IMiServicioWCF" />
+            </basicHttpBinding>
+        </bindings>
+
+C**ontract**.- El interface del servicio que estamos usando.
+
+Un mismo servicio se pueden exponer con diferentes Binding seguramente necesitará diferentes interfaces.
+
+Todos los métodos que me cree en el interface tendré que implementarlo en la clase.
+
+Para crear la enumeración en el servicio agrego un elemento tipo código con la plantilla Archivo de código de Vicual C#.
+
+En un switch es necesario el break; si continua la ejecución, si me salgo con return; no es necesario el break.
+
+Las sobrecargas de métodos en clases no dan ningún problema en las clases. Pero en los servicios no puede haber dos métodos con el mismo nombre.
+
+La forma de enviar las peticiones y devolver los datos no puede estar limitado a una plataforma, la norma que siguen el protocolo **SOAP** (Simple Object Access Protocol) que utilizan etiquetas **XML** para envolver todo lo que se envía. En este caso en nuestra aplicación el cliente es IIS que mandará los datos al cliente en formato HTML.
+
+En SOAP no se admiten sobrecargas. Utilizo en la etiqueta OperationContract el parámetro Name y cambio el nombre del método del Servicio.
+
+        [OperationContract(Name="FechaD")]
+        string Fecha(enumTipoFecha tipoFecha);
 
