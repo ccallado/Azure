@@ -165,3 +165,20 @@ Serializar consiste en convertir una instancia en datos. En el caso del ejemplo 
 
 La tableRow no se puede serializar. La tabla si se puede serializar, solución más sencilla crearnos una clase y esta si se serializa.
 
+Cuando regenero el proxy me crea la clase y las propiedades (datos/xml/serialización) pero no los métodos (nada de código de la clase de origen), propiedades con sus metodos get/set sin código (verificación de que sea positivo, etc...). Pregunta de examen.
+
+El GAC (Global Assambly Cache) es un conjunto de directorios que contienen librerías de .NET compartidas o comunes a varias aplicaciones. Es un directorio o conjunto de directorios donde están todas las librerías del Framework de todas las versiones instaladas están en el GAC.
+
+Para subir una librería al GAC tiene que cumplir un requisito, tiene que estar firmada digitalmente.
+
+Para subir luego la librería al GAC hay crear un proyecto de distribución.
+
+En el servicio al usar ADO Conectado no puedo devolver un DataReader porque cuando pase la información, que es un puntero perdería los datos.
+
+Metodos para optimizar la lectura del DataReader, ExecuteReader tiene una segunda sobrecarga que con System.Data.CommandBehavior. .....)
+* CloseConnection.- cuando termine de leer que cierre la conexión automáticamente
+* SequentialAccess.- Cuando hay muchos datos optimiza la memoria.
+* SingleRow.- Para cuando solo hay que pedir un registro.
+
+En el DataReader podemos saber si hay registros con HasRows pero no ha leido nada, siempre hay que hacer un **Read()** para leer el registro siguiente.
+

@@ -58,7 +58,7 @@ namespace ClienteWCF
                 if (!string.IsNullOrWhiteSpace(cad))
                     Label4.Text = cad;
                 else
-                    Label4.Text="<i>Categoría inexistente</i>";
+                    Label4.Text = "<i>Categoría inexistente</i>";
             }
         }
 
@@ -81,13 +81,13 @@ namespace ClienteWCF
                        Label5.Text = "<i>Categoría inexistente</i>"; */
                 //Usando LINQ
                 fila = tCat.SingleOrDefault();
-                   if (fila != null)
-                   {
-                       Label5.Text = "<b>" + fila.CategoryName + 
-                                     "</b> - " + fila.Description;
-                   }
-                   else
-                       Label5.Text = "<i>Categoría inexistente</i>";
+                if (fila != null)
+                {
+                    Label5.Text = "<b>" + fila.CategoryName +
+                                  "</b> - " + fila.Description;
+                }
+                else
+                    Label5.Text = "<i>Categoría inexistente</i>";
 
             }
 
@@ -98,9 +98,51 @@ namespace ClienteWCF
             using (MiServicioWCFClient s = new MiServicioWCFClient())
             {
                 var c = s.Categoria2(int.Parse(TextBox3.Text));
-                Label5.Text = c.ToString();
+                if (c != null)
+                {
+                    Label5.Text = "<b>" + c.NombreCategoria +
+                                  "</b> - " + c.Descripcion;
+                }
+                else
+                    Label5.Text = "<i>Categoría inexistente</i>";
             }
+        }
 
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                var c = s.CategoriaConectado(int.Parse(TextBox3.Text));
+                if (c != null)
+                {
+                    Label5.Text = "<b>" + c.NombreCategoria +
+                                  "</b> - " + c.Descripcion;
+                }
+                else
+                    Label5.Text = "<i>Categoría inexistente</i>";
+            }
+        }
+
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                DropDownList1.DataSource = s.Categorias();
+                DropDownList1.DataTextField = "NombreCategoria";
+                DropDownList1.DataValueField = "IdCategoria";
+                DropDownList1.DataBind();
+            }
+        }
+
+        protected void Button9_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                DropDownList1.DataSource = s.CategoriasConectado(false);
+                DropDownList1.DataTextField = "NombreCategoria";
+                DropDownList1.DataValueField = "IdCategoria";
+                DropDownList1.DataBind();
+            }
         }
     }
 }

@@ -38,7 +38,16 @@
             onclick="Button5_Click" />
         <asp:Button ID="Button6" runat="server" Text="Categoría (instancia)" 
             onclick="Button6_Click" />
+        <asp:Button ID="Button7" runat="server" Text="Categoría (conectado)" onclick="Button7_Click" 
+             />
         <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+        <br />
+        <asp:Button ID="Button8" runat="server" Text="Cargar Combo" 
+            onclick="Button8_Click" />
+        <asp:Button ID="Button9" runat="server" Text="Cargar Combo (conectado)" 
+            onclick="Button9_Click" />
+        <asp:DropDownList ID="DropDownList1" runat="server">
+        </asp:DropDownList>
     </div>
     </form>
 </body>

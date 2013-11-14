@@ -112,4 +112,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Categorias">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServicioWCF" minOccurs="0" name="CategoriasResult" nillable="true" type="q4:ArrayOfCategoria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriasConectado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IncluyeDescripcion" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoriasConectadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ServicioWCF" minOccurs="0" name="CategoriasConectadoResult" nillable="true" type="q5:ArrayOfCategoria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

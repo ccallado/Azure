@@ -49,6 +49,16 @@ namespace ClienteWCF.ProxyWCF {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/CategoriaConectado", ReplyAction="http://tempuri.org/IMiServicioWCF/CategoriaConectadoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ClienteWCF.ProxyWCF.CategoriaConectadoResponse CategoriaConectado(ClienteWCF.ProxyWCF.CategoriaConectadoRequest request);
+        
+        // CODEGEN: El parámetro 'CategoriasResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlArrayAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/Categorias", ReplyAction="http://tempuri.org/IMiServicioWCF/CategoriasResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.CategoriasResponse Categorias(ClienteWCF.ProxyWCF.CategoriasRequest request);
+        
+        // CODEGEN: El parámetro 'CategoriasConectadoResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlArrayAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/CategoriasConectado", ReplyAction="http://tempuri.org/IMiServicioWCF/CategoriasConectadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.CategoriasConectadoResponse CategoriasConectado(ClienteWCF.ProxyWCF.CategoriasConectadoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1074,6 +1084,71 @@ namespace ClienteWCF.ProxyWCF {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Categorias", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CategoriasRequest {
+        
+        public CategoriasRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CategoriasResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CategoriasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/ServicioWCF")]
+        public ClienteWCF.ProxyWCF.Categoria[] CategoriasResult;
+        
+        public CategoriasResponse() {
+        }
+        
+        public CategoriasResponse(ClienteWCF.ProxyWCF.Categoria[] CategoriasResult) {
+            this.CategoriasResult = CategoriasResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CategoriasConectado", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CategoriasConectadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool IncluyeDescripcion;
+        
+        public CategoriasConectadoRequest() {
+        }
+        
+        public CategoriasConectadoRequest(bool IncluyeDescripcion) {
+            this.IncluyeDescripcion = IncluyeDescripcion;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CategoriasConectadoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CategoriasConectadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/ServicioWCF")]
+        public ClienteWCF.ProxyWCF.Categoria[] CategoriasConectadoResult;
+        
+        public CategoriasConectadoResponse() {
+        }
+        
+        public CategoriasConectadoResponse(ClienteWCF.ProxyWCF.Categoria[] CategoriasConectadoResult) {
+            this.CategoriasConectadoResult = CategoriasConectadoResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMiServicioWCFChannel : ClienteWCF.ProxyWCF.IMiServicioWCF, System.ServiceModel.IClientChannel {
     }
@@ -1182,6 +1257,29 @@ namespace ClienteWCF.ProxyWCF {
             inValue.id = id;
             ClienteWCF.ProxyWCF.CategoriaConectadoResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).CategoriaConectado(inValue);
             return retVal.CategoriaConectadoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.CategoriasResponse ClienteWCF.ProxyWCF.IMiServicioWCF.Categorias(ClienteWCF.ProxyWCF.CategoriasRequest request) {
+            return base.Channel.Categorias(request);
+        }
+        
+        public ClienteWCF.ProxyWCF.Categoria[] Categorias() {
+            ClienteWCF.ProxyWCF.CategoriasRequest inValue = new ClienteWCF.ProxyWCF.CategoriasRequest();
+            ClienteWCF.ProxyWCF.CategoriasResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).Categorias(inValue);
+            return retVal.CategoriasResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.CategoriasConectadoResponse ClienteWCF.ProxyWCF.IMiServicioWCF.CategoriasConectado(ClienteWCF.ProxyWCF.CategoriasConectadoRequest request) {
+            return base.Channel.CategoriasConectado(request);
+        }
+        
+        public ClienteWCF.ProxyWCF.Categoria[] CategoriasConectado(bool IncluyeDescripcion) {
+            ClienteWCF.ProxyWCF.CategoriasConectadoRequest inValue = new ClienteWCF.ProxyWCF.CategoriasConectadoRequest();
+            inValue.IncluyeDescripcion = IncluyeDescripcion;
+            ClienteWCF.ProxyWCF.CategoriasConectadoResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).CategoriasConectado(inValue);
+            return retVal.CategoriasConectadoResult;
         }
     }
 }

@@ -43,6 +43,13 @@ namespace ServicioWCF
 
         [OperationContract]
         Categoria CategoriaConectado(int id);
+
+        [OperationContract]
+        List<Categoria> Categorias();
+
+        [OperationContract]
+        List<Categoria> CategoriasConectado(bool IncluyeDescripcion);
+
     }
 
 
