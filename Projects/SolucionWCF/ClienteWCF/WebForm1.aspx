@@ -24,6 +24,21 @@
         <asp:Button ID="Button3" runat="server" Text="Fecha (con tipo)" 
             onclick="Button3_Click" />
         <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+        <br />
+        <hr />
+        Datos mediante DataSet en Servicio
+        <br />
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:Button ID="Button4" runat="server" Text="Nombre Categoría" 
+            onclick="Button4_Click" />
+        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+        <br />
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <asp:Button ID="Button5" runat="server" Text="Categoría (tabla)" 
+            onclick="Button5_Click" />
+        <asp:Button ID="Button6" runat="server" Text="Categoría (instancia)" 
+            onclick="Button6_Click" />
+        <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
     </div>
     </form>
 </body>

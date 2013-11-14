@@ -5,6 +5,8 @@
       <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd3" namespace="http://tempuri.org/NwDataSet.xsd" />
+      <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ServicioWCF" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMiServicioWCF_GetData_InputMessage">
@@ -25,6 +27,30 @@
   <wsdl:message name="IMiServicioWCF_FechaConTipo_OutputMessage">
     <wsdl:part name="parameters" element="tns:FechaConTipoResponse" />
   </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_NombreCategoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:NombreCategoria" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_NombreCategoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NombreCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_Categoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:Categoria" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_Categoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_Categoria2_InputMessage">
+    <wsdl:part name="parameters" element="tns:Categoria2" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_Categoria2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Categoria2Response" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_CategoriaConectado_InputMessage">
+    <wsdl:part name="parameters" element="tns:CategoriaConectado" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_CategoriaConectado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CategoriaConectadoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMiServicioWCF">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/GetData" message="tns:IMiServicioWCF_GetData_InputMessage" />
@@ -37,6 +63,22 @@
     <wsdl:operation name="FechaConTipo">
       <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/FechaConTipo" message="tns:IMiServicioWCF_FechaConTipo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/FechaConTipoResponse" message="tns:IMiServicioWCF_FechaConTipo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NombreCategoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/NombreCategoria" message="tns:IMiServicioWCF_NombreCategoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/NombreCategoriaResponse" message="tns:IMiServicioWCF_NombreCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Categoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/Categoria" message="tns:IMiServicioWCF_Categoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/CategoriaResponse" message="tns:IMiServicioWCF_Categoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Categoria2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/Categoria2" message="tns:IMiServicioWCF_Categoria2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/Categoria2Response" message="tns:IMiServicioWCF_Categoria2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaConectado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/CategoriaConectado" message="tns:IMiServicioWCF_CategoriaConectado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/CategoriaConectadoResponse" message="tns:IMiServicioWCF_CategoriaConectado_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMiServicioWCF" type="tns:IMiServicioWCF">
@@ -61,6 +103,42 @@
     </wsdl:operation>
     <wsdl:operation name="FechaConTipo">
       <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/FechaConTipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NombreCategoria">
+      <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/NombreCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Categoria">
+      <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/Categoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Categoria2">
+      <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/Categoria2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoriaConectado">
+      <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/CategoriaConectado" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

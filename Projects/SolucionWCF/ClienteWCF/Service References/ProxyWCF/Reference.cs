@@ -9,35 +9,1069 @@
 //------------------------------------------------------------------------------
 
 namespace ClienteWCF.ProxyWCF {
-    using System.Runtime.Serialization;
     
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="enumTipoFecha", Namespace="http://schemas.datacontract.org/2004/07/")]
-    public enum enumTipoFecha : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Larga = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Corta = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Completa = 2,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyWCF.IMiServicioWCF")]
     public interface IMiServicioWCF {
         
+        // CODEGEN: El parámetro 'GetDataResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/GetData", ReplyAction="http://tempuri.org/IMiServicioWCF/GetDataResponse")]
-        string GetData(int value);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.GetDataResponse GetData(ClienteWCF.ProxyWCF.GetDataRequest request);
         
+        // CODEGEN: El parámetro 'FechaResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/Fecha", ReplyAction="http://tempuri.org/IMiServicioWCF/FechaResponse")]
-        string Fecha();
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.FechaResponse Fecha(ClienteWCF.ProxyWCF.FechaRequest request);
         
+        // CODEGEN: El parámetro 'FechaConTipoResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/FechaConTipo", ReplyAction="http://tempuri.org/IMiServicioWCF/FechaConTipoResponse")]
-        string FechaConTipo(ClienteWCF.ProxyWCF.enumTipoFecha tipoFecha);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.FechaConTipoResponse FechaConTipo(ClienteWCF.ProxyWCF.FechaConTipoRequest request);
+        
+        // CODEGEN: El parámetro 'NombreCategoriaResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/NombreCategoria", ReplyAction="http://tempuri.org/IMiServicioWCF/NombreCategoriaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.NombreCategoriaResponse NombreCategoria(ClienteWCF.ProxyWCF.NombreCategoriaRequest request);
+        
+        // CODEGEN: El parámetro 'CategoriaResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/Categoria", ReplyAction="http://tempuri.org/IMiServicioWCF/CategoriaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.CategoriaResponse Categoria(ClienteWCF.ProxyWCF.CategoriaRequest request);
+        
+        // CODEGEN: El parámetro 'Categoria2Result' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/Categoria2", ReplyAction="http://tempuri.org/IMiServicioWCF/Categoria2Response")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.Categoria2Response Categoria2(ClienteWCF.ProxyWCF.Categoria2Request request);
+        
+        // CODEGEN: El parámetro 'CategoriaConectadoResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/CategoriaConectado", ReplyAction="http://tempuri.org/IMiServicioWCF/CategoriaConectadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.CategoriaConectadoResponse CategoriaConectado(ClienteWCF.ProxyWCF.CategoriaConectadoRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetData", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetDataRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int value;
+        
+        public GetDataRequest() {
+        }
+        
+        public GetDataRequest(int value) {
+            this.value = value;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetDataResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string GetDataResult;
+        
+        public GetDataResponse() {
+        }
+        
+        public GetDataResponse(string GetDataResult) {
+            this.GetDataResult = GetDataResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Fecha", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class FechaRequest {
+        
+        public FechaRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="FechaResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class FechaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string FechaResult;
+        
+        public FechaResponse() {
+        }
+        
+        public FechaResponse(string FechaResult) {
+            this.FechaResult = FechaResult;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/")]
+    public enum enumTipoFecha {
+        
+        /// <comentarios/>
+        Larga,
+        
+        /// <comentarios/>
+        Corta,
+        
+        /// <comentarios/>
+        Completa,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="FechaConTipo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class FechaConTipoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public ClienteWCF.ProxyWCF.enumTipoFecha tipoFecha;
+        
+        public FechaConTipoRequest() {
+        }
+        
+        public FechaConTipoRequest(ClienteWCF.ProxyWCF.enumTipoFecha tipoFecha) {
+            this.tipoFecha = tipoFecha;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="FechaConTipoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class FechaConTipoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string FechaConTipoResult;
+        
+        public FechaConTipoResponse() {
+        }
+        
+        public FechaConTipoResponse(string FechaConTipoResult) {
+            this.FechaConTipoResult = FechaConTipoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="NombreCategoria", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class NombreCategoriaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int id;
+        
+        public NombreCategoriaRequest() {
+        }
+        
+        public NombreCategoriaRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="NombreCategoriaResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class NombreCategoriaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string NombreCategoriaResult;
+        
+        public NombreCategoriaResponse() {
+        }
+        
+        public NombreCategoriaResponse(string NombreCategoriaResult) {
+            this.NombreCategoriaResult = NombreCategoriaResult;
+        }
+    }
+    
+    /// <summary>
+    ///Represents a strongly typed in-memory cache of data.
+    ///</summary>
+    // Esta definición de tipo ha sido generada por la extensión del importador de esquemas System.Data.Design.TypedDataSetSchemaImporterExtensionFx35.
+    [global::System.Serializable()]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
+    [global::System.Xml.Serialization.XmlRootAttribute("NwDataSet")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
+    public partial class NwDataSet : global::System.Data.DataSet {
+        
+        private CategoriesDataTable tableCategories;
+        
+        private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public NwDataSet() {
+            this.BeginInit();
+            this.InitClass();
+            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            base.Tables.CollectionChanged += schemaChangedHandler;
+            base.Relations.CollectionChanged += schemaChangedHandler;
+            this.EndInit();
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected NwDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                base(info, context, false) {
+            if ((this.IsBinarySerialized(info, context) == true)) {
+                this.InitVars(false);
+                global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+                this.Tables.CollectionChanged += schemaChangedHandler1;
+                this.Relations.CollectionChanged += schemaChangedHandler1;
+                return;
+            }
+            string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
+            if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
+                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["Categories"] != null)) {
+                    base.Tables.Add(new CategoriesDataTable(ds.Tables["Categories"]));
+                }
+                this.DataSetName = ds.DataSetName;
+                this.Prefix = ds.Prefix;
+                this.Namespace = ds.Namespace;
+                this.Locale = ds.Locale;
+                this.CaseSensitive = ds.CaseSensitive;
+                this.EnforceConstraints = ds.EnforceConstraints;
+                this.Merge(ds, false, global::System.Data.MissingSchemaAction.Add);
+                this.InitVars();
+            }
+            else {
+                this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+            }
+            this.GetSerializationData(info, context);
+            global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
+            base.Tables.CollectionChanged += schemaChangedHandler;
+            this.Relations.CollectionChanged += schemaChangedHandler;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public CategoriesDataTable Categories {
+            get {
+                return this.tableCategories;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.BrowsableAttribute(true)]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
+        public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
+            get {
+                return this._schemaSerializationMode;
+            }
+            set {
+                this._schemaSerializationMode = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public new global::System.Data.DataTableCollection Tables {
+            get {
+                return base.Tables;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public new global::System.Data.DataRelationCollection Relations {
+            get {
+                return base.Relations;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected override void InitializeDerivedDataSet() {
+            this.BeginInit();
+            this.InitClass();
+            this.EndInit();
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public override global::System.Data.DataSet Clone() {
+            NwDataSet cln = ((NwDataSet)(base.Clone()));
+            cln.InitVars();
+            cln.SchemaSerializationMode = this.SchemaSerializationMode;
+            return cln;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected override bool ShouldSerializeTables() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected override bool ShouldSerializeRelations() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected override void ReadXmlSerializable(global::System.Xml.XmlReader reader) {
+            if ((this.DetermineSchemaSerializationMode(reader) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
+                this.Reset();
+                global::System.Data.DataSet ds = new global::System.Data.DataSet();
+                ds.ReadXml(reader);
+                if ((ds.Tables["Categories"] != null)) {
+                    base.Tables.Add(new CategoriesDataTable(ds.Tables["Categories"]));
+                }
+                this.DataSetName = ds.DataSetName;
+                this.Prefix = ds.Prefix;
+                this.Namespace = ds.Namespace;
+                this.Locale = ds.Locale;
+                this.CaseSensitive = ds.CaseSensitive;
+                this.EnforceConstraints = ds.EnforceConstraints;
+                this.Merge(ds, false, global::System.Data.MissingSchemaAction.Add);
+                this.InitVars();
+            }
+            else {
+                this.ReadXml(reader);
+                this.InitVars();
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected override global::System.Xml.Schema.XmlSchema GetSchemaSerializable() {
+            global::System.IO.MemoryStream stream = new global::System.IO.MemoryStream();
+            this.WriteXmlSchema(new global::System.Xml.XmlTextWriter(stream, null));
+            stream.Position = 0;
+            return global::System.Xml.Schema.XmlSchema.Read(new global::System.Xml.XmlTextReader(stream), null);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal void InitVars() {
+            this.InitVars(true);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal void InitVars(bool initTable) {
+            this.tableCategories = ((CategoriesDataTable)(base.Tables["Categories"]));
+            if ((initTable == true)) {
+                if ((this.tableCategories != null)) {
+                    this.tableCategories.InitVars();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitClass() {
+            this.DataSetName = "NwDataSet";
+            this.Prefix = "";
+            this.Namespace = "http://tempuri.org/NwDataSet.xsd";
+            this.EnforceConstraints = true;
+            this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tableCategories = new CategoriesDataTable();
+            base.Tables.Add(this.tableCategories);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeCategories() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
+            if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
+                this.InitVars();
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+            NwDataSet ds = new NwDataSet();
+            global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+            global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+            global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
+            any.Namespace = ds.Namespace;
+            sequence.Items.Add(any);
+            type.Particle = sequence;
+            global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+            if (xs.Contains(dsSchema.TargetNamespace)) {
+                global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                try {
+                    global::System.Xml.Schema.XmlSchema schema = null;
+                    dsSchema.Write(s1);
+                    for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                        schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                        s2.SetLength(0);
+                        schema.Write(s2);
+                        if ((s1.Length == s2.Length)) {
+                            s1.Position = 0;
+                            s2.Position = 0;
+                            for (; ((s1.Position != s1.Length) 
+                                        && (s1.ReadByte() == s2.ReadByte())); ) {
+                                ;
+                            }
+                            if ((s1.Position == s1.Length)) {
+                                return type;
+                            }
+                        }
+                    }
+                }
+                finally {
+                    if ((s1 != null)) {
+                        s1.Close();
+                    }
+                    if ((s2 != null)) {
+                        s2.Close();
+                    }
+                }
+            }
+            xs.Add(dsSchema);
+            return type;
+        }
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void CategoriesRowChangeEventHandler(object sender, CategoriesRowChangeEvent e);
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class CategoriesDataTable : global::System.Data.TypedTableBase<CategoriesRow> {
+            
+            private global::System.Data.DataColumn columnCategoryID;
+            
+            private global::System.Data.DataColumn columnCategoryName;
+            
+            private global::System.Data.DataColumn columnDescription;
+            
+            private global::System.Data.DataColumn columnPicture;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CategoriesDataTable() {
+                this.TableName = "Categories";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CategoriesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected CategoriesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CategoryIDColumn {
+                get {
+                    return this.columnCategoryID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CategoryNameColumn {
+                get {
+                    return this.columnCategoryName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DescriptionColumn {
+                get {
+                    return this.columnDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PictureColumn {
+                get {
+                    return this.columnPicture;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CategoriesRow this[int index] {
+                get {
+                    return ((CategoriesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CategoriesRowChangeEventHandler CategoriesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CategoriesRowChangeEventHandler CategoriesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CategoriesRowChangeEventHandler CategoriesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CategoriesRowChangeEventHandler CategoriesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddCategoriesRow(CategoriesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CategoriesRow AddCategoriesRow(string CategoryName, string Description, byte[] Picture) {
+                CategoriesRow rowCategoriesRow = ((CategoriesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        CategoryName,
+                        Description,
+                        Picture};
+                rowCategoriesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCategoriesRow);
+                return rowCategoriesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CategoriesRow FindByCategoryID(int CategoryID) {
+                return ((CategoriesRow)(this.Rows.Find(new object[] {
+                            CategoryID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                CategoriesDataTable cln = ((CategoriesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new CategoriesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnCategoryID = base.Columns["CategoryID"];
+                this.columnCategoryName = base.Columns["CategoryName"];
+                this.columnDescription = base.Columns["Description"];
+                this.columnPicture = base.Columns["Picture"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnCategoryID = new global::System.Data.DataColumn("CategoryID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCategoryID);
+                this.columnCategoryName = new global::System.Data.DataColumn("CategoryName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCategoryName);
+                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescription);
+                this.columnPicture = new global::System.Data.DataColumn("Picture", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPicture);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCategoryID}, true));
+                this.columnCategoryID.AutoIncrement = true;
+                this.columnCategoryID.AutoIncrementSeed = -1;
+                this.columnCategoryID.AutoIncrementStep = -1;
+                this.columnCategoryID.AllowDBNull = false;
+                this.columnCategoryID.ReadOnly = true;
+                this.columnCategoryID.Unique = true;
+                this.columnCategoryName.AllowDBNull = false;
+                this.columnCategoryName.MaxLength = 15;
+                this.columnDescription.MaxLength = 1073741823;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CategoriesRow NewCategoriesRow() {
+                return ((CategoriesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new CategoriesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(CategoriesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.CategoriesRowChanged != null)) {
+                    this.CategoriesRowChanged(this, new CategoriesRowChangeEvent(((CategoriesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.CategoriesRowChanging != null)) {
+                    this.CategoriesRowChanging(this, new CategoriesRowChangeEvent(((CategoriesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.CategoriesRowDeleted != null)) {
+                    this.CategoriesRowDeleted(this, new CategoriesRowChangeEvent(((CategoriesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.CategoriesRowDeleting != null)) {
+                    this.CategoriesRowDeleting(this, new CategoriesRowChangeEvent(((CategoriesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveCategoriesRow(CategoriesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                NwDataSet ds = new NwDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "CategoriesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class CategoriesRow : global::System.Data.DataRow {
+            
+            private CategoriesDataTable tableCategories;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CategoriesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCategories = ((CategoriesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CategoryID {
+                get {
+                    return ((int)(this[this.tableCategories.CategoryIDColumn]));
+                }
+                set {
+                    this[this.tableCategories.CategoryIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CategoryName {
+                get {
+                    return ((string)(this[this.tableCategories.CategoryNameColumn]));
+                }
+                set {
+                    this[this.tableCategories.CategoryNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Description {
+                get {
+                    try {
+                        return ((string)(this[this.tableCategories.DescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Description\' de la tabla \'Categories\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCategories.DescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] Picture {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableCategories.PictureColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Picture\' de la tabla \'Categories\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCategories.PictureColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDescriptionNull() {
+                return this.IsNull(this.tableCategories.DescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDescriptionNull() {
+                this[this.tableCategories.DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPictureNull() {
+                return this.IsNull(this.tableCategories.PictureColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPictureNull() {
+                this[this.tableCategories.PictureColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class CategoriesRowChangeEvent : global::System.EventArgs {
+            
+            private CategoriesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CategoriesRowChangeEvent(CategoriesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CategoriesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Categoria", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CategoriaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int id;
+        
+        public CategoriaRequest() {
+        }
+        
+        public CategoriaRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CategoriaResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CategoriaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public NwDataSet.CategoriesDataTable CategoriaResult;
+        
+        public CategoriaResponse() {
+        }
+        
+        public CategoriaResponse(NwDataSet.CategoriesDataTable CategoriaResult) {
+            this.CategoriaResult = CategoriaResult;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/ServicioWCF")]
+    public partial class Categoria : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string descripcionField;
+        
+        private int idCategoriaField;
+        
+        private bool idCategoriaFieldSpecified;
+        
+        private string nombreCategoriaField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public string Descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+                this.RaisePropertyChanged("Descripcion");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int IdCategoria {
+            get {
+                return this.idCategoriaField;
+            }
+            set {
+                this.idCategoriaField = value;
+                this.RaisePropertyChanged("IdCategoria");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IdCategoriaSpecified {
+            get {
+                return this.idCategoriaFieldSpecified;
+            }
+            set {
+                this.idCategoriaFieldSpecified = value;
+                this.RaisePropertyChanged("IdCategoriaSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public string NombreCategoria {
+            get {
+                return this.nombreCategoriaField;
+            }
+            set {
+                this.nombreCategoriaField = value;
+                this.RaisePropertyChanged("NombreCategoria");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Categoria2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Categoria2Request {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int id;
+        
+        public Categoria2Request() {
+        }
+        
+        public Categoria2Request(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Categoria2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Categoria2Response {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public ClienteWCF.ProxyWCF.Categoria Categoria2Result;
+        
+        public Categoria2Response() {
+        }
+        
+        public Categoria2Response(ClienteWCF.ProxyWCF.Categoria Categoria2Result) {
+            this.Categoria2Result = Categoria2Result;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CategoriaConectado", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CategoriaConectadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int id;
+        
+        public CategoriaConectadoRequest() {
+        }
+        
+        public CategoriaConectadoRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CategoriaConectadoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CategoriaConectadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public ClienteWCF.ProxyWCF.Categoria CategoriaConectadoResult;
+        
+        public CategoriaConectadoResponse() {
+        }
+        
+        public CategoriaConectadoResponse(ClienteWCF.ProxyWCF.Categoria CategoriaConectadoResult) {
+            this.CategoriaConectadoResult = CategoriaConectadoResult;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,16 +1101,87 @@ namespace ClienteWCF.ProxyWCF {
                 base(binding, remoteAddress) {
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.GetDataResponse ClienteWCF.ProxyWCF.IMiServicioWCF.GetData(ClienteWCF.ProxyWCF.GetDataRequest request) {
+            return base.Channel.GetData(request);
+        }
+        
         public string GetData(int value) {
-            return base.Channel.GetData(value);
+            ClienteWCF.ProxyWCF.GetDataRequest inValue = new ClienteWCF.ProxyWCF.GetDataRequest();
+            inValue.value = value;
+            ClienteWCF.ProxyWCF.GetDataResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).GetData(inValue);
+            return retVal.GetDataResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.FechaResponse ClienteWCF.ProxyWCF.IMiServicioWCF.Fecha(ClienteWCF.ProxyWCF.FechaRequest request) {
+            return base.Channel.Fecha(request);
         }
         
         public string Fecha() {
-            return base.Channel.Fecha();
+            ClienteWCF.ProxyWCF.FechaRequest inValue = new ClienteWCF.ProxyWCF.FechaRequest();
+            ClienteWCF.ProxyWCF.FechaResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).Fecha(inValue);
+            return retVal.FechaResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.FechaConTipoResponse ClienteWCF.ProxyWCF.IMiServicioWCF.FechaConTipo(ClienteWCF.ProxyWCF.FechaConTipoRequest request) {
+            return base.Channel.FechaConTipo(request);
         }
         
         public string FechaConTipo(ClienteWCF.ProxyWCF.enumTipoFecha tipoFecha) {
-            return base.Channel.FechaConTipo(tipoFecha);
+            ClienteWCF.ProxyWCF.FechaConTipoRequest inValue = new ClienteWCF.ProxyWCF.FechaConTipoRequest();
+            inValue.tipoFecha = tipoFecha;
+            ClienteWCF.ProxyWCF.FechaConTipoResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).FechaConTipo(inValue);
+            return retVal.FechaConTipoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.NombreCategoriaResponse ClienteWCF.ProxyWCF.IMiServicioWCF.NombreCategoria(ClienteWCF.ProxyWCF.NombreCategoriaRequest request) {
+            return base.Channel.NombreCategoria(request);
+        }
+        
+        public string NombreCategoria(int id) {
+            ClienteWCF.ProxyWCF.NombreCategoriaRequest inValue = new ClienteWCF.ProxyWCF.NombreCategoriaRequest();
+            inValue.id = id;
+            ClienteWCF.ProxyWCF.NombreCategoriaResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).NombreCategoria(inValue);
+            return retVal.NombreCategoriaResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.CategoriaResponse ClienteWCF.ProxyWCF.IMiServicioWCF.Categoria(ClienteWCF.ProxyWCF.CategoriaRequest request) {
+            return base.Channel.Categoria(request);
+        }
+        
+        public NwDataSet.CategoriesDataTable Categoria(int id) {
+            ClienteWCF.ProxyWCF.CategoriaRequest inValue = new ClienteWCF.ProxyWCF.CategoriaRequest();
+            inValue.id = id;
+            ClienteWCF.ProxyWCF.CategoriaResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).Categoria(inValue);
+            return retVal.CategoriaResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.Categoria2Response ClienteWCF.ProxyWCF.IMiServicioWCF.Categoria2(ClienteWCF.ProxyWCF.Categoria2Request request) {
+            return base.Channel.Categoria2(request);
+        }
+        
+        public ClienteWCF.ProxyWCF.Categoria Categoria2(int id) {
+            ClienteWCF.ProxyWCF.Categoria2Request inValue = new ClienteWCF.ProxyWCF.Categoria2Request();
+            inValue.id = id;
+            ClienteWCF.ProxyWCF.Categoria2Response retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).Categoria2(inValue);
+            return retVal.Categoria2Result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.CategoriaConectadoResponse ClienteWCF.ProxyWCF.IMiServicioWCF.CategoriaConectado(ClienteWCF.ProxyWCF.CategoriaConectadoRequest request) {
+            return base.Channel.CategoriaConectado(request);
+        }
+        
+        public ClienteWCF.ProxyWCF.Categoria CategoriaConectado(int id) {
+            ClienteWCF.ProxyWCF.CategoriaConectadoRequest inValue = new ClienteWCF.ProxyWCF.CategoriaConectadoRequest();
+            inValue.id = id;
+            ClienteWCF.ProxyWCF.CategoriaConectadoResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).CategoriaConectado(inValue);
+            return retVal.CategoriaConectadoResult;
         }
     }
 }

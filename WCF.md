@@ -161,3 +161,7 @@ El web.config de el servicio queda así.
 	      providerName="System.Data.SqlClient" />
 	  </connectionStrings>
  
+Serializar consiste en convertir una instancia en datos. En el caso del ejemplo tiene que serializarse en xml.
+
+La tableRow no se puede serializar. La tabla si se puede serializar, solución más sencilla crearnos una clase y esta si se serializa.
+

@@ -49,5 +49,58 @@ namespace ClienteWCF
                             Label3.Text = "Seleccione tipo...";
             }
         }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                string cad = s.NombreCategoria(int.Parse(TextBox2.Text));
+                if (!string.IsNullOrWhiteSpace(cad))
+                    Label4.Text = cad;
+                else
+                    Label4.Text="<i>Categoría inexistente</i>";
+            }
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                //Esto traerá o 1 o ninguna fila
+                var tCat = s.Categoria(int.Parse(TextBox3.Text));
+                ProxyWCF.NwDataSet.CategoriesRow fila;
+                /* //Sin usar LINQ
+                   if (tCat.Rows.Count > 0)
+                   {
+                       //primer metodo usando Rows[0]
+                       fila = tCat.Rows[0] as ProxyWCF.NwDataSet.CategoriesRow;
+                       Label5.Text = "<b>" + fila.CategoryName + 
+                                     "</b> - " + fila.Description;
+                   }
+                   else
+                       Label5.Text = "<i>Categoría inexistente</i>"; */
+                //Usando LINQ
+                fila = tCat.SingleOrDefault();
+                   if (fila != null)
+                   {
+                       Label5.Text = "<b>" + fila.CategoryName + 
+                                     "</b> - " + fila.Description;
+                   }
+                   else
+                       Label5.Text = "<i>Categoría inexistente</i>";
+
+            }
+
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                var c = s.Categoria2(int.Parse(TextBox3.Text));
+                Label5.Text = c.ToString();
+            }
+
+        }
     }
 }

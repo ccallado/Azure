@@ -52,5 +52,56 @@ namespace ServicioWCF
                     return DateTime.Now.ToString();
             }
         }
+
+        public string NombreCategoria(int id)
+        {
+            using (NwDataSetTableAdapters.CategoriesTableAdapter taCat = 
+                   new NwDataSetTableAdapters.CategoriesTableAdapter()) 
+            {
+                return taCat.NombreCategoria(id);
+            }
+        }
+
+        //public NwDataSet.CategoriesRow Categoria(int id)
+        //{
+        //    using (NwDataSetTableAdapters.CategoriesTableAdapter taCat =
+        //           new NwDataSetTableAdapters.CategoriesTableAdapter())
+        //    {
+        //        return ""; // taCat.FillByCategoryID(NwDataSet.CategoriesDataTable, Categoria, id);
+        //    }
+        //}
+
+
+        public NwDataSet.CategoriesDataTable Categoria(int id)
+        {
+            using (NwDataSetTableAdapters.CategoriesTableAdapter taCat =
+                   new NwDataSetTableAdapters.CategoriesTableAdapter())
+            { 
+                //Vamos a optimizar para no instanciar todas las tablas del DataSet
+                return taCat.GetDataByCategoryID(id);
+            }
+        }
+
+
+        public Categoria Categoria2(int id)
+        {
+            //Tabla con las categorias 1 o ninguna
+            var tCat = Categoria(id);
+            var cat = (from c in tCat
+                      select new Categoria
+                      {
+                          IdCategoria = c.CategoryID,
+                          NombreCategoria = c.CategoryName,
+                          Descripcion = c.Description
+                      }).SingleOrDefault();
+            //cat era un IEnumerable antes de añadirle .SingleOrDefault
+            //Al poner el SingleOrDefault se convierte a una instancia de la clase categoria
+            return cat;
+        }
+
+        public Categoria CategoriaConectado(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

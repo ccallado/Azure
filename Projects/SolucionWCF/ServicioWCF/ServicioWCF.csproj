@@ -68,6 +68,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClasesDatos.cs" />
     <Compile Include="Enumeraciones.cs" />
     <Compile Include="MiServicioWCF.svc.cs">
       <DependentUpon>MiServicioWCF.svc</DependentUpon>

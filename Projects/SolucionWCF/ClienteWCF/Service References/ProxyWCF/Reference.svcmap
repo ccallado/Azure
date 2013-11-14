@@ -21,11 +21,13 @@
     <MetadataSource Address="http://localhost:49883/MiServicioWCF.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MiServicioWCF.wsdl" MetadataType="Wsdl" ID="73073457-1a2f-4738-a49e-a2a27d9ed508" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?wsdl" />
-    <MetadataFile FileName="MiServicioWCF.xsd" MetadataType="Schema" ID="5c899dfd-4960-4472-bda1-442502fb5775" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd0" />
-    <MetadataFile FileName="MiServicioWCF.disco" MetadataType="Disco" ID="0fd35866-3f80-49e3-89ba-714107c79066" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?disco" />
-    <MetadataFile FileName="MiServicioWCF1.xsd" MetadataType="Schema" ID="c1c5efdd-4f2e-4576-9728-cec46e8d177d" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd2" />
     <MetadataFile FileName="MiServicioWCF2.xsd" MetadataType="Schema" ID="a3c02c12-4368-45d6-a704-af04159be0ac" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd1" />
+    <MetadataFile FileName="MiServicioWCF.xsd" MetadataType="Schema" ID="5c899dfd-4960-4472-bda1-442502fb5775" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="NwDataSet.xsd" MetadataType="Schema" ID="bb58b1dd-301d-46e2-996c-4e917f615150" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd3" />
+    <MetadataFile FileName="MiServicioWCF1.xsd" MetadataType="Schema" ID="c1c5efdd-4f2e-4576-9728-cec46e8d177d" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd2" />
+    <MetadataFile FileName="MiServicioWCF3.xsd" MetadataType="Schema" ID="0fc807ab-9ee6-4089-8899-aacb92c3dc37" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd4" />
+    <MetadataFile FileName="MiServicioWCF.wsdl" MetadataType="Wsdl" ID="73073457-1a2f-4738-a49e-a2a27d9ed508" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?wsdl" />
+    <MetadataFile FileName="MiServicioWCF.disco" MetadataType="Disco" ID="0fd35866-3f80-49e3-89ba-714107c79066" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

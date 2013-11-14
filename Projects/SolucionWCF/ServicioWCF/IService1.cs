@@ -30,7 +30,19 @@ namespace ServicioWCF
         [OperationContract(Name="FechaConTipo")]
         string Fecha(enumTipoFecha tipoFecha);
 
+        [OperationContract]
+        string NombreCategoria(int id);
 
+        [OperationContract]
+        //como CategoriesRow no puedo serializarlo
+        //Primera solución mandamos una tabla sabiendo que solo hay una
+        NwDataSet.CategoriesDataTable Categoria(int id);
+
+        [OperationContract]
+        Categoria Categoria2(int id);
+
+        [OperationContract]
+        Categoria CategoriaConectado(int id);
     }
 
 

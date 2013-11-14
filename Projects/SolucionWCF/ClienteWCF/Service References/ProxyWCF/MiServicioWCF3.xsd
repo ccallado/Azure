@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServicioWCF" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServicioWCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="NwDataSet.CategoriesDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="NwDataSet.CategoriesDataTable" Namespace="http://schemas.datacontract.org/2004/07/ServicioWCF" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/NwDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="CategoriesDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Categoria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCategoria" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreCategoria" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Categoria" nillable="true" type="tns:Categoria" />
+</xs:schema>
