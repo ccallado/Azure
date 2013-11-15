@@ -203,6 +203,17 @@ namespace ServicioWCF
             }
         }
 
-
+        public IEnumerable<string> ClientesConPedido()
+        {
+            using (northwindEntities contexto =
+                new northwindEntities())
+            {
+                var lista = (from c in contexto.Orders
+                             orderby c.CustomerID
+                             select c.CustomerID).Distinct();
+                //La devolución tiene que ser una lista.
+                return lista;
+            }
+        }
     }
 }

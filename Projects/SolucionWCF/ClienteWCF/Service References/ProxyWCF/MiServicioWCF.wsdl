@@ -7,6 +7,7 @@
       <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
       <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd3" namespace="http://tempuri.org/NwDataSet.xsd" />
       <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ServicioWCF" />
+      <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMiServicioWCF_GetData_InputMessage">
@@ -75,6 +76,12 @@
   <wsdl:message name="IMiServicioWCF_ProductosPorCategoria_OutputMessage">
     <wsdl:part name="parameters" element="tns:ProductosPorCategoriaResponse" />
   </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_ClientesConPedido_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientesConPedido" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_ClientesConPedido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientesConPedidoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMiServicioWCF">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/GetData" message="tns:IMiServicioWCF_GetData_InputMessage" />
@@ -119,6 +126,10 @@
     <wsdl:operation name="ProductosPorCategoria">
       <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/ProductosPorCategoria" message="tns:IMiServicioWCF_ProductosPorCategoria_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/ProductosPorCategoriaResponse" message="tns:IMiServicioWCF_ProductosPorCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientesConPedido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/ClientesConPedido" message="tns:IMiServicioWCF_ClientesConPedido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/ClientesConPedidoResponse" message="tns:IMiServicioWCF_ClientesConPedido_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMiServicioWCF" type="tns:IMiServicioWCF">
@@ -215,6 +226,15 @@
     </wsdl:operation>
     <wsdl:operation name="ProductosPorCategoria">
       <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/ProductosPorCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientesConPedido">
+      <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/ClientesConPedido" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

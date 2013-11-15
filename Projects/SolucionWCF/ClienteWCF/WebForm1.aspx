@@ -59,6 +59,14 @@
             onclick="Button10_Click" />
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
+        <br />
+        <hr />
+        Datos mediante Entity en Servicio
+        <br />
+        <asp:Button ID="Button11" runat="server" Text="Cargar Clientes Con Pedido" 
+            onclick="Button11_Click" />
+        <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True">
+        </asp:DropDownList>
     </div>
     </form>
 </body>

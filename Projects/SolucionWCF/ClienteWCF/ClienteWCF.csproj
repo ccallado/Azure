@@ -68,6 +68,9 @@
     <None Include="Service References\ProxyWCF\MiServicioWCF3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ProxyWCF\MiServicioWCF4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ProxyWCF\NwDataSet.xsd" />
     <None Include="Service References\ProxyWCF\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>

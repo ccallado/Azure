@@ -189,5 +189,14 @@ namespace ClienteWCF
         {
             Button3_Click(null, null);
         }
+
+        protected void Button11_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                DropDownList2.DataSource = s.ClientesConPedido();
+                DropDownList2.DataBind();
+            }
+        }
     }
 }

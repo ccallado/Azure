@@ -55,7 +55,10 @@ namespace ServicioWCF
 
         [OperationContract(Name="ProductosPorCategoria")]
         NwDataSet.ProductsDataTable Productos(int IdCategoria);
-    }
+
+        [OperationContract]
+        IEnumerable<string> ClientesConPedido();
+}
 
 
     // Utilice un contrato de datos, como se ilustra en el ejemplo siguiente, para agregar tipos compuestos a las operaciones de servicio.

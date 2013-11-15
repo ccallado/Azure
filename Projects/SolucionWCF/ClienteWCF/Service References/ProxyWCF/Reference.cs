@@ -69,6 +69,11 @@ namespace ClienteWCF.ProxyWCF {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/ProductosPorCategoria", ReplyAction="http://tempuri.org/IMiServicioWCF/ProductosPorCategoriaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ClienteWCF.ProxyWCF.ProductosPorCategoriaResponse ProductosPorCategoria(ClienteWCF.ProxyWCF.ProductosPorCategoriaRequest request);
+        
+        // CODEGEN: El parámetro 'ClientesConPedidoResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlArrayAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/ClientesConPedido", ReplyAction="http://tempuri.org/IMiServicioWCF/ClientesConPedidoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ClienteWCF.ProxyWCF.ClientesConPedidoResponse ClientesConPedido(ClienteWCF.ProxyWCF.ClientesConPedidoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1959,6 +1964,35 @@ namespace ClienteWCF.ProxyWCF {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ClientesConPedido", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ClientesConPedidoRequest {
+        
+        public ClientesConPedidoRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ClientesConPedidoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ClientesConPedidoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
+        public string[] ClientesConPedidoResult;
+        
+        public ClientesConPedidoResponse() {
+        }
+        
+        public ClientesConPedidoResponse(string[] ClientesConPedidoResult) {
+            this.ClientesConPedidoResult = ClientesConPedidoResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMiServicioWCFChannel : ClienteWCF.ProxyWCF.IMiServicioWCF, System.ServiceModel.IClientChannel {
     }
@@ -2113,6 +2147,17 @@ namespace ClienteWCF.ProxyWCF {
             inValue.IdCategoria = IdCategoria;
             ClienteWCF.ProxyWCF.ProductosPorCategoriaResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).ProductosPorCategoria(inValue);
             return retVal.ProductosPorCategoriaResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.ClientesConPedidoResponse ClienteWCF.ProxyWCF.IMiServicioWCF.ClientesConPedido(ClienteWCF.ProxyWCF.ClientesConPedidoRequest request) {
+            return base.Channel.ClientesConPedido(request);
+        }
+        
+        public string[] ClientesConPedido() {
+            ClienteWCF.ProxyWCF.ClientesConPedidoRequest inValue = new ClienteWCF.ProxyWCF.ClientesConPedidoRequest();
+            ClienteWCF.ProxyWCF.ClientesConPedidoResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).ClientesConPedido(inValue);
+            return retVal.ClientesConPedidoResult;
         }
     }
 }
