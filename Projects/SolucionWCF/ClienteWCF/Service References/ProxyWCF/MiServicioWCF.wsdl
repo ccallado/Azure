@@ -8,6 +8,8 @@
       <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd3" namespace="http://tempuri.org/NwDataSet.xsd" />
       <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ServicioWCF" />
       <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMiServicioWCF_GetData_InputMessage">
@@ -82,6 +84,24 @@
   <wsdl:message name="IMiServicioWCF_ClientesConPedido_OutputMessage">
     <wsdl:part name="parameters" element="tns:ClientesConPedidoResponse" />
   </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_PedidosPorCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:PedidosPorCliente" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_PedidosPorCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PedidosPorClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_DetallesPedido_InputMessage">
+    <wsdl:part name="parameters" element="tns:DetallesPedido" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_DetallesPedido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DetallesPedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_Pedido_InputMessage">
+    <wsdl:part name="parameters" element="tns:Pedido" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF_Pedido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PedidoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMiServicioWCF">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/GetData" message="tns:IMiServicioWCF_GetData_InputMessage" />
@@ -130,6 +150,18 @@
     <wsdl:operation name="ClientesConPedido">
       <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/ClientesConPedido" message="tns:IMiServicioWCF_ClientesConPedido_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/ClientesConPedidoResponse" message="tns:IMiServicioWCF_ClientesConPedido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PedidosPorCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/PedidosPorCliente" message="tns:IMiServicioWCF_PedidosPorCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/PedidosPorClienteResponse" message="tns:IMiServicioWCF_PedidosPorCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DetallesPedido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/DetallesPedido" message="tns:IMiServicioWCF_DetallesPedido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/DetallesPedidoResponse" message="tns:IMiServicioWCF_DetallesPedido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Pedido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/Pedido" message="tns:IMiServicioWCF_Pedido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/PedidoResponse" message="tns:IMiServicioWCF_Pedido_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMiServicioWCF" type="tns:IMiServicioWCF">
@@ -235,6 +267,33 @@
     </wsdl:operation>
     <wsdl:operation name="ClientesConPedido">
       <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/ClientesConPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PedidosPorCliente">
+      <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/PedidosPorCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetallesPedido">
+      <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/DetallesPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pedido">
+      <soap:operation soapAction="http://tempuri.org/IMiServicioWCF/Pedido" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

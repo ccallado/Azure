@@ -85,17 +85,19 @@ Esta pantalla no es para agregar servicios web. Debería entrar en Avanzadas y p
 Para usarlo en el cliente:
 
             //Clase creada en el cliente del servicio
-            ProxyWCF.MiServicioWCFClient s = new ProxyWCF.MiServicioWCFClient();
-            //Si el contenido de la caja de texto petará
+            ProxyWCF.MiServicioWCFClient s = 
+				new ProxyWCF.MiServicioWCFClient();
+            //Si el contenido de la caja de texto está vacía, petará.
             Label1.Text = s.GetData(int.Parse(TextBox1.Text));
 
-Se pone el cliente como proyecto por dejecto y la página WebForm1.aspx como página de inicio.
+Se pone el cliente como proyecto por defecto y la página WebForm1.aspx como página de inicio.
 
 Que ha ocurrido al ejecutar.
 
 Mi aplicación entra y al pulsar el botón hace un PostBack para el uso del servicio vemos en el web.config lo que nos ha creado.
 
 Cuando hago la petición lanza de un IIS a otro IIS la petición si el servicio no está arrancado lo pone en marcha ejecuta todo el código devuelve la petición al servidor IIS, el servidor IIS del servicio pierde todo lo que ha creado.
+
 ![Imagen 42](Imagenes/CursoAzureImg42.png)
 
     <system.serviceModel>
@@ -113,9 +115,12 @@ Cuando hago la petición lanza de un IIS a otro IIS la petición si el servicio 
 
 El contract es el interface.
 
-Pilares de los servicios WCF (el ABC).
+Pilares de los servicios WCF (el **ABC**).
 
-**Address**.- La dirección que está el servicio `<endpoint address="http://localhost:49883/MiServicioWCF.svc"`  
+**Address**.- La dirección que está el servicio
+
+`<endpoint address="http://localhost:49883/MiServicioWCF.svc"`
+
 **Binding**.- Tipo de conexión contra el servicio.
 
         <bindings>
@@ -130,15 +135,15 @@ Un mismo servicio se pueden exponer con diferentes Binding seguramente necesitar
 
 Todos los métodos que me cree en el interface tendré que implementarlo en la clase.
 
-Para crear la enumeración en el servicio agrego un elemento tipo código con la plantilla Archivo de código de Vicual C#.
+Para crear la **enumeración** en el servicio agrego un elemento tipo código con la plantilla **Archivo de código de Vicual C#**.
 
-En un **switch** es necesario el **break** si continua la ejecución, si me salgo con **return** no sería necesario.
+En un **switch** es necesario el **break** si la ejecución continua, si me salgo con **return** no sería necesario.
 
 Las sobrecargas de métodos en clases no dan ningún problema en las clases. Pero en los servicios no puede haber dos métodos con el mismo nombre.
 
-La forma de enviar las peticiones y devolver los datos no puede estar limitado a una plataforma, la norma que siguen el protocolo **SOAP** (Simple Object Access Protocol) que utilizan etiquetas **XML** para envolver todo lo que se envía. En este caso en nuestra aplicación el cliente es IIS que mandará los datos al cliente en formato HTML.
+La forma de enviar las peticiones y devolver los datos no puede estar limitado a una plataforma, la norma que siguen el protocolo **SOAP** *(Simple Object Access Protocol)* que utilizan etiquetas **XML** para envolver todo lo que se envía. En este caso en nuestra aplicación el servidor es IIS, que mandará los datos al cliente en formato HTML.
 
-En SOAP no se admiten sobrecargas. Utilizo en la etiqueta OperationContract el parámetro Name y cambio el nombre del método del Servicio.
+En *SOAP no se admiten sobrecargas*. Utilizo en la etiqueta OperationContract el parámetro Name y cambio el nombre del método del Servicio.
 
         [OperationContract(Name="FechaD")]
         string Fecha(enumTipoFecha tipoFecha);
@@ -157,7 +162,10 @@ Al pasar la primera tabla al Dataset me pregunta si copia la BBDD al proyecto co
 El web.config de el servicio queda así.
 
 	  <connectionStrings>
-	    <add name="northwindConnectionString" connectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\northwind.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True"
+	    <add name="northwindConnectionString" 
+		  connectionString="Data Source=.\SQLEXPRESS;
+			AttachDbFilename=|DataDirectory|\northwind.mdf;Integrated
+			Security=True;Connect   Timeout=30;User Instance=True"
 	      providerName="System.Data.SqlClient" />
 	  </connectionStrings>
  
@@ -203,4 +211,30 @@ Eventos del Control **DropDownList**
 
 * **DataBinding**.- Evento que se produce justo antes de realizar el enlace con los datos.
 * **DataBound**.- Se ejecuta nada más realizar el enlace con los datos.
+
+A diferencia de un Dataset que crea una tabla y rellena los datos y pierde la conexión. Pero mantiene la tabla. En Entity se cierra la conexión y cuando intento meterlos en el DropDownList que es cuando los necesito ya no está abierta. Tenemos que forzar a que lea los datos antes de cerrar la conexión. Se fuerzan con ToList, ToArray, ToDictionary (Pregunta de examen) a que los datos se lean.
+
+En entities es necesario poner la propiedad contexto.ContextOptions.**LazyLoadingEnabled** *(carga diferida)* a false porque entities si trato de acceder a un registro va a intentar traerse todos las propiedades de navegación en el caso de pedidos, tratará de cargar por pedido todas las líneas del pedido que se ha cargado. Si está a false esto no lo hace. (Pregunta de examen)
+
+![Imagen 42](Imagenes/CursoAzureImg43.png)
+![Imagen 43](Imagenes/CursoAzureImg44.png)
+
+Control de errores en Servicios con Entities.
+
+Al no encontrar el pedido en el servidor ha encontrado un error y ha mandado un error diferente al cliente.
+
+**SOAP** tiene una clase que se llama **FaultException** para *gestionar los errores*.
+
+Habilitar en el Web.config del servicio, para que en lugar de mandar el FaultException que mande una excepción de .NET. (Solo valido si el cliente va a ser .NET, también es cómodo para revisión de código).
+
+        <behavior>
+          <!-- Para evitar revelar información de los metadatos, establezca el valor siguiente en false y quite el extremo superior de los metadatos antes de la implementación -->
+          <serviceMetadata httpGetEnabled="true" />
+          <!-- Para recibir detalles de las excepciones en los fallos, con el fin de poder realizar la depuración, establezca el valor siguiente en true. Para no revelar información sobre las excepciones, establézcalo en false antes de la implementación -->
+          <serviceDebug includeExceptionDetailInFaults="false" />
+        </behavior>
+
+Lo sigue mandando con FaultException pero el mensaje es correcto (es el mismo que da el servidor. **En producción dejarla siempre a false**.
+
+Se captura en el servidor el error y se reconvierte a una excepcion de tipo FaultException y ya es compatible con todos los clientes.
 

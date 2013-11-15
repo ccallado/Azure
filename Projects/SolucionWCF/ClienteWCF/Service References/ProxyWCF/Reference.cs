@@ -43,37 +43,92 @@ namespace ClienteWCF.ProxyWCF {
         // CODEGEN: El parámetro 'Categoria2Result' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/Categoria2", ReplyAction="http://tempuri.org/IMiServicioWCF/Categoria2Response")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
         ClienteWCF.ProxyWCF.Categoria2Response Categoria2(ClienteWCF.ProxyWCF.Categoria2Request request);
         
         // CODEGEN: El parámetro 'CategoriaConectadoResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/CategoriaConectado", ReplyAction="http://tempuri.org/IMiServicioWCF/CategoriaConectadoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
         ClienteWCF.ProxyWCF.CategoriaConectadoResponse CategoriaConectado(ClienteWCF.ProxyWCF.CategoriaConectadoRequest request);
         
         // CODEGEN: El parámetro 'CategoriasResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlArrayAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/Categorias", ReplyAction="http://tempuri.org/IMiServicioWCF/CategoriasResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
         ClienteWCF.ProxyWCF.CategoriasResponse Categorias(ClienteWCF.ProxyWCF.CategoriasRequest request);
         
         // CODEGEN: El parámetro 'CategoriasConectadoResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlArrayAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/CategoriasConectado", ReplyAction="http://tempuri.org/IMiServicioWCF/CategoriasConectadoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
         ClienteWCF.ProxyWCF.CategoriasConectadoResponse CategoriasConectado(ClienteWCF.ProxyWCF.CategoriasConectadoRequest request);
         
         // CODEGEN: El parámetro 'ProductosResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/Productos", ReplyAction="http://tempuri.org/IMiServicioWCF/ProductosResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
         ClienteWCF.ProxyWCF.ProductosResponse Productos(ClienteWCF.ProxyWCF.ProductosRequest request);
         
         // CODEGEN: El parámetro 'ProductosPorCategoriaResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/ProductosPorCategoria", ReplyAction="http://tempuri.org/IMiServicioWCF/ProductosPorCategoriaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
         ClienteWCF.ProxyWCF.ProductosPorCategoriaResponse ProductosPorCategoria(ClienteWCF.ProxyWCF.ProductosPorCategoriaRequest request);
         
         // CODEGEN: El parámetro 'ClientesConPedidoResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlArrayAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/ClientesConPedido", ReplyAction="http://tempuri.org/IMiServicioWCF/ClientesConPedidoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
         ClienteWCF.ProxyWCF.ClientesConPedidoResponse ClientesConPedido(ClienteWCF.ProxyWCF.ClientesConPedidoRequest request);
+        
+        // CODEGEN: El parámetro 'PedidosPorClienteResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlArrayAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/PedidosPorCliente", ReplyAction="http://tempuri.org/IMiServicioWCF/PedidosPorClienteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
+        ClienteWCF.ProxyWCF.PedidosPorClienteResponse PedidosPorCliente(ClienteWCF.ProxyWCF.PedidosPorClienteRequest request);
+        
+        // CODEGEN: El parámetro 'DetallesPedidoResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlArrayAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/DetallesPedido", ReplyAction="http://tempuri.org/IMiServicioWCF/DetallesPedidoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
+        ClienteWCF.ProxyWCF.DetallesPedidoResponse DetallesPedido(ClienteWCF.ProxyWCF.DetallesPedidoRequest request);
+        
+        // CODEGEN: El parámetro 'PedidoResult' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF/Pedido", ReplyAction="http://tempuri.org/IMiServicioWCF/PedidoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Order[]))]
+        ClienteWCF.ProxyWCF.PedidoResponse Pedido(ClienteWCF.ProxyWCF.PedidoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1766,6 +1821,761 @@ namespace ClienteWCF.ProxyWCF {
         }
     }
     
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityReference))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityReferenceOfOrder2nWnzibl))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityReferenceOfOrder2nWnzibl))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReference : RelatedEnd {
+        
+        private EntityKey entityKeyField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public EntityKey EntityKey {
+            get {
+                return this.entityKeyField;
+            }
+            set {
+                this.entityKeyField = value;
+                this.RaisePropertyChanged("EntityKey");
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
+    public partial class EntityKey : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string entityContainerNameField;
+        
+        private EntityKeyMember[] entityKeyValuesField;
+        
+        private string entitySetNameField;
+        
+        private string idField;
+        
+        private string refField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public string EntityContainerName {
+            get {
+                return this.entityContainerNameField;
+            }
+            set {
+                this.entityContainerNameField = value;
+                this.RaisePropertyChanged("EntityContainerName");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true, Order=1)]
+        public EntityKeyMember[] EntityKeyValues {
+            get {
+                return this.entityKeyValuesField;
+            }
+            set {
+                this.entityKeyValuesField = value;
+                this.RaisePropertyChanged("EntityKeyValues");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public string EntitySetName {
+            get {
+                return this.entitySetNameField;
+            }
+            set {
+                this.entitySetNameField = value;
+                this.RaisePropertyChanged("EntitySetName");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://schemas.microsoft.com/2003/10/Serialization/", DataType="ID")]
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://schemas.microsoft.com/2003/10/Serialization/", DataType="IDREF")]
+        public string Ref {
+            get {
+                return this.refField;
+            }
+            set {
+                this.refField = value;
+                this.RaisePropertyChanged("Ref");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
+    public partial class EntityKeyMember : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string keyField;
+        
+        private object valueField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public string Key {
+            get {
+                return this.keyField;
+            }
+            set {
+                this.keyField = value;
+                this.RaisePropertyChanged("Key");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public object Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("Value");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfOrder2nWnzibl : EntityReference {
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EntityObject))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Order_Detail))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Order))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string idField;
+        
+        private string refField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://schemas.microsoft.com/2003/10/Serialization/", DataType="ID")]
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form=System.Xml.Schema.XmlSchemaForm.Qualified, Namespace="http://schemas.microsoft.com/2003/10/Serialization/", DataType="IDREF")]
+        public string Ref {
+            get {
+                return this.refField;
+            }
+            set {
+                this.refField = value;
+                this.RaisePropertyChanged("Ref");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Order_Detail))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Order))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityObject : StructuralObject {
+        
+        private EntityKey entityKeyField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public EntityKey EntityKey {
+            get {
+                return this.entityKeyField;
+            }
+            set {
+                this.entityKeyField = value;
+                this.RaisePropertyChanged("EntityKey");
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/ServicioWCF")]
+    public partial class Order_Detail : EntityObject {
+        
+        private float discountField;
+        
+        private bool discountFieldSpecified;
+        
+        private Order orderField;
+        
+        private int orderIDField;
+        
+        private bool orderIDFieldSpecified;
+        
+        private EntityReferenceOfOrder2nWnzibl orderReferenceField;
+        
+        private int productIDField;
+        
+        private bool productIDFieldSpecified;
+        
+        private short quantityField;
+        
+        private bool quantityFieldSpecified;
+        
+        private decimal unitPriceField;
+        
+        private bool unitPriceFieldSpecified;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public float Discount {
+            get {
+                return this.discountField;
+            }
+            set {
+                this.discountField = value;
+                this.RaisePropertyChanged("Discount");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DiscountSpecified {
+            get {
+                return this.discountFieldSpecified;
+            }
+            set {
+                this.discountFieldSpecified = value;
+                this.RaisePropertyChanged("DiscountSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public Order Order {
+            get {
+                return this.orderField;
+            }
+            set {
+                this.orderField = value;
+                this.RaisePropertyChanged("Order");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int OrderID {
+            get {
+                return this.orderIDField;
+            }
+            set {
+                this.orderIDField = value;
+                this.RaisePropertyChanged("OrderID");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool OrderIDSpecified {
+            get {
+                return this.orderIDFieldSpecified;
+            }
+            set {
+                this.orderIDFieldSpecified = value;
+                this.RaisePropertyChanged("OrderIDSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public EntityReferenceOfOrder2nWnzibl OrderReference {
+            get {
+                return this.orderReferenceField;
+            }
+            set {
+                this.orderReferenceField = value;
+                this.RaisePropertyChanged("OrderReference");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public int ProductID {
+            get {
+                return this.productIDField;
+            }
+            set {
+                this.productIDField = value;
+                this.RaisePropertyChanged("ProductID");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ProductIDSpecified {
+            get {
+                return this.productIDFieldSpecified;
+            }
+            set {
+                this.productIDFieldSpecified = value;
+                this.RaisePropertyChanged("ProductIDSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public short Quantity {
+            get {
+                return this.quantityField;
+            }
+            set {
+                this.quantityField = value;
+                this.RaisePropertyChanged("Quantity");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool QuantitySpecified {
+            get {
+                return this.quantityFieldSpecified;
+            }
+            set {
+                this.quantityFieldSpecified = value;
+                this.RaisePropertyChanged("QuantitySpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public decimal UnitPrice {
+            get {
+                return this.unitPriceField;
+            }
+            set {
+                this.unitPriceField = value;
+                this.RaisePropertyChanged("UnitPrice");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UnitPriceSpecified {
+            get {
+                return this.unitPriceFieldSpecified;
+            }
+            set {
+                this.unitPriceFieldSpecified = value;
+                this.RaisePropertyChanged("UnitPriceSpecified");
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/ServicioWCF")]
+    public partial class Order : EntityObject {
+        
+        private string customerIDField;
+        
+        private System.Nullable<int> employeeIDField;
+        
+        private bool employeeIDFieldSpecified;
+        
+        private System.Nullable<decimal> freightField;
+        
+        private bool freightFieldSpecified;
+        
+        private System.Nullable<System.DateTime> orderDateField;
+        
+        private bool orderDateFieldSpecified;
+        
+        private int orderIDField;
+        
+        private bool orderIDFieldSpecified;
+        
+        private Order_Detail[] order_DetailsField;
+        
+        private System.Nullable<System.DateTime> requiredDateField;
+        
+        private bool requiredDateFieldSpecified;
+        
+        private string shipAddressField;
+        
+        private string shipCityField;
+        
+        private string shipCountryField;
+        
+        private string shipNameField;
+        
+        private string shipPostalCodeField;
+        
+        private string shipRegionField;
+        
+        private System.Nullable<int> shipViaField;
+        
+        private bool shipViaFieldSpecified;
+        
+        private System.Nullable<System.DateTime> shippedDateField;
+        
+        private bool shippedDateFieldSpecified;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public string CustomerID {
+            get {
+                return this.customerIDField;
+            }
+            set {
+                this.customerIDField = value;
+                this.RaisePropertyChanged("CustomerID");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public System.Nullable<int> EmployeeID {
+            get {
+                return this.employeeIDField;
+            }
+            set {
+                this.employeeIDField = value;
+                this.RaisePropertyChanged("EmployeeID");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EmployeeIDSpecified {
+            get {
+                return this.employeeIDFieldSpecified;
+            }
+            set {
+                this.employeeIDFieldSpecified = value;
+                this.RaisePropertyChanged("EmployeeIDSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public System.Nullable<decimal> Freight {
+            get {
+                return this.freightField;
+            }
+            set {
+                this.freightField = value;
+                this.RaisePropertyChanged("Freight");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FreightSpecified {
+            get {
+                return this.freightFieldSpecified;
+            }
+            set {
+                this.freightFieldSpecified = value;
+                this.RaisePropertyChanged("FreightSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public System.Nullable<System.DateTime> OrderDate {
+            get {
+                return this.orderDateField;
+            }
+            set {
+                this.orderDateField = value;
+                this.RaisePropertyChanged("OrderDate");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool OrderDateSpecified {
+            get {
+                return this.orderDateFieldSpecified;
+            }
+            set {
+                this.orderDateFieldSpecified = value;
+                this.RaisePropertyChanged("OrderDateSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public int OrderID {
+            get {
+                return this.orderIDField;
+            }
+            set {
+                this.orderIDField = value;
+                this.RaisePropertyChanged("OrderID");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool OrderIDSpecified {
+            get {
+                return this.orderIDFieldSpecified;
+            }
+            set {
+                this.orderIDFieldSpecified = value;
+                this.RaisePropertyChanged("OrderIDSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true, Order=5)]
+        public Order_Detail[] Order_Details {
+            get {
+                return this.order_DetailsField;
+            }
+            set {
+                this.order_DetailsField = value;
+                this.RaisePropertyChanged("Order_Details");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public System.Nullable<System.DateTime> RequiredDate {
+            get {
+                return this.requiredDateField;
+            }
+            set {
+                this.requiredDateField = value;
+                this.RaisePropertyChanged("RequiredDate");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RequiredDateSpecified {
+            get {
+                return this.requiredDateFieldSpecified;
+            }
+            set {
+                this.requiredDateFieldSpecified = value;
+                this.RaisePropertyChanged("RequiredDateSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public string ShipAddress {
+            get {
+                return this.shipAddressField;
+            }
+            set {
+                this.shipAddressField = value;
+                this.RaisePropertyChanged("ShipAddress");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=8)]
+        public string ShipCity {
+            get {
+                return this.shipCityField;
+            }
+            set {
+                this.shipCityField = value;
+                this.RaisePropertyChanged("ShipCity");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
+        public string ShipCountry {
+            get {
+                return this.shipCountryField;
+            }
+            set {
+                this.shipCountryField = value;
+                this.RaisePropertyChanged("ShipCountry");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
+        public string ShipName {
+            get {
+                return this.shipNameField;
+            }
+            set {
+                this.shipNameField = value;
+                this.RaisePropertyChanged("ShipName");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=11)]
+        public string ShipPostalCode {
+            get {
+                return this.shipPostalCodeField;
+            }
+            set {
+                this.shipPostalCodeField = value;
+                this.RaisePropertyChanged("ShipPostalCode");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=12)]
+        public string ShipRegion {
+            get {
+                return this.shipRegionField;
+            }
+            set {
+                this.shipRegionField = value;
+                this.RaisePropertyChanged("ShipRegion");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
+        public System.Nullable<int> ShipVia {
+            get {
+                return this.shipViaField;
+            }
+            set {
+                this.shipViaField = value;
+                this.RaisePropertyChanged("ShipVia");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ShipViaSpecified {
+            get {
+                return this.shipViaFieldSpecified;
+            }
+            set {
+                this.shipViaFieldSpecified = value;
+                this.RaisePropertyChanged("ShipViaSpecified");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=14)]
+        public System.Nullable<System.DateTime> ShippedDate {
+            get {
+                return this.shippedDateField;
+            }
+            set {
+                this.shippedDateField = value;
+                this.RaisePropertyChanged("ShippedDate");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ShippedDateSpecified {
+            get {
+                return this.shippedDateFieldSpecified;
+            }
+            set {
+                this.shippedDateFieldSpecified = value;
+                this.RaisePropertyChanged("ShippedDateSpecified");
+            }
+        }
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1993,6 +2803,114 @@ namespace ClienteWCF.ProxyWCF {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="PedidosPorCliente", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class PedidosPorClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string IdCliente;
+        
+        public PedidosPorClienteRequest() {
+        }
+        
+        public PedidosPorClienteRequest(string IdCliente) {
+            this.IdCliente = IdCliente;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="PedidosPorClienteResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class PedidosPorClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/ServicioWCF")]
+        public ClienteWCF.ProxyWCF.Order[] PedidosPorClienteResult;
+        
+        public PedidosPorClienteResponse() {
+        }
+        
+        public PedidosPorClienteResponse(ClienteWCF.ProxyWCF.Order[] PedidosPorClienteResult) {
+            this.PedidosPorClienteResult = PedidosPorClienteResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DetallesPedido", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DetallesPedidoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int IdPedido;
+        
+        public DetallesPedidoRequest() {
+        }
+        
+        public DetallesPedidoRequest(int IdPedido) {
+            this.IdPedido = IdPedido;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DetallesPedidoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DetallesPedidoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/ServicioWCF")]
+        public ClienteWCF.ProxyWCF.Order_Detail[] DetallesPedidoResult;
+        
+        public DetallesPedidoResponse() {
+        }
+        
+        public DetallesPedidoResponse(ClienteWCF.ProxyWCF.Order_Detail[] DetallesPedidoResult) {
+            this.DetallesPedidoResult = DetallesPedidoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Pedido", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class PedidoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int IdPedido;
+        
+        public PedidoRequest() {
+        }
+        
+        public PedidoRequest(int IdPedido) {
+            this.IdPedido = IdPedido;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="PedidoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class PedidoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public ClienteWCF.ProxyWCF.Order PedidoResult;
+        
+        public PedidoResponse() {
+        }
+        
+        public PedidoResponse(ClienteWCF.ProxyWCF.Order PedidoResult) {
+            this.PedidoResult = PedidoResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMiServicioWCFChannel : ClienteWCF.ProxyWCF.IMiServicioWCF, System.ServiceModel.IClientChannel {
     }
@@ -2158,6 +3076,42 @@ namespace ClienteWCF.ProxyWCF {
             ClienteWCF.ProxyWCF.ClientesConPedidoRequest inValue = new ClienteWCF.ProxyWCF.ClientesConPedidoRequest();
             ClienteWCF.ProxyWCF.ClientesConPedidoResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).ClientesConPedido(inValue);
             return retVal.ClientesConPedidoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.PedidosPorClienteResponse ClienteWCF.ProxyWCF.IMiServicioWCF.PedidosPorCliente(ClienteWCF.ProxyWCF.PedidosPorClienteRequest request) {
+            return base.Channel.PedidosPorCliente(request);
+        }
+        
+        public ClienteWCF.ProxyWCF.Order[] PedidosPorCliente(string IdCliente) {
+            ClienteWCF.ProxyWCF.PedidosPorClienteRequest inValue = new ClienteWCF.ProxyWCF.PedidosPorClienteRequest();
+            inValue.IdCliente = IdCliente;
+            ClienteWCF.ProxyWCF.PedidosPorClienteResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).PedidosPorCliente(inValue);
+            return retVal.PedidosPorClienteResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.DetallesPedidoResponse ClienteWCF.ProxyWCF.IMiServicioWCF.DetallesPedido(ClienteWCF.ProxyWCF.DetallesPedidoRequest request) {
+            return base.Channel.DetallesPedido(request);
+        }
+        
+        public ClienteWCF.ProxyWCF.Order_Detail[] DetallesPedido(int IdPedido) {
+            ClienteWCF.ProxyWCF.DetallesPedidoRequest inValue = new ClienteWCF.ProxyWCF.DetallesPedidoRequest();
+            inValue.IdPedido = IdPedido;
+            ClienteWCF.ProxyWCF.DetallesPedidoResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).DetallesPedido(inValue);
+            return retVal.DetallesPedidoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteWCF.ProxyWCF.PedidoResponse ClienteWCF.ProxyWCF.IMiServicioWCF.Pedido(ClienteWCF.ProxyWCF.PedidoRequest request) {
+            return base.Channel.Pedido(request);
+        }
+        
+        public ClienteWCF.ProxyWCF.Order Pedido(int IdPedido) {
+            ClienteWCF.ProxyWCF.PedidoRequest inValue = new ClienteWCF.ProxyWCF.PedidoRequest();
+            inValue.IdPedido = IdPedido;
+            ClienteWCF.ProxyWCF.PedidoResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).Pedido(inValue);
+            return retVal.PedidoResult;
         }
     }
 }

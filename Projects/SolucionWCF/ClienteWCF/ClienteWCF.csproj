@@ -34,7 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -59,6 +61,12 @@
     <None Include="Service References\ProxyWCF\ClienteWCF.ProxyWCF.NwDataSet.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ProxyWCF\ClienteWCF.ProxyWCF.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProxyWCF\ClienteWCF.ProxyWCF.Order_Detail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ProxyWCF\MiServicioWCF.disco" />
     <None Include="Service References\ProxyWCF\configuration91.svcinfo" />
     <None Include="Service References\ProxyWCF\configuration.svcinfo" />
@@ -69,6 +77,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ProxyWCF\MiServicioWCF4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyWCF\MiServicioWCF5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyWCF\MiServicioWCF51.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ProxyWCF\NwDataSet.xsd" />

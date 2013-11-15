@@ -198,5 +198,51 @@ namespace ClienteWCF
                 DropDownList2.DataBind();
             }
         }
+
+        protected void Button12_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                GridView2.DataSource = s.PedidosPorCliente(DropDownList2.SelectedValue);
+                GridView2.DataBind();
+                GridView2.SelectedIndex = -1;
+                GridView3.DataSource = null;
+                GridView3.DataBind();
+            }
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                GridView3.DataSource = s.DetallesPedido((int)GridView2.SelectedValue);
+                GridView3.DataBind();
+            }
+        }
+
+        protected void Button13_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                try
+                {
+                    var Pedido = s.Pedido(int.Parse(TextBox4.Text));
+                    Label6.Text = "Cliente: " + Pedido.CustomerID +
+                                "<br />Fecha: " + Pedido.OrderDate.Value.ToLongDateString();
+                }
+                catch (System.ServiceModel.FaultException ex)
+                {
+                    Label6.Text = "Error de tipo " +
+                                  ex.GetType() +
+                                  "<br />Mensaje: " + ex.Message;
+                }
+                catch (Exception ex)
+                {
+                    Label6.Text = "Error de tipo " +
+                                  ex.GetType() +
+                                  "<br />Mensaje: " + ex.Message;
+                }
+            }
+        }
     }
 }

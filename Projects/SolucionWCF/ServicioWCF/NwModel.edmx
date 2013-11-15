@@ -171,9 +171,9 @@
     <Diagrams>
       <Diagram Name="NwModel">
         <EntityTypeShape EntityType="northwindModel.Order_Detail" Width="1.5" PointX="3" PointY="1.875" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="northwindModel.Order" Width="1.5" PointX="0.75" PointY="1" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="northwindModel.Order" Width="1.875" PointX="0.5" PointY="1" Height="3.9033007812499996" IsExpanded="true" />
         <AssociationConnector Association="northwindModel.FK_Order_Details_Orders" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.9612939453125" />
+          <ConnectorPoint PointX="2.375" PointY="2.9612939453125" />
           <ConnectorPoint PointX="3" PointY="2.9612939453125" />
         </AssociationConnector>
       </Diagram>

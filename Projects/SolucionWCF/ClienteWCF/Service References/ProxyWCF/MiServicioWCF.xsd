@@ -205,4 +205,46 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="PedidosPorCliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidosPorClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ServicioWCF" minOccurs="0" name="PedidosPorClienteResult" nillable="true" type="q7:ArrayOfOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DetallesPedido">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdPedido" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DetallesPedidoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ServicioWCF" minOccurs="0" name="DetallesPedidoResult" nillable="true" type="q8:ArrayOfOrder_Detail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Pedido">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdPedido" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PedidoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ServicioWCF" minOccurs="0" name="PedidoResult" nillable="true" type="q9:Order" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

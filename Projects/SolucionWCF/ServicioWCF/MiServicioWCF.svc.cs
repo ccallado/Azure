@@ -203,16 +203,79 @@ namespace ServicioWCF
             }
         }
 
-        public IEnumerable<string> ClientesConPedido()
+        public List<string> ClientesConPedido()
         {
             using (northwindEntities contexto =
                 new northwindEntities())
             {
-                var lista = (from c in contexto.Orders
-                             orderby c.CustomerID
-                             select c.CustomerID).Distinct();
-                //La devolución tiene que ser una lista.
-                return lista;
+                //var lista = (from c in contexto.Orders
+                //             orderby c.CustomerID
+                //             select c.CustomerID).Distinct();
+                ////La devolución tiene que ser una lista.
+                ////Asegurarse que la lista está leida, porque el Entity se perderá
+                ////Por eso ponemos el ToList()
+                //return lista.ToList();
+
+                //Usando (Métodos de extensión)
+                return contexto.Orders
+                               .Select(o => o.CustomerID)
+                               .Distinct()
+                               .OrderBy(c => c)
+                               .ToList();
+            }
+        }
+
+
+        public List<Order> PedidosPorCliente(string IdCliente)
+        {
+            using (northwindEntities contexto =
+                new northwindEntities())
+            {
+                //No sigue las propiedades de navegación
+                contexto.ContextOptions.LazyLoadingEnabled = false;
+                if (IdCliente == null)
+                    return contexto.Orders.ToList();
+                else
+                    return contexto.Orders
+                                   .Where(o => o.CustomerID == IdCliente)
+                                   .ToList();
+            }
+        }
+
+
+        public List<Order_Detail> DetallesPedido(int IdPedido)
+        {
+            using (northwindEntities contexto =
+                new northwindEntities())
+            {
+                //No sigue las propiedades de navegación
+                contexto.ContextOptions.LazyLoadingEnabled = false;
+                if (IdPedido== null)
+                    return contexto.Order_Details.ToList();
+                else
+                    return contexto.Order_Details
+                                   .Where(o => o.OrderID == IdPedido)
+                                   .ToList();
+            }
+        }
+
+
+        public Order Pedido(int IdPedido)
+        {
+            using (northwindEntities contexto =
+                new northwindEntities())
+            {
+                //No sigue las propiedades de navegación
+                contexto.ContextOptions.LazyLoadingEnabled = false;
+
+                try
+                {
+                    return contexto.Orders.Where(o => o.OrderID == IdPedido).Single();
+                }
+                catch (Exception ex)
+                {
+                    throw new FaultException(ex.Message);
+                }
             }
         }
     }

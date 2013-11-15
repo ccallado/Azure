@@ -27,6 +27,8 @@
     <MetadataFile FileName="MiServicioWCF1.xsd" MetadataType="Schema" ID="c1c5efdd-4f2e-4576-9728-cec46e8d177d" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd2" />
     <MetadataFile FileName="MiServicioWCF4.xsd" MetadataType="Schema" ID="833edceb-6389-4b02-9d09-cdb90f9cc686" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd5" />
     <MetadataFile FileName="MiServicioWCF3.xsd" MetadataType="Schema" ID="0fc807ab-9ee6-4089-8899-aacb92c3dc37" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd4" />
+    <MetadataFile FileName="MiServicioWCF5.xsd" MetadataType="Schema" ID="8649ffdc-b868-498d-ac26-6e82996ab5c5" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd7" />
+    <MetadataFile FileName="MiServicioWCF51.xsd" MetadataType="Schema" ID="d2011bfc-5a7b-4999-b1f7-81640b09a683" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd6" />
     <MetadataFile FileName="MiServicioWCF.wsdl" MetadataType="Wsdl" ID="73073457-1a2f-4738-a49e-a2a27d9ed508" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?wsdl" />
     <MetadataFile FileName="MiServicioWCF.disco" MetadataType="Disco" ID="0fd35866-3f80-49e3-89ba-714107c79066" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?disco" />
   </Metadata>

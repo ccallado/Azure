@@ -67,6 +67,54 @@
             onclick="Button11_Click" />
         <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True">
         </asp:DropDownList>
+        <asp:Button ID="Button12" runat="server" Text="Cargar pedidos" 
+            onclick="Button12_Click" />
+        <asp:GridView ID="GridView2" runat="server" BackColor="LightGoldenrodYellow" 
+            BorderColor="Tan" BorderWidth="1px" CellPadding="2" ForeColor="Black" 
+            GridLines="None" onselectedindexchanged="GridView2_SelectedIndexChanged" 
+            DataKeyNames="OrderID" AutoGenerateColumns="False">
+            <AlternatingRowStyle BackColor="PaleGoldenrod" />
+            <Columns>
+                <asp:CommandField ButtonType="Button" SelectText="&gt;&gt;" 
+                    ShowSelectButton="True" />
+                <asp:BoundField DataField="OrderID" HeaderText="Pedido" />
+                <asp:BoundField DataField="OrderDate" HeaderText="F. Pedido" 
+                    DataFormatString="{0:d}" />
+                <asp:BoundField DataField="ShipName" HeaderText="Nombre Cliente" />
+            </Columns>
+            <FooterStyle BackColor="Tan" />
+            <HeaderStyle BackColor="Tan" Font-Bold="True" />
+            <PagerStyle BackColor="PaleGoldenrod" ForeColor="DarkSlateBlue" 
+                HorizontalAlign="Center" />
+            <SelectedRowStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
+            <SortedAscendingCellStyle BackColor="#FAFAE7" />
+            <SortedAscendingHeaderStyle BackColor="#DAC09E" />
+            <SortedDescendingCellStyle BackColor="#E1DB9C" />
+            <SortedDescendingHeaderStyle BackColor="#C2A47B" />
+        </asp:GridView>
+        <br />
+        <asp:GridView ID="GridView3" runat="server" CellPadding="4" ForeColor="#333333" 
+            GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
+            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+            <SortedDescendingHeaderStyle BackColor="#820000" />
+        </asp:GridView>
+        <br />
+        <hr />
+        Tratamiento de errores
+        <br />
+        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        <asp:Button ID="Button13" runat="server" Text="Cargar Pedido" 
+            onclick="Button13_Click" />
+        <br />
+        <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
     </div>
     </form>
 </body>
