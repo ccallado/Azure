@@ -18,9 +18,13 @@
             onclick="Button2_Click" />
         <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         <br />
-        <asp:RadioButton ID="RadioButton1" runat="server" GroupName="G1" Text="Larga" />
-        <asp:RadioButton ID="RadioButton2" runat="server" GroupName="G1" Text="Corta" />
-        <asp:RadioButton ID="RadioButton3" runat="server" GroupName="G1" Text="Completa" />
+        <asp:RadioButton ID="RadioButton1" runat="server" GroupName="G1" Text="Larga" 
+            AutoPostBack="True" oncheckedchanged="RadioButton1_CheckedChanged" />
+        <asp:RadioButton ID="RadioButton2" runat="server" GroupName="G1" Text="Corta" 
+            AutoPostBack="True" oncheckedchanged="RadioButton2_CheckedChanged" />
+        <asp:RadioButton ID="RadioButton3" runat="server" GroupName="G1" 
+            Text="Completa" AutoPostBack="True" 
+            oncheckedchanged="RadioButton3_CheckedChanged" />
         <asp:Button ID="Button3" runat="server" Text="Fecha (con tipo)" 
             onclick="Button3_Click" />
         <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
@@ -46,8 +50,15 @@
             onclick="Button8_Click" />
         <asp:Button ID="Button9" runat="server" Text="Cargar Combo (conectado)" 
             onclick="Button9_Click" />
-        <asp:DropDownList ID="DropDownList1" runat="server">
+        <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" 
+            ondatabound="DropDownList1_DataBound" 
+            onselectedindexchanged="DropDownList1_SelectedIndexChanged">
         </asp:DropDownList>
+        <br />
+        <asp:Button ID="Button10" runat="server" Text="Todos los Productos" 
+            onclick="Button10_Click" />
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
     </div>
     </form>
 </body>

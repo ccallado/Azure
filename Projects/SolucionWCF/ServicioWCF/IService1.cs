@@ -50,6 +50,11 @@ namespace ServicioWCF
         [OperationContract]
         List<Categoria> CategoriasConectado(bool IncluyeDescripcion);
 
+        [OperationContract]
+        NwDataSet.ProductsDataTable Productos();
+
+        [OperationContract(Name="ProductosPorCategoria")]
+        NwDataSet.ProductsDataTable Productos(int IdCategoria);
     }
 
 

@@ -139,13 +139,13 @@ namespace ServicioWCF
                             Descripcion = c.Description
                         }).ToList<Categoria>();
                 //lo mismo en LINQ
-/*                return (from c in taCat.GetData()
-                       select new Categoria()
-                                               {
-                                                   IdCategoria = c.CategoryID,
-                                                   NombreCategoria = c.CategoryName,
-                                                   Descripcion = c.Description
-                                               }).ToList<Categoria>();*/
+                /*                return (from c in taCat.GetData()
+                                       select new Categoria()
+                                                               {
+                                                                   IdCategoria = c.CategoryID,
+                                                                   NombreCategoria = c.CategoryName,
+                                                                   Descripcion = c.Description
+                                                               }).ToList<Categoria>();*/
             }
         }
 
@@ -160,7 +160,7 @@ namespace ServicioWCF
                                              .ConnectionStrings["northwindConnectionString"].ConnectionString;
                 System.Data.SqlClient.SqlCommand cmd;
                 cmd = cnn.CreateCommand();
-                cmd.CommandText = "SELECT CategoryID, CategoryName"+
+                cmd.CommandText = "SELECT CategoryID, CategoryName" +
                     (IncluyeDescripcion ? ", Description" : "") +
                     " FROM Categories";
                 cnn.Open();
@@ -177,8 +177,32 @@ namespace ServicioWCF
 
                     categs.Add(c);
                 }
-                return categs ;
+                return categs;
             }
         }
+
+        public NwDataSet.ProductsDataTable Productos()
+        {
+            return Productos(-1);
+        }
+
+        //Parámetro opcional se inicializa con valor -1
+        //El parametro es Opcional DENTRO del servicio, pero en el cliente lo genera
+        //como obligatorio. El -1 es para que cargue TODOS los productos.
+
+        public NwDataSet.ProductsDataTable Productos(int IdCategoria = -1)
+        {
+            using (NwDataSetTableAdapters.ProductsTableAdapter taProd =
+                   new NwDataSetTableAdapters.ProductsTableAdapter())
+            {
+                if (IdCategoria == -1)
+                    //Vamos a optimizar para no instanciar todas las tablas del DataSet
+                    return taProd.GetData();
+                else
+                    return taProd.GetDataByCategoryID(IdCategoria);
+            }
+        }
+
+
     }
 }

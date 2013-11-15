@@ -175,10 +175,32 @@ Para subir luego la librería al GAC hay crear un proyecto de distribución.
 
 En el servicio al usar ADO Conectado no puedo devolver un DataReader porque cuando pase la información, que es un puntero perdería los datos.
 
-Metodos para optimizar la lectura del DataReader, ExecuteReader tiene una segunda sobrecarga que con System.Data.CommandBehavior. .....)
+Métodos para optimizar la lectura del DataReader, ExecuteReader tiene una segunda sobrecarga que con System.Data.CommandBehavior. .....)
 * CloseConnection.- cuando termine de leer que cierre la conexión automáticamente
 * SequentialAccess.- Cuando hay muchos datos optimiza la memoria.
 * SingleRow.- Para cuando solo hay que pedir un registro.
 
-En el DataReader podemos saber si hay registros con HasRows pero no ha leido nada, siempre hay que hacer un **Read()** para leer el registro siguiente.
+En el **DataReader** podemos saber si hay registros con **HasRows** pero no ha leído nada, siempre hay que hacer un **Read()** para leer el registro siguiente.
+
+Modificación de un Dataset.
+
+En la barra de controles.
+
+* DataTable.- Tabla simple sin TableAdapter.
+* Query.- Consultas que no traen registros. (executenonquery o executexcalar)
+* Relaciones.- Para crearlas nuevas si no están ya creadas.
+* TableAdapter.- Me añade la tabla y las diferentes consultas (Llenar, Obtener, Update, Insert, Delete, y las consultas auxiliares.
+
+Un tableAdapter siempre tiene las mismas columnas.
+
+Simultaneidad optimista revisa la concurrencia, si habilitamos la concurrencia revisaría que todos los campos no hallan sido modificados desde la lectura a la reescritura del registro. Sino solo revisa ID.
+
+Actualizar tabla de datos, después de un insert hace un select para saber el número de Id que le ha dado al nuevo registro.
+
+Una relación a diferencia de una ForeignKey no me obliga a cargar los datos en las dos tablas de la relación.
+
+Eventos del Control **DropDownList**
+
+* **DataBinding**.- Evento que se produce justo antes de realizar el enlace con los datos.
+* **DataBound**.- Se ejecuta nada más realizar el enlace con los datos.
 

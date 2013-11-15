@@ -132,6 +132,8 @@ namespace ClienteWCF
                 DropDownList1.DataValueField = "IdCategoria";
                 DropDownList1.DataBind();
             }
+            //Actualizo la Grid
+            //DropDownList1_SelectedIndexChanged(null, null);
         }
 
         protected void Button9_Click(object sender, EventArgs e)
@@ -142,7 +144,50 @@ namespace ClienteWCF
                 DropDownList1.DataTextField = "NombreCategoria";
                 DropDownList1.DataValueField = "IdCategoria";
                 DropDownList1.DataBind();
+                //GridView1.DataSource = s.Productos(-1);
+                //GridView1.DataBind();
+                //Se puede decir que la pagina actualice todos los binding
+                //Page.DataBind();
             }
+        }
+
+        protected void Button10_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                GridView1.DataSource = s.Productos();
+                GridView1.DataBind();
+            }
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                GridView1.DataSource = s.ProductosPorCategoria(int.Parse(DropDownList1.SelectedValue));
+                GridView1.DataBind();
+            }
+        }
+
+        protected void DropDownList1_DataBound(object sender, EventArgs e)
+        {
+            //Actualizo la Grid
+            DropDownList1_SelectedIndexChanged(null, null);
+        }
+
+        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            Button3_Click(null, null);
+        }
+
+        protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            Button3_Click(null, null);
+        }
+
+        protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            Button3_Click(null, null);
         }
     }
 }
