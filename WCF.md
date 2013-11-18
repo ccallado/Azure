@@ -220,6 +220,10 @@ En entities es necesario poner la propiedad contexto.ContextOptions.**LazyLoadin
 ![Imagen 43](Imagenes/CursoAzureImg44.png)
 
 Control de errores en Servicios con Entities.
+Las FaultException existen tambien como tipo genérico, le puedo mandar una información que tiene un contenido le puedo mandar cualquier cosa, clase, etc...
+Cada vez que vayaamos a enviar una FaultException con contenido personalizado en el método del interface tenemos que indicárselo.
+
+
 
 Al no encontrar el pedido en el servidor ha encontrado un error y ha mandado un error diferente al cliente.
 
@@ -237,4 +241,19 @@ Habilitar en el Web.config del servicio, para que en lugar de mandar el FaultExc
 Lo sigue mandando con FaultException pero el mensaje es correcto (es el mismo que da el servidor. **En producción dejarla siempre a false**.
 
 Se captura en el servidor el error y se reconvierte a una excepcion de tipo FaultException y ya es compatible con todos los clientes.
+
+Creamos una clase ClaseErrorGeneral
+con propiedades 
+string operacion
+string mensaje
+En el fichero clases datos.
+
+    [OperationContract]  
+    [FaultContract(typeof(ClaseErrorGeneral))]  
+
+Existe un atributo FaultContract que debemos indicar a continuaciíon de OperatinoContract hay que indicar el tipo del detalle a enviar.
+
+En **Detail** en el cliente, se devuelve el objeto que he creado para devolvel en la excepción.
+
+Vamos añadir a la ClaseErrorGeneral que pueda enviar una excepción.
 
