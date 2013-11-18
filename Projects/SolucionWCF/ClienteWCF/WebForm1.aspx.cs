@@ -264,10 +264,11 @@ namespace ClienteWCF
                     if (ceg != null)
                         Label6.Text += "<br />Operacion: " + ceg.Operacion +
                                        "<br />Mensaje: " +ceg.Mensaje;
+                    //El cliente recibe una instancia de tipo ProxyWCF.InvaidOperationException
+                    //que es 
                     if (ceg.ExcepcionEnServicio != null)
-                        Label6.Text += "<br />Excepcion en Servicio: " + ceg.ExcepcionEnServicio.GetType()";
-                        System.InvalidOperationException esc = ceg.ExcepcionEnServicio as System.InvalidOperationException;
-                                       "<br />Mensaje: " + ceg.ExcepcionEnServicio.
+                        Label6.Text += "<br />Excepcion en Servicio: " + ceg.ExcepcionEnServicio.GetType()" +
+                                       "<br />Mensaje: " + ceg.ExcepcionEnServicio.ToString();
                 }
                 catch (System.Exception ex)
                 {
