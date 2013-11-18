@@ -257,3 +257,16 @@ En **Detail** en el cliente, se devuelve el objeto que he creado para devolvel e
 
 Vamos añadir a la ClaseErrorGeneral que pueda enviar una excepción.
 
+Tipos de configuraciones de servicio.
+
+* PerCall.- Por llamada, es un servicio que crea una instancia por cada llamada. Liberandola tras su uso. *(valor por defecto)*. Hago una llamada obtengo mis dados y los visualizo.
+* PerSession.- Por sesión, mantiene la instancia del servicio mientras mantengamos el Proxy en memoria (en cliente oviamente). Cuando voy a hacer actualizaciones y por cada uno de ellos tengo que hacer una actualización, inserción. Si mantengo el proxy abierto para hacer todas seguidas.
+* Single Una única instancia para todos los usuarios.
+ 
+Son excluyente o son de un tipo o son de otro.
+Añadimos Servicio WCF con nombre ServicioPerCall, ServicioPerSession y ServicioSingle
+
+Para que sea de solo lectura 
+Refactorizo encapsular campo el campo _Creacion en Creación.
+
+
