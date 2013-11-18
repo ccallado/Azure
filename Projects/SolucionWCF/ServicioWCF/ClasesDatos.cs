@@ -48,7 +48,7 @@ namespace ServicioWCF
     {
         public string Operacion {get; set;}
         public string Mensaje {get; set;}
-    }
+        public InvalidOperationException ExcepcionEnServicio {get; set;}
         
     }
 }
