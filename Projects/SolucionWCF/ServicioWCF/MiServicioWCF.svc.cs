@@ -278,5 +278,31 @@ namespace ServicioWCF
                 }
             }
         }
+
+        public Order PedidoConErrorGeneral(int IdPedido)
+        {
+            using (northwindEntities contexto =
+                new northwindEntities())
+            {
+                //No sigue las propiedades de navegación
+                contexto.ContextOptions.LazyLoadingEnabled = false;
+
+                try
+                {
+                    return contexto.Orders.Where(o => o.OrderID == IdPedido).Single();
+                }
+                catch (Exception ex)
+                {
+                    ClaseErrorGeneral ceg = new ClaseErrorGeneral();
+                    ceg.Operacion = "PedidoConErrorGeneral";
+                    ceg.Mensaje = ex.Message;
+                    
+                    FaultException<ClaseErrorGeneral>() fe;
+                    fe = new FaultException<ClaseErrorGeneral>(ceg, "Id de pedido no encontrado");
+                        
+                    throw fe;
+                }
+            }
+        }
     }
 }
