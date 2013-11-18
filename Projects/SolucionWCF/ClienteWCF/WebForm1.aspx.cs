@@ -264,8 +264,12 @@ namespace ClienteWCF
                     if (ceg != null)
                         Label6.Text += "<br />Operacion: " + ceg.Operacion +
                                        "<br />Mensaje: " +ceg.Mensaje;
+                    if (ceg.ExcepcionEnServicio != null)
+                        Label6.Text += "<br />Excepcion en Servicio: " + ceg.ExcepcionEnServicio.GetType()";
+                        System.InvalidOperationException esc = ceg.ExcepcionEnServicio as System.InvalidOperationException;
+                                       "<br />Mensaje: " + ceg.ExcepcionEnServicio.
                 }
-                catch (Exception ex)
+                catch (System.Exception ex)
                 {
                     Label6.Text = "Error de tipo " +
                                   ex.GetType() +
