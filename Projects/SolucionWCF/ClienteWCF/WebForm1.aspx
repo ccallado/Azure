@@ -113,6 +113,8 @@
         <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
         <asp:Button ID="Button13" runat="server" Text="Cargar Pedido" 
             onclick="Button13_Click" />
+        <asp:Button ID="Button14" runat="server" Text="Cargar Pedido con ClaseErrorGeneral" 
+            onclick="Button14_Click" />
         <br />
         <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
     </div>
