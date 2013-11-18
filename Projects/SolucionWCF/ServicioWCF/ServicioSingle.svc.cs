@@ -7,14 +7,15 @@ using System.Text;
 
 namespace ServicioWCF
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServicioPerCall" en el código, en svc y en el archivo de configuración a la vez.
-    //Los servicios son PerCall crean una instancia de servicio por cada llamada.
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
-    public class ServicioPerCall : IServicioPerCall
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServicioSingle" en el código, en svc y en el archivo de configuración a la vez.
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single )]
+    //Los Single crean una única instancia del servicio para todas las peticiones.
+
+    public class ServicioSingle : IServicioSingle
     {
         ClaseOperaciones co;
 
-        public ServicioPerCall()
+        public ServicioSingle()
         {
             co = new ClaseOperaciones();
         }
@@ -24,6 +25,5 @@ namespace ServicioWCF
             System.Threading.Thread.Sleep(1000);
             return co.IncrementaContador();
         }
-
     }
 }

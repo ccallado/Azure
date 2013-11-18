@@ -63,6 +63,7 @@
     <Content Include="MiServicioWCF.svc" />
     <Content Include="ServicioPerCall.svc" />
     <Content Include="ServicioPerSession.svc" />
+    <Content Include="ServicioSingle.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -77,6 +78,7 @@
     <Compile Include="Enumeraciones.cs" />
     <Compile Include="IServicioPerCall.cs" />
     <Compile Include="IServicioPerSession.cs" />
+    <Compile Include="IServicioSingle.cs" />
     <Compile Include="MiServicioWCF.svc.cs">
       <DependentUpon>MiServicioWCF.svc</DependentUpon>
     </Compile>
@@ -97,6 +99,9 @@
     </Compile>
     <Compile Include="ServicioPerSession.svc.cs">
       <DependentUpon>ServicioPerSession.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioSingle.svc.cs">
+      <DependentUpon>ServicioSingle.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

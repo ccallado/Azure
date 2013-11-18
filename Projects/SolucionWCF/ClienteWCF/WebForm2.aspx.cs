@@ -50,5 +50,29 @@ namespace ClienteWCF
                 }
             }
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Label3.Text = "Using 1 <br />";
+            using (ProxySingle.ServicioSingleClient s =
+                new ProxySingle.ServicioSingleClient())
+            {
+                for (int i = 1; i <= 3; i++)
+                {
+                    Label3.Text += s.IncrementaContador() + "<br />";
+                }
+            }
+
+            Label3.Text += "<br />Using 2 <br />";
+
+            using (ProxySingle.ServicioSingleClient s =
+                new ProxySingle.ServicioSingleClient())
+            {
+                for (int i = 1; i <= 3; i++)
+                {
+                    Label3.Text += s.IncrementaContador() + "<br />";
+                }
+            }
+        }
     }
 }

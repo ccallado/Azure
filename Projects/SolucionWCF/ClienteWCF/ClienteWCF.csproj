@@ -62,6 +62,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\ProxySingle\ServicioSingle.disco" />
+    <None Include="Service References\ProxySingle\configuration91.svcinfo" />
+    <None Include="Service References\ProxySingle\configuration.svcinfo" />
+    <None Include="Service References\ProxySingle\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="WebForm2.aspx" />
     <None Include="Service References\ProxyPerCall\ServicioPerCall.wsdl" />
     <None Include="Service References\ProxyPerCall\ServicioPerCall.xsd">
@@ -75,6 +82,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ProxyPerSession\ServicioPerSession1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxySingle\ServicioSingle.wsdl" />
+    <None Include="Service References\ProxySingle\ServicioSingle.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxySingle\ServicioSingle1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ProxyWCF\ClienteWCF.ProxyWCF.Categoria.datasource">
@@ -146,6 +160,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ProxySingle\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ProxyWCF\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +191,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ProxyPerCall\" />
     <WCFMetadataStorage Include="Service References\ProxyPerSession\" />
+    <WCFMetadataStorage Include="Service References\ProxySingle\" />
     <WCFMetadataStorage Include="Service References\ProxyWCF\" />
   </ItemGroup>
   <ItemGroup>

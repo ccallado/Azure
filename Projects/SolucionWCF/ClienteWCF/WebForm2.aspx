@@ -15,12 +15,20 @@
             onclick="Button1_Click" />
         <br />
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <br />
         Servicio PerCall
         <br />
         <asp:Button ID="Button2" runat="server" Text="Incrementar contador 3 veces" onclick="Button2_Click" 
             />
         <br />
         <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        <br />
+        Servicio Single
+        <br />
+        <asp:Button ID="Button3" runat="server" Text="Incrementar contador 3 veces" onclick="Button3_Click" 
+            />
+        <br />
+        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
     
     </div>
     </form>
