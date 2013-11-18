@@ -296,7 +296,9 @@ namespace ServicioWCF
                     ClaseErrorGeneral ceg = new ClaseErrorGeneral();
                     ceg.Operacion = "PedidoConErrorGeneral";
                     ceg.Mensaje = ex.Message;
-                    
+                    if (ex is InvalidOperationException)
+                        ceg.ExcepcionEnServicio = ex as InvalidOperationException;
+                        
                     FaultException<ClaseErrorGeneral>() fe;
                     fe = new FaultException<ClaseErrorGeneral>(ceg, "Id de pedido no encontrado");
                         
