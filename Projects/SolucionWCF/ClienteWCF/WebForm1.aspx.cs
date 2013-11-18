@@ -244,5 +244,34 @@ namespace ClienteWCF
                 }
             }
         }
+
+        protected void Button14_Click(object sender, EventArgs e)
+        {
+            using (MiServicioWCFClient s = new MiServicioWCFClient())
+            {
+                try
+                {
+                    var Pedido = s.PedidoConErrorGeneral(int.Parse(TextBox4.Text));
+                    Label6.Text = "Cliente: " + Pedido.CustomerID +
+                                "<br />Fecha: " + Pedido.OrderDate.Value.ToLongDateString();
+                }
+                catch (System.ServiceModel.FaultException<ProxyWCF.ClaseErrorGeneral> ex)
+                {
+                    Label6.Text = "Error de tipo " +
+                                  ex.GetType() +
+                                  "<br />Mensaje: ";
+                    ProxyWCF.ClaseErrorGeneral ceg = ex.Detail;
+                    if (ceg != null)
+                        Label6.Text += "<br />Operacion: " + ceg.Operacion +
+                                       "<br />Mensaje: " +ceg.Mensaje;
+                }
+                catch (Exception ex)
+                {
+                    Label6.Text = "Error de tipo " +
+                                  ex.GetType() +
+                                  "<br />Mensaje: " + ex.Message;
+                }
+            }
+        }
     }
 }
