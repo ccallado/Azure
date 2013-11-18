@@ -299,7 +299,7 @@ namespace ServicioWCF
                     if (ex is InvalidOperationException)
                         ceg.ExcepcionEnServicio = ex as InvalidOperationException;
                         
-                    FaultException<ClaseErrorGeneral>() fe;
+                    FaultException<ClaseErrorGeneral> fe;
                     fe = new FaultException<ClaseErrorGeneral>(ceg, "Id de pedido no encontrado");
                         
                     throw fe;
