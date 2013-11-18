@@ -269,4 +269,25 @@ Añadimos Servicio WCF con nombre ServicioPerCall, ServicioPerSession y Servicio
 Para que sea de solo lectura 
 Refactorizo encapsular campo el campo _Creacion en Creación.
 
+Tenemos que configurar el servicio para que adminta un Binding que si admita session.
+Utilizaremos una herramienta para configurar los servicios en Visual Studio.
+Menu Herramientas/Editos de configuración de servicios WCF
+Inicio/Microsoft Visual Studio 2010/Microsoft Windows SDK Tools/
+En los ejecutable el fichero app.config que se convierte a NombreDelPrograma.exe.config
+
+Seleccionamos el web.config del servicio.
+
+El servicio lo creamos, lo que estamos haciendo es crear la configuración.
+
+Utilizamos HTTP.
+
+Seleccionamos Avanzada.
+
+Servicios simples.- son servicios en una dirección. Es decir para pedir datos.
+
+Servidios Duples.- Para pedir y mandar información.
+
+Especificar la dirección del servicio. Pero ahora no es una dirección definitiva. La solución es dejarlo totalmente en blanco. No da una advertencia de que tendremos que crearla por código, pero no es necesario hacerlo por código, va a funcionar.
+
+Ahora en Extremos (EndPoint) No es necesario darle nombre a no ser que vaya a tener varios servicios, unos utilicen una configuración y otros otra.
 

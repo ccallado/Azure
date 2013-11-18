@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServicioWCF" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServicioWCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:import schemaLocation="http://localhost:49883/MiServicioWCF.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:element name="NwDataSet.CategoriesDataTable" nillable="true">
     <xs:complexType>
       <xs:annotation>
@@ -97,4 +98,12 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Order_Detail" nillable="true" type="tns:Order_Detail" />
+  <xs:complexType name="ClaseErrorGeneral">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExcepcionEnServicio" nillable="true" type="q3:InvalidOperationException" />
+      <xs:element minOccurs="0" name="Mensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Operacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClaseErrorGeneral" nillable="true" type="tns:ClaseErrorGeneral" />
 </xs:schema>

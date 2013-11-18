@@ -23,7 +23,10 @@ namespace ServicioWCF
     
     public string IncrementaContador()
     {
-      
+        Contador++;
+        return "Contador: " + Creacion +
+            " - Instancia: " + Creacion +
+            " - Modificación: " + DateTime.Now;
     }
   }
 }

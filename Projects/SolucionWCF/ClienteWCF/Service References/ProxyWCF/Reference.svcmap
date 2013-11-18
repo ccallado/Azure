@@ -30,6 +30,7 @@
     <MetadataFile FileName="MiServicioWCF5.xsd" MetadataType="Schema" ID="8649ffdc-b868-498d-ac26-6e82996ab5c5" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd7" />
     <MetadataFile FileName="MiServicioWCF51.xsd" MetadataType="Schema" ID="d2011bfc-5a7b-4999-b1f7-81640b09a683" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd6" />
     <MetadataFile FileName="MiServicioWCF.wsdl" MetadataType="Wsdl" ID="73073457-1a2f-4738-a49e-a2a27d9ed508" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?wsdl" />
+    <MetadataFile FileName="MiServicioWCF6.xsd" MetadataType="Schema" ID="88f1d492-c359-4f6b-b272-582981e0853c" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?xsd=xsd8" />
     <MetadataFile FileName="MiServicioWCF.disco" MetadataType="Disco" ID="0fd35866-3f80-49e3-89ba-714107c79066" SourceId="1" SourceUrl="http://localhost:49883/MiServicioWCF.svc?disco" />
   </Metadata>
   <Extensions>

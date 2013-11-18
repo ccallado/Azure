@@ -61,6 +61,8 @@
       <DependentUpon>northwind.mdf</DependentUpon>
     </Content>
     <Content Include="MiServicioWCF.svc" />
+    <Content Include="ServicioPerCall.svc" />
+    <Content Include="ServicioPerSession.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -71,7 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClasesDatos.cs" />
+    <Compile Include="ClasesOperaciones.cs" />
     <Compile Include="Enumeraciones.cs" />
+    <Compile Include="IServicioPerCall.cs" />
+    <Compile Include="IServicioPerSession.cs" />
     <Compile Include="MiServicioWCF.svc.cs">
       <DependentUpon>MiServicioWCF.svc</DependentUpon>
     </Compile>
@@ -87,6 +92,12 @@
       <DependentUpon>NwModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicioPerCall.svc.cs">
+      <DependentUpon>ServicioPerCall.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioPerSession.svc.cs">
+      <DependentUpon>ServicioPerSession.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

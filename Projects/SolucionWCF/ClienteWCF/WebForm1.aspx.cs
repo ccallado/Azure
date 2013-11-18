@@ -236,7 +236,7 @@ namespace ClienteWCF
                                   ex.GetType() +
                                   "<br />Mensaje: " + ex.Message;
                 }
-                catch (Exception ex)
+                catch (System.Exception ex)
                 {
                     Label6.Text = "Error de tipo " +
                                   ex.GetType() +
@@ -267,7 +267,7 @@ namespace ClienteWCF
                     //El cliente recibe una instancia de tipo ProxyWCF.InvaidOperationException
                     //que es 
                     if (ceg.ExcepcionEnServicio != null)
-                        Label6.Text += "<br />Excepcion en Servicio: " + ceg.ExcepcionEnServicio.GetType()" +
+                        Label6.Text += "<br />Excepcion en Servicio: " + ceg.ExcepcionEnServicio.GetType() +
                                        "<br />Mensaje: " + ceg.ExcepcionEnServicio.ToString();
                 }
                 catch (System.Exception ex)
