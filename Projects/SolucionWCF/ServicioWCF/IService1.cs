@@ -67,6 +67,12 @@ namespace ServicioWCF
 
         [OperationContract]
         Order Pedido(int IdPedido);
+
+
+        [OperationContract]
+        [FaultContract(typeof(ClaseErrorGeneral))]
+        Order PedidoConErrorGeneral(int IdPedido);
+        
     }
 
 
