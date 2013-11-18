@@ -43,4 +43,12 @@ namespace ServicioWCF
             return InfoCategoria() + " - " + Descripcion;
         }
     }
+    
+    public class ClaseErrorGeneral
+    {
+        public string Operacion {get; set;}
+        public string Mensaje {get; set;}
+    }
+        
+    }
 }
