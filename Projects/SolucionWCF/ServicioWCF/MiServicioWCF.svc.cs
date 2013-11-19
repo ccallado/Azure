@@ -10,7 +10,7 @@ namespace ServicioWCF
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
     [ServiceBehavior(Name = "MiServicioWCF")]
-    public class Service1 : IService1
+    public class Service1 : IService1, IMiServicioWCF2 
     {
         public string GetData(int value)
         {
@@ -306,5 +306,20 @@ namespace ServicioWCF
                 }
             }
         }
+
+        public string FechayHora()
+        {
+            return DateTime.Now.ToString();
+        }
+
+        //string IMiServicioWCF2.FechayHora()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //string IMiServicioWCF2.Fecha(enumTipoFecha tipoFecha)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

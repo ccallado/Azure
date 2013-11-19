@@ -83,6 +83,7 @@
       <DependentUpon>MiServicioWCF.svc</DependentUpon>
     </Compile>
     <Compile Include="IService1.cs" />
+    <Compile Include="MiServicioWCF2.cs" />
     <Compile Include="NwDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

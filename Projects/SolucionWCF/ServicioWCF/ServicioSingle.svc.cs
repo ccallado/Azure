@@ -28,7 +28,14 @@ namespace ServicioWCF
 
         public string IncrementaContadorConBloqueo(int segundosParada)
         {
-            return co.IncrementaContadorConBloqueo(segundosParada);
+            try
+            {
+                return co.IncrementaContadorConBloqueo(segundosParada);
+            }
+            catch (TimeoutException ex)
+            {
+                throw new System.ServiceModel.FaultException(ex.Message);
+            }
         }
     }
 }

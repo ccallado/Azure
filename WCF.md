@@ -620,3 +620,67 @@ La instrucción **lock()** bloquea un fragmento de código mientras mantenga blo
 
 Lo recomendable es crear un objeto instanciarla y usar eso como flag.
 
+Objeto llamado Monitor.
+
+La funcionalidad del objeto Monitor es similar al lock(), pero un poquito más avanzada. La principal diferencia es que con lock cuando salgo con un return se libera el objeto, pero si se produce una excepción **NO libera el objeto** a no ser que se haga con un try catch dentro del bloque. Sin envargo con el objeto Monitor se puede evitar esto.
+
+Dependiendo de la sobrecarga funciona de diferente manera.
+
+    Monitor.Enter(objetoABloquear)
+    try 
+    {
+        . Código bloqueado
+        .
+    }
+    finaly
+    {
+        . Esto se va a ejecutar SI o SI
+        Monitor.Exit(objetoABloquear)
+    }
+
+Formato 1
+
+    //Formato 1. Asumimos que el objeto PODREMOS bloquearlo siempre,
+    //           porque se queda en espera hasta que pueda bloquearlo...
+    System.Threading.Monitor.Enter(objetoABloquear);
+    try
+    {
+        //Código bloqueado
+        Contador++;
+        System.Threading.Thread.Sleep(1000 * segundosParada);
+        return "Contador: " + Contador +
+            " - Instancia: " + Creacion +
+            " - Modificación: " + DateTime.Now;
+    }
+    finally
+    {
+        // Esto se va a ejecutar SI o SI
+        System.Threading.Monitor.Exit(objetoABloquear);
+    }
+
+
+Formato 2
+
+    //Formato 2. Asumimos que el objeto PODREMOS bloquearlo siempre,
+    //           porque se queda en espera hasta que pueda bloquearlo...
+    bool bloqueado = false;
+    System.Threading.Monitor.TryEnter(objetoABloquear, 1500, ref bloqueado);
+    try
+    {
+        if (bloqueado)
+        {
+            //Código bloqueado
+            Contador++;
+            System.Threading.Thread.Sleep(1000 * segundosParada);
+            return "Contador: " + Contador +
+                " - Instancia: " + Creacion +
+                " - Modificación: " + DateTime.Now;
+        }
+        throw new TimeoutException("No se pudo procesar la petición por Timeout...");
+    }
+    finally
+    {
+        if (bloqueado)
+            // Esto se va a ejecutar SI o SI
+            System.Threading.Monitor.Exit(objetoABloquear);
+    }

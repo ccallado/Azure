@@ -278,5 +278,14 @@ namespace ClienteWCF
                 }
             }
         }
+
+        protected void Button15_Click(object sender, EventArgs e)
+        {
+            using (ProxyWCF.MiServicioWCF2Client s =
+                    new ProxyWCF.MiServicioWCF2Client())
+            {
+                Label7.Text= s.FechayHora();
+            }
+        }
     }
 }

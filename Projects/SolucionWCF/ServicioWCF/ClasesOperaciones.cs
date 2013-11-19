@@ -61,13 +61,57 @@ namespace ServicioWCF
             #endregion
 
             #region con lock... Este bloqueará un bloque completo de código.
-            lock (objetoABloquear)
+            //lock (objetoABloquear)
+            //{
+            //    Contador++;
+            //    System.Threading.Thread.Sleep(1000 * segundosParada);
+            //    return "Contador: " + Contador +
+            //        " - Instancia: " + Creacion +
+            //        " - Modificación: " + DateTime.Now;
+            //}
+            #endregion
+
+            #region con el objeto Monitor
+            ////Formato 1. Asumimos que el objeto PODREMOS bloquearlo siempre,
+            ////           porque se queda en espera hasta que pueda bloquearlo...
+            //System.Threading.Monitor.Enter(objetoABloquear);
+            //try
+            //{
+            //    //Código bloqueado
+            //    Contador++;
+            //    System.Threading.Thread.Sleep(1000 * segundosParada);
+            //    return "Contador: " + Contador +
+            //        " - Instancia: " + Creacion +
+            //        " - Modificación: " + DateTime.Now;
+            //}
+            //finally
+            //{
+            //    // Esto se va a ejecutar SI o SI
+            //    System.Threading.Monitor.Exit(objetoABloquear);
+            //}
+
+            //Formato 2. Asumimos que el objeto PODREMOS bloquearlo siempre,
+            //           porque se queda en espera hasta que pueda bloquearlo...
+            bool bloqueado = false;
+            System.Threading.Monitor.TryEnter(objetoABloquear, 1500, ref bloqueado);
+            try
             {
-                Contador++;
-                System.Threading.Thread.Sleep(1000 * segundosParada );
-                return "Contador: " + Contador +
-                    " - Instancia: " + Creacion +
-                    " - Modificación: " + DateTime.Now;
+                if (bloqueado)
+                {
+                    //Código bloqueado
+                    Contador++;
+                    System.Threading.Thread.Sleep(1000 * segundosParada);
+                    return "Contador: " + Contador +
+                        " - Instancia: " + Creacion +
+                        " - Modificación: " + DateTime.Now;
+                }
+                throw new TimeoutException("No se pudo procesar la petición por Timeout...");
+            }
+            finally
+            {
+                if (bloqueado)
+                    // Esto se va a ejecutar SI o SI
+                    System.Threading.Monitor.Exit(objetoABloquear);
             }
             #endregion
         }

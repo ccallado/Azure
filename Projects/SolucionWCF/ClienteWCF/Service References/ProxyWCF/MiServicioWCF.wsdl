@@ -112,6 +112,12 @@
   <wsdl:message name="IMiServicioWCF_PedidoConErrorGeneral_ClaseErrorGeneralFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ServicioWCF" name="detail" element="q1:ClaseErrorGeneral" />
   </wsdl:message>
+  <wsdl:message name="IMiServicioWCF2_FechayHora_InputMessage">
+    <wsdl:part name="parameters" element="tns:FechayHora" />
+  </wsdl:message>
+  <wsdl:message name="IMiServicioWCF2_FechayHora_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FechayHoraResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMiServicioWCF">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/GetData" message="tns:IMiServicioWCF_GetData_InputMessage" />
@@ -177,6 +183,12 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF/PedidoConErrorGeneral" message="tns:IMiServicioWCF_PedidoConErrorGeneral_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF/PedidoConErrorGeneralResponse" message="tns:IMiServicioWCF_PedidoConErrorGeneral_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IMiServicioWCF/PedidoConErrorGeneralClaseErrorGeneralFault" name="ClaseErrorGeneralFault" message="tns:IMiServicioWCF_PedidoConErrorGeneral_ClaseErrorGeneralFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IMiServicioWCF2">
+    <wsdl:operation name="FechayHora">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiServicioWCF2/FechayHora" message="tns:IMiServicioWCF2_FechayHora_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiServicioWCF2/FechayHoraResponse" message="tns:IMiServicioWCF2_FechayHora_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMiServicioWCF" type="tns:IMiServicioWCF">
@@ -329,8 +341,23 @@
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IMiServicioWCF2" type="tns:IMiServicioWCF2">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FechayHora">
+      <soap:operation soapAction="http://tempuri.org/IMiServicioWCF2/FechayHora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="MiServicioWCF">
     <wsdl:port name="BasicHttpBinding_IMiServicioWCF" binding="tns:BasicHttpBinding_IMiServicioWCF">
+      <soap:address location="http://localhost:49883/MiServicioWCF.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IMiServicioWCF2" binding="tns:BasicHttpBinding_IMiServicioWCF2">
       <soap:address location="http://localhost:49883/MiServicioWCF.svc" />
     </wsdl:port>
   </wsdl:service>

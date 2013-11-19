@@ -84,7 +84,14 @@ namespace ClienteWCF
             {
                 for (int i = 1; i <= 3; i++)
                 {
-                    Label4.Text += s.IncrementaContadorConBloqueo(2) + "<br />";
+                    try
+                    {
+                        Label4.Text += s.IncrementaContadorConBloqueo(2) + "<br />";
+                    }
+                    catch (System.ServiceModel.FaultException ex)
+                    {
+                        Label4.Text += "<i>" + ex.Message + "</i><br />";
+                    }
                 }
             }
         }

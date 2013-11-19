@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace ClienteWCF.ProxyWCF {
+    using System.Runtime.Serialization;
     
     
     /// <comentarios/>
@@ -967,6 +968,20 @@ namespace ClienteWCF.ProxyWCF {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="enumTipoFecha", Namespace="http://schemas.datacontract.org/2004/07/")]
+    public enum enumTipoFecha : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Larga = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Corta = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Completa = 2,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyWCF.IMiServicioWCF")]
     public interface IMiServicioWCF {
@@ -1197,20 +1212,20 @@ namespace ClienteWCF.ProxyWCF {
     }
     
     /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/")]
-    public enum enumTipoFecha {
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    //[System.SerializableAttribute()]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/")]
+    //public enum enumTipoFecha {
         
-        /// <comentarios/>
-        Larga,
+    //    /// <comentarios/>
+    //    Larga,
         
-        /// <comentarios/>
-        Corta,
+    //    /// <comentarios/>
+    //    Corta,
         
-        /// <comentarios/>
-        Completa,
-    }
+    //    /// <comentarios/>
+    //    Completa,
+    //}
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3332,6 +3347,46 @@ namespace ClienteWCF.ProxyWCF {
             inValue.IdPedido = IdPedido;
             ClienteWCF.ProxyWCF.PedidoConErrorGeneralResponse retVal = ((ClienteWCF.ProxyWCF.IMiServicioWCF)(this)).PedidoConErrorGeneral(inValue);
             return retVal.PedidoConErrorGeneralResult;
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyWCF.IMiServicioWCF2")]
+    public interface IMiServicioWCF2 {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMiServicioWCF2/FechayHora", ReplyAction="http://tempuri.org/IMiServicioWCF2/FechayHoraResponse")]
+        string FechayHora();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IMiServicioWCF2Channel : ClienteWCF.ProxyWCF.IMiServicioWCF2, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class MiServicioWCF2Client : System.ServiceModel.ClientBase<ClienteWCF.ProxyWCF.IMiServicioWCF2>, ClienteWCF.ProxyWCF.IMiServicioWCF2 {
+        
+        public MiServicioWCF2Client() {
+        }
+        
+        public MiServicioWCF2Client(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public MiServicioWCF2Client(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public MiServicioWCF2Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public MiServicioWCF2Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public string FechayHora() {
+            return base.Channel.FechayHora();
         }
     }
 }

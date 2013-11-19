@@ -30,7 +30,7 @@
         <br />
         <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
         <br />
-        Servicio Single
+        Servicio Single con bloqueo
         <br />
         <asp:Button ID="Button4" runat="server" Text="Incrementar contador 3 veces 2s." onclick="Button4_Click" 
             />
