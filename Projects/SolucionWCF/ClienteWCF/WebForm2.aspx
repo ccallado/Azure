@@ -29,6 +29,13 @@
             />
         <br />
         <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+        <br />
+        Servicio Single
+        <br />
+        <asp:Button ID="Button4" runat="server" Text="Incrementar contador 3 veces 2s." onclick="Button4_Click" 
+            />
+        <br />
+        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
     
     </div>
     </form>

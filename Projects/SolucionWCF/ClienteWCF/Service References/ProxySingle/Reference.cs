@@ -17,6 +17,9 @@ namespace ClienteWCF.ProxySingle {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSingle/IncrementaContador", ReplyAction="http://tempuri.org/IServicioSingle/IncrementaContadorResponse")]
         string IncrementaContador();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSingle/IncrementaContadorConBloqueo", ReplyAction="http://tempuri.org/IServicioSingle/IncrementaContadorConBloqueoResponse")]
+        string IncrementaContadorConBloqueo(int segundosParada);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -48,6 +51,10 @@ namespace ClienteWCF.ProxySingle {
         
         public string IncrementaContador() {
             return base.Channel.IncrementaContador();
+        }
+        
+        public string IncrementaContadorConBloqueo(int segundosParada) {
+            return base.Channel.IncrementaContadorConBloqueo(segundosParada);
         }
     }
 }

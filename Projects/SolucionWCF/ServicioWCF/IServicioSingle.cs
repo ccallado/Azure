@@ -13,5 +13,8 @@ namespace ServicioWCF
     {
         [OperationContract]
         string IncrementaContador();
+
+        [OperationContract]
+        string IncrementaContadorConBloqueo(int segundosParada);
     }
 }

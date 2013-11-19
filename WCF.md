@@ -592,3 +592,31 @@ Los servicios PerSession crean una instancia del servicio por cada sesión de co
 
 Los Single crean una única instancia del servicio para todas las peticiones.
 
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single )]
+    //Los Single crean una única instancia del servicio para todas las peticiones.
+
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode=ConcurrencyMode.Multiple)]
+
+Tambien existe **ConcurrencyMode** con tres valores
+
+* **Multiple**.- Procesa las peticiones en paralelo.
+* **Reentrant**.- Es el más raro. Procesa una petición cada vez, pero si dentro de la petición se llama a otro servicio, encola la petición y deja entrar la siguiente.
+* **Single**.- Aunque haya una única instancia del servicio para todos, solo se procesa una petición a la vez. Solo ejecuto una petición y el resto se encola, si es un servicio que se va a usar mucho puede crear un cuello de botella.
+
+**Interlocked**.- Es un objeto del sistema que permite hacer operacines de incremento o decremento sobre variables de manera **atómica**.
+
+    System.Threading.Interlocked.Increment(ref Contador); (Increment 1, Decrement 1, Add una cantidad, )
+
+Me asegura que el incremento se va a hacer bien. Bloquea la variable Contador hasta que haya hecho todo el ciclo del incremento y luego lo libera.
+
+La instrucción **lock()** bloquea un fragmento de código mientras mantenga bloqueado un objeto.
+
+    lock( objeto )
+    {
+        . Código bloqueado
+        .
+        .
+    }
+
+Lo recomendable es crear un objeto instanciarla y usar eso como flag.
+

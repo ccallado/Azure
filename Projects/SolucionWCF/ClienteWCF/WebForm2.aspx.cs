@@ -13,6 +13,8 @@ namespace ClienteWCF
         {
             Label1.Text = "";
             Label2.Text = "";
+            Label3.Text = "";
+            Label4.Text = "";
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -71,6 +73,18 @@ namespace ClienteWCF
                 for (int i = 1; i <= 3; i++)
                 {
                     Label3.Text += s.IncrementaContador() + "<br />";
+                }
+            }
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            using (ProxySingle.ServicioSingleClient s =
+                new ProxySingle.ServicioSingleClient())
+            {
+                for (int i = 1; i <= 3; i++)
+                {
+                    Label4.Text += s.IncrementaContadorConBloqueo(2) + "<br />";
                 }
             }
         }
