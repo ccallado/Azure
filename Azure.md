@@ -52,3 +52,10 @@ La estructura de directorios de nuestra aplicación AZURE será lo siguiente.
   -\WebRole
   -\Role Work
   -\Role Datos
+
+Configuración del proyecto AZURE.
+
+Con extensión .csdef (Cloud Service Definition) contiene configuración fija para todo el proyecto AZURE. Si se cambia debe volverse a subir a la nube. Cambia la estructura y comportamiento de la aplicación.
+
+Con extensión .cscfg (Cloud Service Configuration) Contienen configuración de usuario o del proyecto pero NO fija. No es necesario implementar de nuevo la aplicación ej.: `<Instances count="1" />`. NO cambia la estructura y comportamiento de la aplicación.
+
