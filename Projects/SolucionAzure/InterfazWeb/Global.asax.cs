@@ -13,7 +13,11 @@ namespace InterfazWeb
         void Application_Start(object sender, EventArgs e)
         {
             // Código que se ejecuta al iniciarse la aplicación
-
+            //Me creo una variable de aplicación, en Azure al poder haber varias instancias
+            //mejor no usar las variables Session.
+            Application["Programador"] =
+                Microsoft.WindowsAzure.ServiceRuntime
+                         .RoleEnvironment.GetConfigurationSettingValue("Programador");
         }
 
         void Application_End(object sender, EventArgs e)

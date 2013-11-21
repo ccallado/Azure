@@ -11,7 +11,8 @@ namespace InterfazWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+                Label1.Text = "Programador: " + Application["Programador"];
         }
     }
 }

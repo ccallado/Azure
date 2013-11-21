@@ -45,6 +45,8 @@ El emulador de datos necesita SQL Express para almacenar los datos.
 
 Abrimos Visual Studio en modo Administrador (sino no tendremos acceso a AZURE)
 
+Seleccionando el proyecto de azure boton derecho propiedades En la pestaña Web. Si uso el emulador rápido no es necesario abrir el Visual Studio como Administrador.
+
 La estructura de directorios de nuestra aplicación AZURE será lo siguiente.
 
 /Solución
@@ -57,5 +59,71 @@ Configuración del proyecto AZURE.
 
 Con extensión .csdef (Cloud Service Definition) contiene configuración fija para todo el proyecto AZURE. Si se cambia debe volverse a subir a la nube. Cambia la estructura y comportamiento de la aplicación.
 
+Ejemplo:
+
+    <ConfigurationSettings>
+      <Setting name="Programador" />
+    </ConfigurationSettings>
+
 Con extensión .cscfg (Cloud Service Configuration) Contienen configuración de usuario o del proyecto pero NO fija. No es necesario implementar de nuevo la aplicación ej.: `<Instances count="1" />`. NO cambia la estructura y comportamiento de la aplicación.
+
+Ejemplo:
+
+    <Role name="InterfazWeb">
+      <Instances count="3" />
+      <ConfigurationSettings>
+        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+        <Setting name="Programador" value="Carlos Callado" />
+      </ConfigurationSettings>
+    </Role>
+
+Configuración del Rol Web (InterfaceWeb)
+Botón derecho sobre él, propiedades y aparece la siguiente pantalla.
+
+![Imagen 44](Imagenes/CursoAzureImg44.png)
+
+Tamaño de VM:
+Extra grande.
+Grande
+Mediano
+Pequeño.-
+Extra pequeño.- Es la más barata pero compartida con otros usuarios.
+
+![Imagen 45](Imagenes/CursoAzureImg45.png)
+
+![Imagen 49](Imagenes/CursoAzureImg49.png)
+
+El primer valor de configuración es la conexión a Azure, en nuestro caso contra el emulador.
+
+![Imagen 46](Imagenes/CursoAzureImg46.png)
+
+Las variables de sesión en Azure como tenemos varias instancias puede que la instancia que ha creado la variable y ha dado un valor, si entro a otra instancia la variable no existirá o tendrá un valor que no es el último que hemos dejado en la anterior instancia.
+
+Para poner un valor de configuración en la Página Maestra lo vamos hacer en Global.asax.cs
+En el evento Application_Start ponemos el código. De esta forma no la tenemos que volver a cargar.
+
+En el Global.asax.cs
+
+    //Me creo una variable de aplicación, en Azure al poder haber varias instancias
+    //mejor no usar las variables Session.
+    Application["Programador"] = 
+    		Microsoft.WindowsAzure.ServiceRuntime
+                     .RoleEnvironment.GetConfigurationSettingValue("Programador");
+
+Y en el Page_Load
+
+	if (!Page.IsPostBack)
+    	Label1.Text = "Programador: " + Application["Programador"];
+
+No puedo referenciar un rol con otro lo tendré que hacer con colas de mensajes.
+
+![Imagen 47](Imagenes/CursoAzureImg47.png)
+
+![Imagen 48](Imagenes/CursoAzureImg48.png)
+
+**Colas de mensajes AZURE**.- Sirven para intercambiar mensajes de texto o arrays de bytes entre roles.
+
+![Imagen 50](Imagenes/CursoAzureImg50.png)
+
+Tienes que saber la dirección de la cola y el contenido.
 
