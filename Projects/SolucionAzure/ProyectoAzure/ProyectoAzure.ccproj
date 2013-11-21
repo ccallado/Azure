@@ -37,6 +37,14 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InterfaceAdmin\InterfaceAdmin.csproj">
+      <Name>InterfaceAdmin</Name>
+      <Project>{dc9e4400-434e-4684-a183-58cc1c2e9a3d}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>InterfaceAdmin</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
     <ProjectReference Include="..\InterfazWeb\InterfazWeb.csproj">
       <Name>InterfazWeb</Name>
       <Project>{09ccc9d2-fb4a-439f-85a7-14bcd2ade80f}</Project>
@@ -47,9 +55,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="InterfaceAdminContent\" />
     <Folder Include="InterfazWebContent\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="InterfaceAdminContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="InterfazWebContent\diagnostics.wadcfg">
       <SubType>Content</SubType>
     </Content>

@@ -14,4 +14,8 @@
         También puede encontrar <a href="http://go.microsoft.com/fwlink/?LinkID=152368"
             title="Documentación de ASP.NET en MSDN">documentación sobre ASP.NET en MSDN</a>.
     </p>
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:Button ID="Button1" runat="server" Text="Crear mensajes" 
+        onclick="Button1_Click" />
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 </asp:Content>

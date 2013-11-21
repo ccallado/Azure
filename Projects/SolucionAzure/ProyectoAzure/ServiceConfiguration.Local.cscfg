@@ -5,6 +5,14 @@
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="Programador" value="Carlos Callado" />
+      <Setting name="NombreColaMensages" value="colamsg1" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="InterfaceAdmin">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="NombreColaMensages" value="colamsg1" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

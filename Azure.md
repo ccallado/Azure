@@ -80,7 +80,7 @@ Ejemplo:
 Configuración del Rol Web (InterfaceWeb)
 Botón derecho sobre él, propiedades y aparece la siguiente pantalla.
 
-![Imagen 44](Imagenes/CursoAzureImg44.png)
+![Imagen 45](Imagenes/CursoAzureImg45.png)
 
 Tamaño de VM:
 Extra grande.
@@ -89,13 +89,13 @@ Mediano
 Pequeño.-
 Extra pequeño.- Es la más barata pero compartida con otros usuarios.
 
-![Imagen 45](Imagenes/CursoAzureImg45.png)
+![Imagen 46](Imagenes/CursoAzureImg46.png)
 
-![Imagen 49](Imagenes/CursoAzureImg49.png)
+![Imagen 50](Imagenes/CursoAzureImg50.png)
 
 El primer valor de configuración es la conexión a Azure, en nuestro caso contra el emulador.
 
-![Imagen 46](Imagenes/CursoAzureImg46.png)
+![Imagen 47](Imagenes/CursoAzureImg47.png)
 
 Las variables de sesión en Azure como tenemos varias instancias puede que la instancia que ha creado la variable y ha dado un valor, si entro a otra instancia la variable no existirá o tendrá un valor que no es el último que hemos dejado en la anterior instancia.
 
@@ -117,8 +117,6 @@ Y en el Page_Load
 
 No puedo referenciar un rol con otro lo tendré que hacer con colas de mensajes.
 
-![Imagen 47](Imagenes/CursoAzureImg47.png)
-
 ![Imagen 48](Imagenes/CursoAzureImg48.png)
 
 **Colas de mensajes AZURE**.- Sirven para intercambiar mensajes de texto o arrays de bytes entre roles.
@@ -126,4 +124,55 @@ No puedo referenciar un rol con otro lo tendré que hacer con colas de mensajes.
 ![Imagen 50](Imagenes/CursoAzureImg50.png)
 
 Tienes que saber la dirección de la cola y el contenido.
+
+![Imagen 51](Imagenes/CursoAzureImg51.png)
+
+Todo tránsito (colas de mensajes, blob, etc...) en tu grupo de afinidad es gratis. La comunicación con el cliente no es gratis.
+
+![Imagen 52](Imagenes/CursoAzureImg52.png)
+
+###Limitaciones especiales para las colas de mensajes.
+
+* **No hay límite** en cantidad de **colas de mensajes** ni cantidad de **mensajes** en cada cola. (Pero se paga por el espacio ocupado)
+* Los mensajes están limitados a **8 kb**.
+* Por defecto los mensajes se mantienen encolados **1 semana**.
+
+![Imagen 53](Imagenes/CursoAzureImg53.png)
+
+###Reglas de los nombres de las colas de mensajes.
+
+* Deben ser únicos en nuestra cuenta de almacenamiento.
+* Deben empezar por letra o número. (Solo pueden contener letras y números).
+* Letras en mínusculas.
+* Entre 3 y 63 caracteres de longitud.
+
+Todo el almacenaje está por triplicado (sin coste) por temas de seguridad y balanceo de carga.
+
+###Metodo general para acceder a Colas, Tablas o Blobs.
+
+![Imagen 54](Imagenes/CursoAzureImg54.png)
+
+Acceder cuenta de almacenamiento nos creamos un cliente para acceder a "colas" a traves de este cliente obtendremos una referencia a la "cola" 
+
+Podemos crearla si no existe, Creamos mensaje, Leemos mensaje, Borramos todos los mensajes, etc...
+
+	//Cuenta de almacenamiento local
+    //Accedo a la cuenta
+    CloudStorageAccount cuentaAlmacenamiento = CloudStorageAccount.DevelopmentStorageAccount;
+    
+    //Creo un cliente
+    CloudQueueClient clienteColas = cuentaAlmacenamiento.CreateCloudQueueClient();
+    
+    string nombre = RoleEnvironment.GetConfigurationSettingValue("NombreColaMensages");
+    
+    //Obtenemos una referencia a la cola física
+    CloudQueue cola = clienteColas.GetQueueReference(nombre);
+    //Creo si no existe la cola
+    cola.CreateIfNotExists();
+
+![Imagen 55](Imagenes/CursoAzureImg55.png)
+
+En el emulador estos mensajes los guarda en una base de datos de MsSQL
+
+Una vez que leo un mensaje desaparece durante 30 segundos para que no lo lea otra vez pasados estos 30 segundos reaparece a no ser que des la orden de borrarle.
 
