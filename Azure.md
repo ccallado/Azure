@@ -175,4 +175,48 @@ Podemos crearla si no existe, Creamos mensaje, Leemos mensaje, Borramos todos lo
 En el emulador estos mensajes los guarda en una base de datos de MsSQL
 
 Una vez que leo un mensaje desaparece durante 30 segundos para que no lo lea otra vez pasados estos 30 segundos reaparece a no ser que des la orden de borrarle.
+![Imagen 56](Imagenes/CursoAzureImg56.png)
 
+###Table Storage
+
+* En algunos casos van a suplir las bases de datos. (Te van a ahorrar mucho dinero)
+* Son grandes conjuntos de entidades accesibles mediante unos métodos (que tendremos que crear nosotros) y que podrán contener diferentes tipos de entidades.
+* Son muy escalables, miles de millones de entidades. (Limitado por Precio)
+* Se replica tres veces por cuestiones de seguridad.
+* No tienen un esquema o estructura concretos.
+* No admiten relaciones.
+* No se pueden hacer consultas que afectec a más de una tabla.
+* Los datos de una tabla pueden estar en uno o varios servidores diferentes, pero de una tabla los datos de una partición siempre estarán en el mismo servidor.
+
+####Reglas para los nombres de las tablas.
+
+* Únicos en todo el almacenamiento. 
+* Solo puede contener letras y números y tiene que empezar con letra.
+* Sensibles a mayúsculas/minúsculas.
+* Entre 3 y 63 caracteres.
+
+Las entidades deben cumplir una determinadas características.
+
+Deben tener tres campos/propiedades especiales.
+* **PartitionKey**.- string que determina la partición a la que pertenece la entidad.
+* **RowKey**.- Clave de la entidad para una partición concreta.
+* **Timestamp**.- Lo que contiene es la fecha y hora de creación de la entidad en la tabla o la de última modificación. (Este valor lo gestiona el sistema, no lo podemos tocar.)
+
+![Imagen 56](Imagenes/CursoAzureImg56.png)
+
+####Características de las entidades.
+
+* Limitadas a 255 incluidas esas tres.
+* Tamaño máximo por entidad 1 Mb.
+* PartitionKey y RowKey no pueden superar 1 Kb cada una. 
+* Ninguna de las dos pueden contener los siguientes caracteres `/\#?`
+* Los tipos de datos del resto de propiedades (datos de usuario) pueden ser de tipos concretos no de cualquier tipo. *(byte[], bool, DateTime, double, Guid, Int32 or int, Int64 or long, String)*.
+* PropertyBag Todas las propiedades menos las tres especiales.
+
+![Imagen 57](Imagenes/CursoAzureImg57.png)
+
+![Imagen 58](Imagenes/CursoAzureImg58.png)
+
+![Imagen 59](Imagenes/CursoAzureImg59.png)
+
+![Imagen 60](Imagenes/CursoAzureImg60.png)
