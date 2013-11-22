@@ -1,10 +1,23 @@
 CAPITULO 1.
 
-* Transparencia 1.
-* Transparencia 10. (Escalabilidad)
-* Transparencia 22. (IaaS, PaaS and SaaS, maquina vacía)
-* Transparencia 23. (Con unos cimientos)
-* Transparencia 24. (Servidor instalado y tu montas las aplicaciones)
+###Introducción al Cloud Computing
+
+**Escalabilidad**
+
+![Imagen 61](Imagenes/CursoAzureImg61.png)
+
+**IaaS** máquina vacía
+
+![Imagen 62](Imagenes/CursoAzureImg62.png)
+
+**PaaS** Con unos cimientos
+
+![Imagen 63](Imagenes/CursoAzureImg63.png)
+
+**SaaS** Servidor instalado y tu montas las aplicaciones
+
+![Imagen 64](Imagenes/CursoAzureImg64.png)
+
 
 CAPITULO 2.
 
@@ -211,6 +224,7 @@ Deben tener tres campos/propiedades especiales.
 * PartitionKey y RowKey no pueden superar 1 Kb cada una. 
 * Ninguna de las dos pueden contener los siguientes caracteres `/\#?`
 * Los tipos de datos del resto de propiedades (datos de usuario) pueden ser de tipos concretos no de cualquier tipo. *(byte[], bool, DateTime, double, Guid, Int32 or int, Int64 or long, String)*.
+
 * PropertyBag Todas las propiedades menos las tres especiales.
 
 ![Imagen 57](Imagenes/CursoAzureImg57.png)
@@ -220,3 +234,16 @@ Deben tener tres campos/propiedades especiales.
 ![Imagen 59](Imagenes/CursoAzureImg59.png)
 
 ![Imagen 60](Imagenes/CursoAzureImg60.png)
+
+En la parte de código de .NET en un rol le puedo decir cuando se arranque la instancia del rol que se ejecute el código que quiera, esto se encuentra en el fichero **WebRole.cs**
+
+Además del OnStart existe un OnStop y un Run.
+
+En los WorkerRole ya viene definido un Run en el WorkerRole.cs.
+
+En un principio lo único que hace es mandar cada 10 segundos manda un mensaje al trace.
+
+Para poder trabajar con cada una de las tablas nos tendremos que crear una clase que hereda de un tipo especial que nos dará las funcionalidades para poder trabajar con los datos de la tabla.
+
+Nota: Las operaciones básicas (insertar, modificar y borrar) las crea automáticamente, pero las consultas hay que currárselas.
+

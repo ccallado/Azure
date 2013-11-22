@@ -17,6 +17,7 @@
     <ConfigurationSettings>
       <Setting name="Programador" />
       <Setting name="NombreColaMensages" />
+      <Setting name="NombreColaMensagesTabla" />
     </ConfigurationSettings>
   </WebRole>
   <WebRole name="InterfaceAdmin" vmsize="Small">
@@ -37,4 +38,13 @@
       <Setting name="NombreColaMensages" />
     </ConfigurationSettings>
   </WebRole>
+  <WorkerRole name="Currito" vmsize="Small">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="NombreColaMensagesTabla" />
+      <Setting name="NombreTablaMensajes" />
+    </ConfigurationSettings>
+  </WorkerRole>
 </ServiceDefinition>

@@ -27,6 +27,9 @@ namespace InterfazWeb
             //Creo un cliente
             CloudQueueClient clienteColas =
                 cuentaAlmacenamiento.CreateCloudQueueClient();
+            
+            
+            //Mensajes para colamsg1
             string nombre = RoleEnvironment.GetConfigurationSettingValue("NombreColaMensages");
             //Obtenemos una referencia a la cola física
             CloudQueue cola = clienteColas.GetQueueReference(nombre);
@@ -48,8 +51,29 @@ namespace InterfazWeb
                 cola.AddMessage(msg);
             }
 
-            Label1.Text = "Mensajes enviados: " + TextBox1.Text + 
+            Label1.Text = "Mensajes enviados: " + TextBox1.Text +
                           " a la cola <i>" + cola.Name + "</i>";
+
+            
+            //Mensajes para colamsg2
+            nombre = RoleEnvironment.GetConfigurationSettingValue("NombreColaMensagesTabla");
+            //Obtenemos una referencia a la cola física
+            cola = clienteColas.GetQueueReference(nombre);
+            //Creo si no existe la cola
+            cola.CreateIfNotExists();
+
+            //Esto aquí está mal, la instancia sería la misma y al modificar el contenido
+            //modificamos el contenido del mismo mensaje.
+
+            for (int i = 1; i <= int.Parse(TextBox1.Text); i++)
+            {
+                texto = "Mensaje número " + i + " - enviado a las " + DateTime.Now.ToLongTimeString();
+                //Hay que crear una instancia por cada mensaje
+                msg = new CloudQueueMessage(texto);
+                //msg.SetMessageContent(texto);
+                cola.AddMessage(msg);
+            }
+
         }
     }
 }

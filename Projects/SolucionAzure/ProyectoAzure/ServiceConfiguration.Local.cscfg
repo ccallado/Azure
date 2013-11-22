@@ -6,6 +6,7 @@
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="Programador" value="Carlos Callado" />
       <Setting name="NombreColaMensages" value="colamsg1" />
+      <Setting name="NombreColaMensagesTabla" value="colamsg2" />
     </ConfigurationSettings>
   </Role>
   <Role name="InterfaceAdmin">
@@ -13,6 +14,14 @@
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="NombreColaMensages" value="colamsg1" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="Currito">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="NombreColaMensagesTabla" value="colamsg2" />
+      <Setting name="NombreTablaMensajes" value="tablamsg" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

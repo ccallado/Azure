@@ -37,6 +37,14 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Currito\Currito.csproj">
+      <Name>Currito</Name>
+      <Project>{cfd376d6-ca50-4bbb-9ac6-5d2538daa0e8}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>Currito</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
     <ProjectReference Include="..\InterfaceAdmin\InterfaceAdmin.csproj">
       <Name>InterfaceAdmin</Name>
       <Project>{dc9e4400-434e-4684-a183-58cc1c2e9a3d}</Project>
@@ -55,10 +63,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CurritoContent\" />
     <Folder Include="InterfaceAdminContent\" />
     <Folder Include="InterfazWebContent\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CurritoContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="InterfaceAdminContent\diagnostics.wadcfg">
       <SubType>Content</SubType>
     </Content>
