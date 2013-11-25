@@ -18,7 +18,6 @@ CAPITULO 1.
 
 ![Imagen 64](Imagenes/CursoAzureImg64.png)
 
-
 Herramienta Windows Application Toolkit **WAT**
 
 ![Imagen 65](Imagenes/CursoAzureImg65.png)
@@ -27,13 +26,11 @@ Un proyecto Web Role tiene la apariencia de un proyecto normal APP.NET.
 
 ![Imagen 66](Imagenes/CursoAzureImg66.png)
 
+Se puede trabajar en local o en la nube. (ahora los 30 primeros días son gratis pero hay que poner una tarjeta de crédito.)
+
 ![Imagen 67](Imagenes/CursoAzureImg67.png)
 
-(Resumen de Azure a nivel de desarrollo.)
-
-Se puede trabajar en local o en la nube. (ahora los 30 primeros días son gratis pero hay que poner una tarjeta de credito.)
-
-Windows Azure, ejecución, almacenamiento (No son bases de datos SQL Server, no son bases de datos, management.
+**Windows Azure**.- ejecución, almacenamiento (No son bases de datos SQL Server, no son bases de datos, management.
 La parte de abajo es la parte física, lo de arriba son aplicaciones.
 
 ![Imagen 68](Imagenes/CursoAzureImg68.png)
@@ -42,7 +39,7 @@ Se pueden montar tres tipos de cosas.
 
 * **VM Role**.- Máquinas virtuales. Hay que comprar y montar OS, servidor IIS, etc... (utilizan HyperV)
 * **Web Role**.- Para montar Pagina Web, Servicio Web (algo más configurado).
-Maquinas virtuales orientasdas y preconfiguradas para exponer sitios Web.
+Maquinas virtuales orientadas y pre-configuradas para exponer sitios Web.
 * **Worker Role**.- Procesos secundarios. Exponen funcionalidades pero internamente en la máquina virtual (librería)
 
 ![Imagen 69](Imagenes/CursoAzureImg69.png)
@@ -54,7 +51,7 @@ Modelo habitual de aplicaciones Web.
 Formas de almacenar información en la nube.
 
 * **Almacenamiento Local**.- Es un espacio físico reservado en cada ROL y para cada instancia de ROL, para guardar información **temporal** como si fuera un sistema de archivos.
-* **Storage*.- El almacenamiento de Azure NO es el SQL Azure.
+* **Storage**.- El almacenamiento de Azure NO es el SQL Azure.
 * **Queue storage**.- Objetos que van a permitir que un ROL se comunique con otro ROL de manera que desde uno se va ha enviar a la Queue una información y el otro ROL recogerá cuando quiera. Esto permite que no sea necesario que estén activos los dos roles. Es la comunicación estandar entre roles en Azure. (tipo texto, limitado de tamaño **8k**)
 * **Table storage**.- Contenedores de datos de cualquier tipo de clase (la tabla no tiene estructura). No admite ningún tipo de indices, porque ya trae implicito un sistema de clave primaria y no permiten relaciones, bastante rápido y eficiente.
 * **Blob**.- (Binary Large OBject) (Video, ZIP, Música, Imágenes, etc...)Sistema de almacenamiento de archivos binarios. La estructura no es real pero se parece a la de directorios.
