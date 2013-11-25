@@ -259,3 +259,5 @@ Para poder trabajar con cada una de las tablas nos tendremos que crear una clase
 
 Nota: Las operaciones básicas (insertar, modificar y borrar) las crea automáticamente, pero las consultas hay que currárselas.
 
+**CreateQuery** crea una consulta al servicio de datos para los datos de un tipo genérico especificado.
+

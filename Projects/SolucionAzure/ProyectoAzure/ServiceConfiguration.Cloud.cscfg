@@ -14,6 +14,7 @@
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="NombreColaMensages" value="colamsg1" />
+      <Setting name="NombreTablaMensajes" value="tablamsg" />
     </ConfigurationSettings>
   </Role>
   <Role name="Currito">

@@ -9,6 +9,8 @@ using Microsoft.WindowsAzure.ServiceRuntime; //getconfigurationvalue (Valor de l
 using Microsoft.WindowsAzure.Storage; //Antigua StorageClient 
 using Microsoft.WindowsAzure.Storage.Queue; //Para trabajar con colas de mensajes
 
+//using LibreriaTablas;
+
 namespace InterfaceAdmin
 {
     public partial class _Default : System.Web.UI.Page
@@ -30,6 +32,8 @@ namespace InterfaceAdmin
             //Creo si no existe la cola
             cola.CreateIfNotExists();
             Label1.Text = "";
+            //GridView1.DataSource  = null;
+            //GridView1.DataBind ();
         }
 
         protected void Button1_Click1(object sender, EventArgs e)
@@ -49,7 +53,7 @@ namespace InterfaceAdmin
                 for (i = 1; i <= cant; i++)
                 {
                     //Esto los "oculta" sólo durante 10 segundos.
-                    msg = cola.GetMessage(new TimeSpan(0,0,10));
+                    msg = cola.GetMessage(new TimeSpan(0, 0, 10));
                     //si no quedan mensajes, se sale del for.
                     if (msg == null)
                         break;
@@ -57,7 +61,7 @@ namespace InterfaceAdmin
                         cola.DeleteMessage(msg);
 
                     Label1.Text += msg.AsString + " - " +
-                                   msg.InsertionTime.Value.LocalDateTime.ToLongTimeString() + 
+                                   msg.InsertionTime.Value.LocalDateTime.ToLongTimeString() +
                                    "<br />";
                 }
                 Label1.Text += "Procesados: " + (i - 1);
@@ -78,7 +82,39 @@ namespace InterfaceAdmin
             if (cola.ApproximateMessageCount.Value != null)
                 Label1.Text = "Mensajes pendientes: " + cola.ApproximateMessageCount.Value;
             else
-                Label1.Text = "Mensajes pendientes: 0"; 
+                Label1.Text = "Mensajes pendientes: 0";
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            string nombre = RoleEnvironment.GetConfigurationSettingValue("NombreTablaMensajes");
+
+            LibreriaTablas.TablaMensajesContext contexto =
+                new LibreriaTablas.TablaMensajesContext(nombre);
+
+            if (TextBox1.Text == "")
+            {
+                //Todos los mensajes que tengo
+                GridView1.DataSource = contexto.Mensajes1();
+            }
+            else
+            {
+                //Mensajes que tengo filtrados por IdMio
+                GridView1.DataSource = contexto.Mensajes1(int.Parse(TextBox1.Text));
+            }
+            GridView1.DataBind();
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            string nombre = RoleEnvironment.GetConfigurationSettingValue("NombreTablaMensajes");
+
+            LibreriaTablas.TablaMensajesContext contexto =
+                new LibreriaTablas.TablaMensajesContext(nombre);
+
+            //Todos los mensajes que tengo
+            GridView1.DataSource = contexto.Mensajes();
+            GridView1.DataBind();
         }
     }
 }

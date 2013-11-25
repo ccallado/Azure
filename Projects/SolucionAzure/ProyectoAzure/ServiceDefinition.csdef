@@ -36,6 +36,7 @@
     </Imports>
     <ConfigurationSettings>
       <Setting name="NombreColaMensages" />
+      <Setting name="NombreTablaMensajes" />
     </ConfigurationSettings>
   </WebRole>
   <WorkerRole name="Currito" vmsize="Small">

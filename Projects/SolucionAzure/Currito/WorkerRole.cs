@@ -69,7 +69,7 @@ namespace Currito
             //Creo si no existe la cola
             tabla.CreateIfNotExists();
 
-            
+
 
             // Establecer el número máximo de conexiones simultáneas 
             ServicePointManager.DefaultConnectionLimit = 12;
@@ -96,15 +96,33 @@ namespace Currito
                 //tengo el id del mensaje
                 int id = int.Parse(msg.AsString.Substring(15, 2));
 
-                ClaseMsg1 c = new ClaseMsg1();
-                c.PartitionKey = "Madrid";
-                c.RowKey = Guid.NewGuid().ToString(); //Numero Guid que no se debe repetir
-                c.IdMio = id;
-                c.Envio = msg.InsertionTime.Value.LocalDateTime;
-                c.mensajeOriginal = msg.AsString;
+                //Pares por una clase de mensaje
+                if (id % 2 != 0)
+                {
+                    ClaseMsg1 c = new ClaseMsg1();
+                    c.PartitionKey = "Madrid";
+                    c.RowKey = Guid.NewGuid().ToString(); //Numero Guid que no se debe repetir
+                    c.IdMio = id;
+                    c.Envio = msg.InsertionTime.Value.LocalDateTime;
+                    c.mensajeOriginal = msg.AsString;
 
-                //Agrego el objeto c a la tabla
-                contexto.AddObject(nombreTabla, c);
+                    //Agrego el objeto c a la tabla
+                    contexto.AddObject(nombreTabla, c);
+                }
+                //Impares por otra clase de mensaje con un campo más
+                else
+                {
+                    ClaseMsg2 c = new ClaseMsg2();
+                    c.PartitionKey = "Barcelona";
+                    c.RowKey = Guid.NewGuid().ToString(); //Numero Guid que no se debe repetir
+                    c.IdMio = id;
+                    c.Envio = msg.InsertionTime.Value.LocalDateTime;
+                    c.mensajeOriginal = msg.AsString;
+                    c.IdMensajeCola = msg.Id;
+
+                    //Agrego el objeto c a la tabla
+                    contexto.AddObject(nombreTabla, c);
+                }
 
                 //Esto es como entity va almacenando los cambios para guardarlos al final
                 //Ahora vamos a hacerlo mensaje a mensaje.
@@ -113,7 +131,7 @@ namespace Currito
                 cola.DeleteMessage(msg);
 
                 //Leo el mensaje siguiente
-                msg = cola.GetMessage(new TimeSpan(0,0,30));
+                msg = cola.GetMessage(new TimeSpan(0, 0, 30));
             }
 
         }
